@@ -498,7 +498,7 @@ func (fc *FakeEVMChain) EstimateGas(ctx context.Context, metadata commonCap.Requ
 }
 
 func (fc *FakeEVMChain) GetTransactionByHash(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.GetTransactionByHashRequest) (*commonCap.ResponseAndMetadata[*evmcappb.GetTransactionByHashReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain GetTransactionByHash Started", "input", input)
+	fc.eng.Debugw("EVM Chain GetTransactionByHash Started", "input", input)
 
 	if input == nil {
 		return nil, caperrors.NewPublicSystemError(errors.New("GetTransactionByHashRequest is nil"), caperrors.Unknown)
