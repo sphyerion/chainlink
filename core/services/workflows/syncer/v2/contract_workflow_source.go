@@ -95,7 +95,7 @@ func (c *ContractWorkflowSource) ListWorkflowMetadata(ctx context.Context, don c
 				// from deleted workflows in the contract (known contract bug where deleted workflows
 				// aren't fully removed from contract state)
 				if !isValidWorkflowMetadata(wfMeta) {
-					c.lggr.Warnw("Workflow has incomplete metadata from contract, skipping",
+					c.lggr.Debugw("Workflow has incomplete metadata from contract, skipping",
 						"source", ContractWorkflowSourceName,
 						"workflowID", hex.EncodeToString(wfMeta.WorkflowId[:]),
 						"workflowName", wfMeta.WorkflowName,
