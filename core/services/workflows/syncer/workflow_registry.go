@@ -331,7 +331,7 @@ func (w *workflowRegistry) readRegistryEventsLoop(ctx context.Context, eventType
 			// to the cursor and no log after it, then we understand that there are no new
 			// logs
 			if len(logs) == 1 && logs[0].Sequence.Cursor == cursor {
-				w.lggr.Infow("No new logs since", "cursor", cursor)
+				w.lggr.Debugw("No new logs since", "cursor", cursor)
 				continue
 			}
 
