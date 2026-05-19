@@ -370,7 +370,7 @@ func (c *ChainlinkClient) CreateOCRKey() (*OCRKey, *http.Response, error) {
 // the request is unsuccessful
 func (c *ChainlinkClient) MustReadOCRKeys() (*OCRKeys, error) {
 	ocrKeys := &OCRKeys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading OCR Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading OCR Keys")
 	resp, err := c.APIClient.R().
 		SetResult(ocrKeys).
 		Get("/v2/keys/ocr")
