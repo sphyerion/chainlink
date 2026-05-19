@@ -482,7 +482,7 @@ func (lsn *listenerV2) filterRevertedTxns(ctx context.Context,
 		}
 	}
 
-	lsn.l.Infow("Reverted VRF fulfilment txns due to InsufficientBalance",
+	lsn.l.Debugw("Reverted VRF fulfilment txns due to InsufficientBalance",
 		"count", len(revertedVRFTxns),
 		"reverted_txns", revertedVRFTxns,
 	)
