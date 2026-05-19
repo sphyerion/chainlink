@@ -602,7 +602,7 @@ func (p *triggerPublisher) triggerEventLoop(callbackCh <-chan commoncap.TriggerR
 			p.lggr.Debugw("received trigger event", "workflowId", key.workflowID, "triggerID", key.triggerID, "triggerEventID", triggerEvent.ID)
 			marshaledResponse, err := pb.MarshalTriggerResponse(response)
 			if err != nil {
-				p.lggr.Debugw("can't marshal trigger event", "err", err)
+				p.lggr.Errorw("can't marshal trigger event", "err", err)
 				break
 			}
 
