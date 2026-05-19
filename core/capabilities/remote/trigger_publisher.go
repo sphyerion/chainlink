@@ -225,7 +225,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 	}
 
 	if msg.ErrorMsg != "" {
-		p.lggr.Errorw("received a message with error",
+		p.lggr.Warnw("received a message with error",
 			"method", SanitizeLogString(msg.Method), "sender", sender, "errorMsg", SanitizeLogString(msg.ErrorMsg))
 	}
 
