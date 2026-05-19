@@ -51,7 +51,7 @@ func (n *noOpTransmitter) FromAccount(context.Context) (types.Account, error) {
 
 // Transmit implements ocr3types.ContractTransmitter.
 func (n *noOpTransmitter) Transmit(_ context.Context, digest types.ConfigDigest, seqNr uint64, _ ocr3types.ReportWithInfo[[]byte], _ []types.AttributedOnchainSignature) error {
-	n.lggr.Criticalw(fmt.Sprintf(errMsg, "Transmit()"),
+	n.lggr.Errorw(fmt.Sprintf(errMsg, "Transmit()"),
 		"myP2PID", n.myP2PID,
 		"configDigest", digest.Hex(),
 		"seqNr", seqNr,
