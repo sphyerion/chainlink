@@ -234,7 +234,7 @@ func SetupKeeperConsumers(t *testing.T, client *seth.Client, numberOfContracts i
 	for i := range numberOfContracts {
 		contract, err := contracts.LoadKeeperConsumer(client, common.HexToAddress(config.DeployedContracts.Upkeeps[i]))
 		require.NoError(t, err, "Failed to load keeper consumer contract")
-		l.Info().Str("Contract Address", contract.Address()).Int("Number", i+1).Int("Out Of", numberOfContracts).Msg("Loaded Keeper Consumer Contract")
+		l.Debug().Str("Contract Address", contract.Address()).Int("Number", i+1).Int("Out Of", numberOfContracts).Msg("Loaded Keeper Consumer Contract")
 		results = append(results, contract)
 	}
 
