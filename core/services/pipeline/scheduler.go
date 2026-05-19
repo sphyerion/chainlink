@@ -292,6 +292,6 @@ func (s *scheduler) report(ctx context.Context, result TaskRunResult) {
 	select {
 	case s.resultCh <- result:
 	case <-ctx.Done():
-		s.logger.Errorw("pipeline.scheduler: discarding result; report context timed out", "result", result, "err", ctx.Err())
+		s.logger.Warnw("pipeline.scheduler: discarding result; report context timed out", "result", result, "err", ctx.Err())
 	}
 }
