@@ -185,7 +185,7 @@ func WithDebugMode(debugMode bool) func(*eventHandler) {
 		e.lggr.Infow("Setting debug mode for workflow syncer", "debugMode", debugMode)
 		e.debugMode = debugMode
 		if debugMode {
-			e.lggr.Errorw("WARNING: Debug mode is enabled for workflow syncer, this is not suitable for production")
+			e.lggr.Warnw("WARNING: Debug mode is enabled for workflow syncer, this is not suitable for production")
 			e.tracer = otel.Tracer("workflow_syncer")
 		} else {
 			// set to no-op just in case a real tracer was initialised elsewhere
