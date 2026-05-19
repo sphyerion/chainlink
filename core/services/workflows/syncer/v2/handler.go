@@ -811,7 +811,7 @@ func (h *eventHandler) workflowDeletedEvent(
 				if h.metrics != nil {
 					h.metrics.incrementDeleteDeferred(ctx, "drain_in_progress")
 				}
-				h.lggr.Infow("workflow deletion deferred: active executions still running",
+				h.lggr.Debugw("workflow deletion deferred: active executions still running",
 					"workflowID", workflowID,
 					"activeExecutions", active)
 				return fmt.Errorf("%w: %d active executions still running", ErrDrainInProgress, active)
