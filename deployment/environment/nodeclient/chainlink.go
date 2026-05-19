@@ -1278,7 +1278,7 @@ func (c *ChainlinkClient) TrackForwarder(chainID *big.Int, address common.Addres
 // GetForwarders get list of tracked forwarders
 func (c *ChainlinkClient) GetForwarders() (*Forwarders, *http.Response, error) {
 	response := &Forwarders{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading Tracked Forwarders")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading Tracked Forwarders")
 	resp, err := c.APIClient.R().
 		SetResult(response).
 		Get("/v2/nodes/evm/forwarders")
