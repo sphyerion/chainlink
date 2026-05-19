@@ -240,7 +240,7 @@ func configureForwarder(b operations.Bundle, deps Deps, in ConfigureForwarderInp
 		return out, fmt.Errorf("failed to create transaction: %w", err)
 	}
 
-	b.Logger.Infof("build mcmstxn contract type: %q program_id: %q", in.Type.String(), in.ProgramID.String())
+	b.Logger.Debugf("build mcmstxn contract type: %q program_id: %q", in.Type.String(), in.ProgramID.String())
 	out.Batch = mcmsTypes.BatchOperation{
 		ChainSelector: mcmsTypes.ChainSelector(deps.Chain.ChainSelector()),
 		Transactions:  []mcmsTypes.Transaction{*tx},
