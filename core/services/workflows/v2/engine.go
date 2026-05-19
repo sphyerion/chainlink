@@ -976,7 +976,7 @@ func (e *Engine) startExecution(ctx context.Context, wrappedTriggerEvent enqueue
 }
 
 func (e *Engine) ackTriggerEvent(ctx context.Context, triggerCapID, triggerRegistrationID string, te *capabilities.TriggerEvent) error {
-	e.logger().Infow("ACKing trigger event", "triggerRegistrationID", triggerRegistrationID, "eventID", te.ID)
+	e.logger().Debugw("ACKing trigger event", "triggerRegistrationID", triggerRegistrationID, "eventID", te.ID)
 
 	tm := e.metrics.With(platform.KeyTriggerID, triggerCapID)
 
