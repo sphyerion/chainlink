@@ -530,7 +530,7 @@ func (e *Engine) startExecution(ctx context.Context, executionID string, trigger
 			e.metrics.IncrementShardExecutionDeniedOrchestratorErrorCounter(ctx)
 			return nil
 		case shardownership.DenyNotOwner:
-			e.logger.Infow("Skipping execution: workflow not owned by this shard per orchestrator", platform.KeyWorkflowExecutionID, executionID, "myShardID", e.myShardID)
+			e.logger.Debugw("Skipping execution: workflow not owned by this shard per orchestrator", platform.KeyWorkflowExecutionID, executionID, "myShardID", e.myShardID)
 			e.metrics.IncrementShardExecutionDeniedNotOwnerCounter(ctx)
 			return nil
 		}
