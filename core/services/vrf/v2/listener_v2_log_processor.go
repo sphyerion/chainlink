@@ -125,7 +125,7 @@ func (lsn *listenerV2) processPendingVRFRequests(ctx context.Context, pendingReq
 				}
 			}
 		}
-		lsn.l.Infow("Finished processing pending requests",
+		lsn.l.Debugw("Finished processing pending requests",
 			"totalProcessed", len(processed),
 			"totalFailed", len(pendingRequests)-len(processed),
 			"total", len(pendingRequests),
