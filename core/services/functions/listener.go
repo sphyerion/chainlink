@@ -392,7 +392,7 @@ func (l *functionsListener) handleRequest(ctx context.Context, requestID Request
 		promComputationDuration.WithLabelValues(l.contractAddressHex).Observe(float64(duration.Milliseconds()))
 	}()
 	requestIDStr := formatRequestId(requestID)
-	l.logger.Infow("processing request", "requestID", requestIDStr)
+	l.logger.Debugw("processing request", "requestID", requestIDStr)
 
 	eaClient, err := l.bridgeAccessor.NewExternalAdapterClient(ctx)
 	if err != nil {
