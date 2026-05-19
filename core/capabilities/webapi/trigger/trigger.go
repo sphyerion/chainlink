@@ -119,7 +119,7 @@ func (h *triggerConnectorHandler) processTrigger(ctx context.Context, gatewayID 
 				}
 				emitErr := events.EmitTriggerExecutionStarted(ctx, map[string]string{}, TriggerEventID, workflowExecutionID)
 				if emitErr != nil {
-					h.lggr.Errorw("failed to emit trigger execution started event", "err", emitErr)
+					h.lggr.Warnw("failed to emit trigger execution started event", "err", emitErr)
 				}
 
 				tr := capabilities.TriggerResponse{
