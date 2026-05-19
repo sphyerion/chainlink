@@ -103,7 +103,7 @@ func (t *transmitter) Transmit(
 		}
 	}
 	promTransmitSuccessCount.Inc()
-	lggr.Infow("Transmit (dummy)", "digest", digest, "seqNr", seqNr, "report.Report", report.Report, "report.Info", report.Info, "sigs", sigs)
+	lggr.Debugw("Transmit (dummy)", "digest", digest, "seqNr", seqNr, "report.Report", report.Report, "report.Info", report.Info, "sigs", sigs)
 	return nil
 }
 
