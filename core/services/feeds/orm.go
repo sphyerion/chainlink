@@ -708,7 +708,7 @@ WHERE status = $1
 AND job_proposal_id = $2
 `
 
-	o.lggr.Infow("getting approved spec for job proposal", "jobProposalID", jpID)
+	o.lggr.Debugw("getting approved spec for job proposal", "jobProposalID", jpID)
 	var spec JobProposalSpec
 	err := o.ds.GetContext(ctx, &spec, stmt, SpecStatusApproved, jpID)
 
