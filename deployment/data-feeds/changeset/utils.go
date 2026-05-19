@@ -180,7 +180,7 @@ func UpdateWorkflowMetadataDS(
 	record, err := env.DataStore.EnvMetadata().Get()
 	if err != nil {
 		// if the datastore is not initialized, we should create a new one
-		env.Logger.Errorf("failed to get env datastore: %v", err)
+		env.Logger.Warnf("failed to get env datastore: %v", err)
 	}
 
 	metadata, err := datastore.As[WorkflowMetadata](record.Metadata)
