@@ -362,7 +362,7 @@ func (lsn *listenerV2) processRequestsPerSubBatchHelper(
 			l.Infow("Context canceled, stopping request processing", "err", err)
 			return processed
 		} else if err != nil {
-			l.Errorw("Error checking for already fulfilled requests, proceeding anyway", "err", err)
+			l.Warnw("Error checking for already fulfilled requests, proceeding anyway", "err", err)
 		}
 		for i, a := range alreadyFulfilled {
 			if a {
