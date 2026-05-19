@@ -670,7 +670,7 @@ func (h *eventHandler) fetchOrganizationID(ctx context.Context, workflowOwner st
 
 	organizationID, err := h.orgResolver.Get(ctx, workflowOwner)
 	if err != nil {
-		h.lggr.Warnw("Failed to get organization ID from org resolver", "workflowOwner", workflowOwner, "error", err)
+		h.lggr.Debugw("Failed to get organization ID from org resolver", "workflowOwner", workflowOwner, "error", err)
 		return "", err
 	}
 
