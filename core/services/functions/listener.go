@@ -333,7 +333,7 @@ func (l *functionsListener) HandleOffchainRequest(ctx context.Context, request *
 
 func (l *functionsListener) handleOracleRequestV1(request *evmconfig.OracleRequest) {
 	defer l.shutdownWaitGroup.Done()
-	l.logger.Infow("handleOracleRequestV1: oracle request v1 received", "requestID", formatRequestId(request.RequestId))
+	l.logger.Debugw("handleOracleRequestV1: oracle request v1 received", "requestID", formatRequestId(request.RequestId))
 	ctx, cancel := l.getNewHandlerContext()
 	defer cancel()
 
