@@ -590,7 +590,7 @@ SET status = (
 	updated_at = NOW()
 WHERE id = $1;
 `
-	o.lggr.Infow("updating job proposal after spec cancellation", "jobProposalID", jpID)
+	o.lggr.Debugw("updating job proposal after spec cancellation", "jobProposalID", jpID)
 	result, err := o.ds.ExecContext(ctx, stmt, jpID, nil)
 	if err != nil {
 		return err
