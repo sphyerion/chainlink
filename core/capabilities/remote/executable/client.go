@@ -303,7 +303,7 @@ func (c *client) Receive(ctx context.Context, msg *types.MessageBody) {
 	}
 
 	if err := req.OnMessage(ctx, msg); err != nil {
-		c.lggr.Errorw("failed to add response to request", "messageID", messageID, "err", err)
+		c.lggr.Warnw("failed to add response to request", "messageID", messageID, "err", err)
 	}
 }
 
