@@ -24,7 +24,7 @@ func RunSimpleCronWorkflow(_ struct{}, _ *slog.Logger, _ cre.SecretsProvider) (c
 }
 
 func onTrigger(config struct{}, runtime cre.Runtime, outputs *cron.Payload) (string, error) {
-	runtime.Logger().Info("inside onTrigger handler")
+	runtime.Logger().Debug("inside onTrigger handler")
 	return "success!", nil
 }
 
