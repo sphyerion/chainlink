@@ -735,7 +735,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context) 
 		case <-ticker:
 			don, err := w.workflowDonNotifier.WaitForDon(ctx)
 			if err != nil {
-				w.lggr.Errorw("failed to get get don from notifier", "err", err)
+				w.lggr.Warnw("failed to get get don from notifier", "err", err)
 				continue
 			}
 			w.lggr.Debugw("fetching workflow metadata from all sources", "don", don.Families)
