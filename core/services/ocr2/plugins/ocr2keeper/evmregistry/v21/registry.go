@@ -382,7 +382,7 @@ func (r *EvmRegistry) refreshLogTriggerUpkeepsBatch(ctx context.Context, logTrig
 
 		config, ok := perUpkeepConfig[id.String()]
 		if !ok {
-			r.lggr.Warnf("unable to find per finalized log config for %s, will fetch latest config from chain", id.String())
+			r.lggr.Debugf("unable to find per finalized log config for %s, will fetch latest config from chain", id.String())
 			// Set it to empty bytes so that latest config is fetched within r.updateTriggerConfig
 			config = []byte{}
 		}
