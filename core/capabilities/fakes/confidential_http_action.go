@@ -156,7 +156,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 	}
 
 	if err != nil {
-		fh.eng.Errorw("Failed to create HTTP request", "error", err)
+		fh.eng.Warnw("Failed to create HTTP request", "error", err)
 		return nil, caperrors.NewPublicUserError(fmt.Errorf("failed to create HTTP request: %w", err), caperrors.InvalidArgument)
 	}
 
