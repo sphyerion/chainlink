@@ -739,7 +739,7 @@ func (s *service) GetJobRuns(ctx context.Context, args *GetJobRunsArgs) ([]*pb.J
 		})
 	}
 
-	s.lggr.Infow("Successfully retrieved job runs", "remoteUUID", args.RemoteUUID, "count", len(summaries))
+	s.lggr.Debugw("Successfully retrieved job runs", "remoteUUID", args.RemoteUUID, "count", len(summaries))
 	return summaries, nil
 }
 
