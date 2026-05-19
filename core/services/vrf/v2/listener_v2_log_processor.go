@@ -469,7 +469,7 @@ func (lsn *listenerV2) processRequestsPerSubBatchHelper(
 				// Insufficient funds, have to wait for a user top up.
 				// Break out of the loop now and process what we are able to process
 				// in the constructed batches.
-				ll.Infow("Insufficient balance to fulfill a request, breaking")
+				ll.Debugw("Insufficient balance to fulfill a request, breaking")
 				break
 			}
 
