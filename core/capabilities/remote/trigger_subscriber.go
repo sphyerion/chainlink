@@ -315,7 +315,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 			return
 		}
 		if len(meta.WorkflowIds) > maxBatchedWorkflowIDs {
-			s.lggr.Errorw("received message with too many workflow IDs - truncating", "nWorkflows", len(meta.WorkflowIds), "sender", sender)
+			s.lggr.Warnw("received message with too many workflow IDs - truncating", "nWorkflows", len(meta.WorkflowIds), "sender", sender)
 			meta.WorkflowIds = meta.WorkflowIds[:maxBatchedWorkflowIDs]
 		}
 		for idx, workflowID := range meta.WorkflowIds {
