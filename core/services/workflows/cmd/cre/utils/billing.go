@@ -124,7 +124,7 @@ type lggrWriter struct {
 }
 
 func (w lggrWriter) Write(bts []byte) (int, error) {
-	w.lggr.Info(string(bts))
+	w.lggr.Debug(string(bts))
 
 	return len(bts), nil
 }
