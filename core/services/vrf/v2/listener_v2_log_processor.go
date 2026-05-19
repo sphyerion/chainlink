@@ -341,7 +341,7 @@ func (lsn *listenerV2) processRequestsPerSubBatchHelper(
 			"time", time.Since(start).String())
 	}()
 
-	l.Infow("Processing requests for subscription with batching")
+	l.Debugw("Processing requests for subscription with batching")
 
 	ready, expired := lsn.getReadyAndExpired(l, reqs)
 	for _, reqID := range expired {
