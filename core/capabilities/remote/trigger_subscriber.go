@@ -497,7 +497,7 @@ func (s *triggerSubscriber) Name() string {
 // SetConfig sets the remote trigger configuration, capability info, and DON information dynamically
 func (s *triggerSubscriber) SetConfig(config *commoncap.RemoteTriggerConfig, capInfo commoncap.CapabilityInfo, localDONID uint32, remoteDON commoncap.DON, aggregator types.Aggregator) error {
 	if config == nil {
-		s.lggr.Info("SetConfig called with nil config, using defaults")
+		s.lggr.Warn("SetConfig called with nil config, using defaults")
 		config = &commoncap.RemoteTriggerConfig{}
 	}
 	config.ApplyDefaults()
