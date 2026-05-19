@@ -176,7 +176,7 @@ func (h *triggerConnectorHandler) HandleGatewayMessage(ctx context.Context, gate
 			response = ghcapabilities.TriggerResponsePayload{Status: "ACCEPTED"}
 		} else {
 			response = ghcapabilities.TriggerResponsePayload{Status: "ERROR", ErrorMessage: resp.Error()}
-			h.lggr.Errorw("Error processing trigger", "gatewayID", gatewayID, "body", body, "response", resp)
+			h.lggr.Warnw("Error processing trigger", "gatewayID", gatewayID, "body", body, "response", resp)
 		}
 		err = h.sendResponse(ctx, gatewayID, body, response)
 		if err != nil {
