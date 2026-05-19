@@ -117,7 +117,7 @@ func (e *AutomationCustomTelemetryService) Start(ctx context.Context) error {
 // Close stops go routines and closes channels
 func (e *AutomationCustomTelemetryService) Close() error {
 	return e.StopOnce("AutomationCustomTelemetryService", func() error {
-		e.lggr.Debug("Stopping: custom telemetry service")
+		e.lggr.Info("Stopping: custom telemetry service")
 		e.threadCtrl.Close()
 		err := e.blockSubscriber.Unsubscribe(e.blockSubChanID)
 		if err != nil {
