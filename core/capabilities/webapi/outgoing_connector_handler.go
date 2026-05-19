@@ -356,7 +356,7 @@ func (c *OutgoingConnectorHandler) HandleGatewayMessage(ctx context.Context, gat
 		var payload capabilities.Response
 		err := json.Unmarshal(body.Payload, &payload)
 		if err != nil {
-			l.Errorw("failed to unmarshal payload", "err", err)
+			l.Warnw("failed to unmarshal payload", "err", err)
 			return nil
 		}
 		select {
