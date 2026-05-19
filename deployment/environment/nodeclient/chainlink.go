@@ -474,7 +474,7 @@ func (c *ChainlinkClient) CreateP2PKey() (*P2PKey, *http.Response, error) {
 // the request is unsuccessful
 func (c *ChainlinkClient) MustReadP2PKeys() (*P2PKeys, error) {
 	p2pKeys := &P2PKeys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading P2P Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading P2P Keys")
 	resp, err := c.APIClient.R().
 		SetResult(p2pKeys).
 		Get("/v2/keys/p2p")
