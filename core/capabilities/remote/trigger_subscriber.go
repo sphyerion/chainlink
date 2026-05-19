@@ -299,7 +299,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 	}
 	cfg := s.cfg.Load()
 	if cfg == nil {
-		s.lggr.Errorw("config not set - call SetConfig() first")
+		s.lggr.Warnw("config not set - call SetConfig() first")
 		return
 	}
 	if _, found := cfg.capDonMembers[sender]; !found {
