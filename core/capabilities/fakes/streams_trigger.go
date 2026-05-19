@@ -204,7 +204,7 @@ func (st *fakeStreamsTrigger) emitEvent(ctx context.Context) {
 			st.eng.Errorw("Failed to wrap reports", "error", err)
 			return
 		}
-		st.eng.Infow("Sending event to workflow", "eventID", eventID, "workflowID", wf)
+		st.eng.Debugw("Sending event to workflow", "eventID", eventID, "workflowID", wf)
 		reg.eventCh <- event
 	}
 }
