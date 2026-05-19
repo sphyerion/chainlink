@@ -134,7 +134,7 @@ func (lsn *listenerV2) processPendingVRFRequests(ctx context.Context, pendingReq
 	}()
 
 	if len(confirmed) == 0 {
-		lsn.l.Infow("No pending requests ready for processing")
+		lsn.l.Debugw("No pending requests ready for processing")
 		return
 	}
 	for subID, reqs := range confirmed {
