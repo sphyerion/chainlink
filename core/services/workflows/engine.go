@@ -851,7 +851,7 @@ func (e *Engine) workerForStepRequest(ctx context.Context, msg stepRequest) {
 		stepStatus = store.StatusErrored
 	default:
 		lmsg := "step executed successfully"
-		l.With("outputs", response.Value).Info(lmsg)
+		l.With("outputs", response.Value).Debug(lmsg)
 		// TODO ks-462 emit custom message with outputs
 		logCustMsg(ctx, cma, lmsg, l)
 		stepStatus = store.StatusCompleted
