@@ -275,7 +275,7 @@ func (c *plugin) ShouldAcceptFinalizedReport(ctx context.Context, ts types.Repor
 
 		now := time.Now().UnixMilli()
 		if now > ormRow.Expiration {
-			c.logger.Error("Received an expired entry in a report, not saving", commontypes.LogFields{
+			c.logger.Warn("Received an expired entry in a report, not saving", commontypes.LogFields{
 				"expirationTs": ormRow.Expiration,
 				"nowTs":        now,
 			})
