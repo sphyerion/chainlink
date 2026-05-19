@@ -307,7 +307,7 @@ func (h *functionsConnectorHandler) handleOffchainRequest(request *OffchainReque
 		state.InternalError = err.Error()
 	} else {
 		// no error - results will be sent to OCR aggregation and returned via reportLoop()
-		h.lggr.Infow("request processed successfully, waiting for aggregation ...", "id", request.RequestId)
+		h.lggr.Debugw("request processed successfully, waiting for aggregation ...", "id", request.RequestId)
 	}
 }
 
