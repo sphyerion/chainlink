@@ -424,7 +424,7 @@ func (w *workflowRegistry) syncUsingEventStrategy(ctx context.Context, don capab
 				EventType: WorkflowRegisteredEvent,
 			})
 			if err != nil {
-				w.lggr.Errorw("failed to handle event", "err", err)
+				w.lggr.Warnw("failed to handle event", "err", err)
 			}
 		}
 	}
