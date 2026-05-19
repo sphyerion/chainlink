@@ -234,7 +234,7 @@ func (s *triggerSubscriber) registrationLoop() {
 			for _, regMap := range s.registeredWorkflows {
 				totalRegistrations += len(regMap)
 			}
-			s.lggr.Infow("registrationLoop tick: sending registrations",
+			s.lggr.Debugw("registrationLoop tick: sending registrations",
 				"donId", cfg.capDonInfo.ID,
 				"nCapDonMembers", len(cfg.capDonInfo.Members),
 				"nWorkflows", len(s.registeredWorkflows),
