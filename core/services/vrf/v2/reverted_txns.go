@@ -192,7 +192,7 @@ func (lsn *listenerV2) fetchRecentSingleTxns(ctx context.Context,
 	}
 
 	recentReceipts = unique(recentReceipts)
-	lsn.l.Infow("finished querying for recently reverting single fulfillments",
+	lsn.l.Debugw("finished querying for recently reverting single fulfillments",
 		"count", len(recentReceipts),
 	)
 	for _, r := range recentReceipts {
