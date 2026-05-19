@@ -70,7 +70,7 @@ func NewManualCronTriggerService(parentLggr logger.Logger) (*ManualCronTriggerSe
 }
 
 func (f *ManualCronTriggerService) Initialise(ctx context.Context, dependencies core.StandardCapabilitiesDependencies) error {
-	f.lggr.Debugf("Initialising %s", ServiceName)
+	f.lggr.Infof("Initialising %s", ServiceName)
 
 	var cronConfig ManualCronConfig
 	if len(dependencies.Config) > 0 {
