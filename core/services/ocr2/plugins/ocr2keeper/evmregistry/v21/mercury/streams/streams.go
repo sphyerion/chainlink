@@ -174,7 +174,7 @@ func (s *streams) buildResult(ctx context.Context, i int, checkResult ocr2keeper
 	// the block here is exclusively used to call checkCallback at this block, not to be confused with the block number
 	// in the revert for mercury v0.2, which is denoted by time in the struct bc starting from v0.3, only timestamp will be supported
 	streamsLookupResponse.Block = uint64(block.Int64())
-	lookupLggr.Infof("at block %d upkeep %s DecodeStreamsLookupRequest feedKey=%s timeKey=%s feeds=%v time=%s extraData=%s", block, upkeepId, streamsLookupResponse.FeedParamKey, streamsLookupResponse.TimeParamKey, streamsLookupResponse.Feeds, streamsLookupResponse.Time, hexutil.Encode(streamsLookupResponse.ExtraData))
+	lookupLggr.Debugf("at block %d upkeep %s DecodeStreamsLookupRequest feedKey=%s timeKey=%s feeds=%v time=%s extraData=%s", block, upkeepId, streamsLookupResponse.FeedParamKey, streamsLookupResponse.TimeParamKey, streamsLookupResponse.Feeds, streamsLookupResponse.Time, hexutil.Encode(streamsLookupResponse.ExtraData))
 	lookups[i] = streamsLookupResponse
 }
 
