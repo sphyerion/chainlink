@@ -275,7 +275,7 @@ func (s *streams) DoMercuryRequest(ctx context.Context, lookup *mercury.StreamsL
 	}
 
 	if errCode != encoding.ErrCodeNil {
-		s.lggr.Infof("at block %d upkeep %s requested time %s doMercuryRequest error code: %d", lookup.Block, lookup.UpkeepId, lookup.Time, errCode)
+		s.lggr.Debugf("at block %d upkeep %s requested time %s doMercuryRequest error code: %d", lookup.Block, lookup.UpkeepId, lookup.Time, errCode)
 		return nil, errCode, nil
 	}
 
