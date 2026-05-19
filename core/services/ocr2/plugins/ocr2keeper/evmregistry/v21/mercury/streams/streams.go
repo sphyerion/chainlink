@@ -133,7 +133,7 @@ func (s *streams) buildResult(ctx context.Context, i int, checkResult ocr2keeper
 
 	// Try to decode the revert error into streams lookup format. User upkeeps can revert with any reason, see if they
 	// tried to call mercury
-	lookupLggr.Infof("at block %d upkeep %s trying to DecodeStreamsLookupRequest performData=%s", block, upkeepId, hexutil.Encode(checkResults[i].PerformData))
+	lookupLggr.Debugf("at block %d upkeep %s trying to DecodeStreamsLookupRequest performData=%s", block, upkeepId, hexutil.Encode(checkResults[i].PerformData))
 	streamsLookupErr, err := s.packer.DecodeStreamsLookupRequest(checkResult.PerformData)
 	if err != nil {
 		lookupLggr.Debugf("at block %d upkeep %s DecodeStreamsLookupRequest failed: %v", block, upkeepId, err)
