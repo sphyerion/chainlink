@@ -439,7 +439,7 @@ func (s *triggerSubscriber) sendUnregister(workflowID, triggerID string) {
 		}
 		err := s.dispatcher.Send(peerID, m)
 		if err != nil {
-			s.lggr.Errorw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
+			s.lggr.Warnw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
 		}
 	}
 }
