@@ -315,7 +315,7 @@ func updateDON(
 	latestConfigs []ccipreader.OCR3ConfigWithMeta,
 ) (pluginRegistry, error) {
 	if !isMemberOfDON(don, p2pID) {
-		lggr.Infow("Not a member of this DON, skipping", "donID", don.ID, "p2pID", p2pID.String())
+		lggr.Debugw("Not a member of this DON, skipping", "donID", don.ID, "p2pID", p2pID.String())
 		return nil, nil
 	}
 
