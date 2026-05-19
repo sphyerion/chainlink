@@ -381,7 +381,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 					s.lggr.Errorw("failed to aggregate responses", "triggerEventID", meta.TriggerEventId, "workflowId", workflowID, "triggerID", triggerID, "err", err)
 					continue
 				}
-				s.lggr.Infow("remote trigger event aggregated", "triggerEventID", meta.TriggerEventId, "workflowId", workflowID, "triggerID", triggerID)
+				s.lggr.Debugw("remote trigger event aggregated", "triggerEventID", meta.TriggerEventId, "workflowId", workflowID, "triggerID", triggerID)
 				registration.callback <- aggregatedResponse
 			}
 		}
