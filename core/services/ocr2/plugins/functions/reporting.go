@@ -296,7 +296,7 @@ func (r *functionsReporting) Report(ctx context.Context, ts types.ReportTimestam
 		observationProto := &encoding.Observation{}
 		err = proto.Unmarshal(ob.Observation, observationProto)
 		if err != nil {
-			r.logger.Error("FunctionsReporting Report: unable to decode observation!",
+			r.logger.Warn("FunctionsReporting Report: unable to decode observation!",
 				commontypes.LogFields{"err": err, "observer": ob.Observer})
 			continue
 		}
