@@ -106,7 +106,7 @@ func ConfigureOCR3Contract(env cldf.Environment, cfg ConfigureOCR3Config) (cldf.
 		if err != nil {
 			return cldf.ChangesetOutput{}, fmt.Errorf("failed to marshal response output: %w", err)
 		}
-		env.Logger.Infof("Generated OCR3 config: %s", string(b))
+		env.Logger.Debugf("Generated OCR3 config: %s", string(b))
 		n, err := w.Write(b)
 		if err != nil {
 			return cldf.ChangesetOutput{}, fmt.Errorf("failed to write response output: %w", err)
