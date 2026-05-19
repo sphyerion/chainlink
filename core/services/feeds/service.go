@@ -638,7 +638,7 @@ func (s *service) DeleteJob(ctx context.Context, args *DeleteJobArgs) (int64, er
 	}
 
 	if err = s.observeJobProposalCounts(ctx); err != nil {
-		logger.Errorw("Failed to push metrics for job proposal deletion", "err", err)
+		logger.Warnw("Failed to push metrics for job proposal deletion", "err", err)
 	}
 
 	return proposal.ID, nil
