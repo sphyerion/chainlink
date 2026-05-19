@@ -1934,7 +1934,7 @@ func (s *service) tryDeleteWithWorkflowCancellation(ctx context.Context, proposa
 	// Try to find the job by external job ID
 	jobFound, err := s.jobORM.FindJobByExternalJobID(ctx, proposal.ExternalJobID.UUID)
 	if err != nil {
-		logger.Warnw("Failed to find job by external job ID, skipping workflow job deletion",
+		logger.Debugw("Failed to find job by external job ID, skipping workflow job deletion",
 			"externalJobID", proposal.ExternalJobID.UUID, "err", err)
 		return false, nil
 	}
