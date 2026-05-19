@@ -94,7 +94,7 @@ func (f *Feeder) StartHeartbeats(ctx context.Context, timer Timer) {
 			f.lggr.Infow("storing heartbeat blockhash using storeEarliest",
 				"heartbeatPeriodSeconds", f.heartbeatPeriod.Seconds())
 			if err := f.bhs.StoreEarliest(ctx); err != nil {
-				f.lggr.Infow("failed to store heartbeat blockhash using storeEarliest",
+				f.lggr.Errorw("failed to store heartbeat blockhash using storeEarliest",
 					"heartbeatPeriodSeconds", f.heartbeatPeriod.Seconds(),
 					"err", err)
 			}
