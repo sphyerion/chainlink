@@ -1674,7 +1674,7 @@ func (s *service) restartConnection(mgr FeedsManager) error {
 	s.lggr.Infof("Restarting connection")
 
 	if err := s.connMgr.Disconnect(mgr.ID); err != nil {
-		s.lggr.Info("Feeds Manager not connected, attempting to connect")
+		s.lggr.Debug("Feeds Manager not connected, attempting to connect")
 	}
 
 	s.connectFeedManager(mgr)
