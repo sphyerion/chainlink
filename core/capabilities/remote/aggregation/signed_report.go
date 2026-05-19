@@ -91,7 +91,7 @@ func (a *signedReportRemoteAggregator) Aggregate(triggerEventID string, response
 		}
 
 		if err2 := a.validateSignatures(ocrEvent); err2 != nil {
-			a.lggr.Errorw("invalid signatures", "err", err2)
+			a.lggr.Warnw("invalid signatures", "err", err2)
 			continue
 		}
 		// Replace "Outputs" field with the one extracted from the OCR report and drop the binary report
