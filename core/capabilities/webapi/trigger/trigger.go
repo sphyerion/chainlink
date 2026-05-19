@@ -114,7 +114,7 @@ func (h *triggerConnectorHandler) processTrigger(ctx context.Context, gatewayID 
 				// Emit trigger execution started event
 				workflowExecutionID, genErr := events.GenerateExecutionID(trigger.workflowID, TriggerEventID)
 				if genErr != nil {
-					h.lggr.Errorw("failed to generate execution ID", "err", genErr)
+					h.lggr.Warnw("failed to generate execution ID", "err", genErr)
 					workflowExecutionID = ""
 				}
 				emitErr := events.EmitTriggerExecutionStarted(ctx, map[string]string{}, TriggerEventID, workflowExecutionID)
