@@ -779,7 +779,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context) 
 				if w.shardingEnabled {
 					filteredWorkflowsMetadata, err = w.filterWorkflowsByShard(ctx, workflows)
 					if err != nil {
-						w.lggr.Errorw("failed to filter workflows by shard",
+						w.lggr.Warnw("failed to filter workflows by shard",
 							"err", err,
 							"source", sourceName)
 						continue
