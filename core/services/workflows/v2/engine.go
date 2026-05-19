@@ -224,7 +224,7 @@ func NewEngine(cfg *EngineConfig) (*Engine, error) {
 	}
 
 	if cfg.DebugMode {
-		beholderLogger.Errorw("WARNING: Debug mode is enabled, this is not suitable for production")
+		beholderLogger.Warnw("WARNING: Debug mode is enabled, this is not suitable for production")
 		engine.tracer = otel.Tracer("workflow_engine_v2")
 	} else {
 		engine.tracer = noop.NewTracerProvider().Tracer("")
