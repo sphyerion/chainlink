@@ -786,7 +786,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 
 			if startBalanceNoReserved.Cmp(p.maxFee) < 0 {
 				// Insufficient funds, have to wait for a user top up. Leave it unprocessed for now
-				ll.Infow("Insufficient balance to fulfill a request, returning")
+				ll.Debugw("Insufficient balance to fulfill a request, returning")
 				return processed
 			}
 
