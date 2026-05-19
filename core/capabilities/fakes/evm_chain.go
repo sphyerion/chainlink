@@ -334,7 +334,7 @@ func (fc *FakeEVMChain) createManualTriggerEvent(log *evmcappb.Log) commonCap.Tr
 }
 
 func (fc *FakeEVMChain) FilterLogs(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.FilterLogsRequest) (*commonCap.ResponseAndMetadata[*evmcappb.FilterLogsReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain FilterLogs Started", "input", input)
+	fc.eng.Debugw("EVM Chain FilterLogs Started", "input", input)
 
 	if input == nil {
 		return nil, caperrors.NewPublicSystemError(errors.New("FilterLogsRequest is nil"), caperrors.Unknown)
