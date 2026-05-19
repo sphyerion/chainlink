@@ -795,7 +795,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context) 
 				// Generate events only for this source's engines (using sourceIdentifier for engine registry lookups)
 				events, genErr := w.generateReconciliationEvents(ctx, pendingEvents, filteredWorkflowsMetadata, head, sourceIdentifier)
 				if genErr != nil {
-					w.lggr.Errorw("Failed to generate reconciliation events for source",
+					w.lggr.Warnw("Failed to generate reconciliation events for source",
 						"source", sourceName, "error", genErr)
 					continue
 				}
