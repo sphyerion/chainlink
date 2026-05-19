@@ -338,7 +338,7 @@ func (s *secretsFetcher) getVaultSecretsForBatch(ctx context.Context, request *s
 		Metadata:     metadata,
 	})
 	if err != nil {
-		lggr.Errorw("failed to fetch secrets", "err", err)
+		lggr.Debugw("failed to fetch secrets", "err", err)
 		return nil, fmt.Errorf("failed to execute vault.GetSecrets: %w", err)
 	}
 
