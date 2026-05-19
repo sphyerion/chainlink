@@ -138,7 +138,7 @@ func (s *Capability) Execute(ctx context.Context, request capabilities.Capabilit
 			return capabilities.CapabilityResponse{}, fmt.Errorf("nil secret request at index %d", idx)
 		}
 		if req.Id != nil && normalizeOwner(req.Id.Owner) != normalizeOwner(request.Metadata.WorkflowOwner) {
-			s.lggr.Errorw("get secrets request owner mismatch", "index", idx, "secretOwner", req.Id.Owner, "workflowOwner", request.Metadata.WorkflowOwner)
+			s.lggr.Debugw("get secrets request owner mismatch", "index", idx, "secretOwner", req.Id.Owner, "workflowOwner", request.Metadata.WorkflowOwner)
 			return capabilities.CapabilityResponse{}, fmt.Errorf("secret identifier owner %q does not match workflow owner %q at index %d", req.Id.Owner, request.Metadata.WorkflowOwner, idx)
 		}
 	}
