@@ -109,7 +109,7 @@ func (tq *transmitQueue) Push(t *Transmission) (ok bool) {
 			if removed, ok := removed.(*Transmission); ok {
 				hash := removed.Hash()
 				tq.asyncDeleter.AsyncDelete(hash)
-				tq.lggr.Criticalw(fmt.Sprintf("Transmit queue is full; dropping oldest transmission (reached max length of %d)", tq.maxlen), "transmission", removed, "transmissionHash", hex.EncodeToString(hash[:]))
+				tq.lggr.Errorw(fmt.Sprintf("Transmit queue is full; dropping oldest transmission (reached max length of %d)", tq.maxlen), "transmission", removed, "transmissionHash", hex.EncodeToString(hash[:]))
 			}
 		}
 	}
