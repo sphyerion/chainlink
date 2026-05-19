@@ -393,7 +393,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 		}
 
 		if len(triggerMetadata.TriggerIds) != 1 {
-			p.lggr.Errorw("did not receive single triggerID in ACK request", "callerDonId", msg.CallerDonId, "sender", sender, "triggerIDs", triggerMetadata.TriggerIds)
+			p.lggr.Warnw("did not receive single triggerID in ACK request", "callerDonId", msg.CallerDonId, "sender", sender, "triggerIDs", triggerMetadata.TriggerIds)
 			return
 		}
 		triggerID := triggerMetadata.TriggerIds[0]
