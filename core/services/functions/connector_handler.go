@@ -317,7 +317,7 @@ func (h *functionsConnectorHandler) reportLoop() {
 	for {
 		select {
 		case report := <-h.offchainTransmitter.ReportChannel():
-			h.lggr.Infow("received report", "requestId", report.RequestId, "resultLen", len(report.Result), "errorLen", len(report.Error))
+			h.lggr.Debugw("received report", "requestId", report.RequestId, "resultLen", len(report.Result), "errorLen", len(report.Error))
 			if len(report.RequestId) != RequestIDLength {
 				h.lggr.Errorw("report has invalid requestId", "requestId", report.RequestId)
 				continue
