@@ -69,7 +69,7 @@ func NewTransmissionReaper(ds sqlutil.DataSource, lggr logger.Logger, freq, maxA
 
 func (t *transmissionReaper) start(context.Context) error {
 	if t.reapFreq == 0 || t.maxAge == 0 {
-		t.eng.Debugw("Transmission reaper disabled", "reapFreq", t.reapFreq, "maxAge", t.maxAge)
+		t.eng.Infow("Transmission reaper disabled", "reapFreq", t.reapFreq, "maxAge", t.maxAge)
 		return nil
 	}
 	t.eng.Go(t.runLoop)
