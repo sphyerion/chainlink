@@ -703,7 +703,7 @@ func (fc *FakeEVMChain) Start(ctx context.Context) error {
 }
 
 func (fc *FakeEVMChain) Close() error {
-	fc.eng.Debugw("EVM Chain closed")
+	fc.eng.Infow("EVM Chain closed")
 	return nil
 }
 
