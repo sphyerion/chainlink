@@ -145,7 +145,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 			return nil, caperrors.NewPublicUserError(errors.New("error parsing body template"), caperrors.InvalidArgument)
 		}
 		if err2 = bodyTmpl.Execute(processedBody, templateData); err2 != nil {
-			fh.eng.Errorf("error executing body template: %v", err2)
+			fh.eng.Warnf("error executing body template: %v", err2)
 			return nil, caperrors.NewPublicUserError(errors.New("error executing body template"), caperrors.InvalidArgument)
 		}
 		httpReq, err = http.NewRequestWithContext(ctx, method, req.GetUrl(), processedBody)
