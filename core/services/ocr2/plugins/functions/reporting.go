@@ -283,7 +283,7 @@ func (r *functionsReporting) Report(ctx context.Context, ts types.ReportTimestam
 	for _, id := range queryProto.RequestIDs {
 		reqId := formatRequestId(id)
 		if _, ok := reqIdToObservationList[reqId]; ok {
-			r.logger.Error("FunctionsReporting Report: duplicate ID in query", commontypes.LogFields{
+			r.logger.Warn("FunctionsReporting Report: duplicate ID in query", commontypes.LogFields{
 				"requestID": reqId,
 			})
 			continue
