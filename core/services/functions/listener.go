@@ -415,7 +415,7 @@ func (l *functionsListener) handleRequest(ctx context.Context, requestID Request
 
 	maxSecretsSize := l.getMaxSecretsSize(flags)
 	if uint32(len(nodeProvidedSecrets)) > maxSecretsSize {
-		l.logger.Errorw("secrets size too big", "requestID", requestIDStr, "secretsSize", len(nodeProvidedSecrets), "maxSecretsSize", maxSecretsSize)
+		l.logger.Debugw("secrets size too big", "requestID", requestIDStr, "secretsSize", len(nodeProvidedSecrets), "maxSecretsSize", maxSecretsSize)
 		l.setError(ctx, requestID, USER_ERROR, []byte("secrets size too big"))
 		return nil // user error
 	}
