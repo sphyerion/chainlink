@@ -1147,7 +1147,7 @@ func (s *service) ApproveSpec(ctx context.Context, id int64, force bool) error {
 	}
 
 	if err = s.observeJobProposalCounts(ctx); err != nil {
-		logger.Errorw("Failed to push metrics for job approval", "err", err)
+		logger.Warnw("Failed to push metrics for job approval", "err", err)
 	}
 
 	return nil
