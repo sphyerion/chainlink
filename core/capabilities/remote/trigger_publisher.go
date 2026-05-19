@@ -313,7 +313,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 	case types.MethodUnregisterTrigger:
 		meta := msg.GetTriggerEventMetadata()
 		if meta == nil {
-			p.lggr.Errorw("received unregister with nil metadata", "sender", sender)
+			p.lggr.Warnw("received unregister with nil metadata", "sender", sender)
 			return
 		}
 		if len(meta.WorkflowIds) != 1 || len(meta.TriggerIds) != 1 {
