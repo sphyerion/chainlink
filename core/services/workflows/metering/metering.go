@@ -500,7 +500,7 @@ func (r *Report) Settle(ref string, metadata capabilities.ResponseMetadata) erro
 	// Refund the difference between what local balance had been earmarked and the actual spend
 	if err := r.balance.Add(step.Deduction.Sub(spentCredits)); err != nil {
 		// invariant: capability should not let spend exceed reserve
-		r.lggr.Info("invariant: spend exceeded reserve")
+		r.lggr.Error("invariant: spend exceeded reserve")
 	}
 
 	r.balance.AddSpent(spentCredits)
