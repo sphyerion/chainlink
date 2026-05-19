@@ -172,7 +172,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 
 				var processedHeader bytes.Buffer
 				if tmplErr = headerTmpl.Execute(&processedHeader, templateData); tmplErr != nil {
-					fh.eng.Errorf("error executing header template for %s: %v", name, tmplErr)
+					fh.eng.Warnf("error executing header template for %s: %v", name, tmplErr)
 					return nil, caperrors.NewPublicUserError(errors.New("error executing header template"), caperrors.InvalidArgument)
 				}
 
