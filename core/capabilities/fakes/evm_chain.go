@@ -465,7 +465,7 @@ func (fc *FakeEVMChain) BalanceAt(ctx context.Context, metadata commonCap.Reques
 }
 
 func (fc *FakeEVMChain) EstimateGas(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.EstimateGasRequest) (*commonCap.ResponseAndMetadata[*evmcappb.EstimateGasReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain EstimateGas Started", "input", input)
+	fc.eng.Debugw("EVM Chain EstimateGas Started", "input", input)
 
 	if input == nil {
 		return nil, caperrors.NewPublicSystemError(errors.New("EstimateGasRequest is nil"), caperrors.Unknown)
