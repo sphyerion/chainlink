@@ -760,7 +760,7 @@ func (fc *FakeEVMChain) dryRunWriteReport(
 	}
 	_, err = fc.gethClient.CallContract(ctx, msg, nil)
 	if err != nil {
-		fc.eng.Infow("EVM Chain WriteReport Dry-Run Reverted", "error", err)
+		fc.eng.Warnw("EVM Chain WriteReport Dry-Run Reverted", "error", err)
 		receiverStatus := evmcappb.ReceiverContractExecutionStatus_RECEIVER_CONTRACT_EXECUTION_STATUS_REVERTED
 		errMsg := err.Error()
 		response := &evmcappb.WriteReportReply{
