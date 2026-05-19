@@ -147,7 +147,7 @@ func (l *logEventTrigger) listen() {
 				"ContractEventName", l.reqConfig.ContractEventName)
 			return
 		case t := <-l.ticker.C:
-			l.lggr.Infow("Polling event logs from ContractReader using QueryKey at", "time", t,
+			l.lggr.Debugw("Polling event logs from ContractReader using QueryKey at", "time", t,
 				"startBlockNum", l.startBlockNum,
 				"cursor", cursor)
 			if cursor != "" {
