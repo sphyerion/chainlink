@@ -433,7 +433,7 @@ func (lsn *listenerV2) postSQLLog(ctx context.Context, begin time.Time, pollPeri
 		"sql", queryName}
 
 	if elapsed >= timeout {
-		lsn.l.Criticalw("ExtremelySlowSQLQuery", kvs...)
+		lsn.l.Errorw("ExtremelySlowSQLQuery", kvs...)
 	} else if errThreshold := timeout / 5; errThreshold > 0 && elapsed > errThreshold {
 		lsn.l.Errorw("VerySlowSQLQuery", kvs...)
 	} else if warnThreshold := timeout / 10; warnThreshold > 0 && elapsed > warnThreshold {
