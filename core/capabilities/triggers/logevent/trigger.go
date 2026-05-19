@@ -187,7 +187,7 @@ func (l *logEventTrigger) listen() {
 				// Emit trigger execution started event
 				workflowExecutionID, err := events.GenerateExecutionID(l.metadata.WorkflowID, triggerResp.Event.ID)
 				if err != nil {
-					l.lggr.Errorw("failed to generate execution ID", "err", err)
+					l.lggr.Warnw("failed to generate execution ID", "err", err)
 					workflowExecutionID = ""
 				}
 
