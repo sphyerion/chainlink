@@ -311,7 +311,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 	case types.MethodTriggerEvent:
 		meta := msg.GetTriggerEventMetadata()
 		if meta == nil {
-			s.lggr.Errorw("received message with invalid trigger metadata", "sender", sender)
+			s.lggr.Warnw("received message with invalid trigger metadata", "sender", sender)
 			return
 		}
 		if len(meta.WorkflowIds) > maxBatchedWorkflowIDs {
