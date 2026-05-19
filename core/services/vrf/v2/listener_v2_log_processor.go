@@ -1154,7 +1154,7 @@ func (lsn *listenerV2) simulateFulfillment(
 						// canceled sub and active requests.
 						// since this would be an extraordinary situation,
 						// we can log loudly here.
-						logger.Sugared(lg).Criticalw("failed to generate VRF proof", "err", trr.Result.Error)
+						logger.Sugared(lg).Errorw("failed to generate VRF proof", "err", trr.Result.Error)
 						break
 					}
 
