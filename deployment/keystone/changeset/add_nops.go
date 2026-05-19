@@ -49,7 +49,7 @@ func AddNops(env cldf.Environment, req *AddNopsRequest) (cldf.ChangesetOutput, e
 		return cldf.ChangesetOutput{}, fmt.Errorf("invalid request: %w", err)
 	}
 	for _, nop := range req.Nops {
-		env.Logger.Infow("input NOP", "address", nop.Admin, "name", nop.Name)
+		env.Logger.Debugw("input NOP", "address", nop.Admin, "name", nop.Name)
 	}
 	registryChain, ok := env.BlockChains.EVMChains()[req.RegistryChainSel]
 	if !ok {
