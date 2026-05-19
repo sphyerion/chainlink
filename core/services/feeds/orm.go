@@ -669,7 +669,7 @@ SET status = $1,
 WHERE id = $2;
 `
 
-	o.lggr.Infow("deleting job proposal", "id", id, "pendingUpdate", pendingUpdate)
+	o.lggr.Debugw("deleting job proposal", "id", id, "pendingUpdate", pendingUpdate)
 	result, err := o.ds.ExecContext(ctx, stmt, JobProposalStatusDeleted, id, pendingUpdate)
 	if err != nil {
 		return err
