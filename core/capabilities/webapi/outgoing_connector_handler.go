@@ -259,7 +259,7 @@ func (c *OutgoingConnectorHandler) awaitConnection(ctx context.Context, md await
 
 			attempts[gateway]++
 
-			lggr.Infow("selected gateway, awaiting connection", "selectedGateway", gateway)
+			lggr.Debugw("selected gateway, awaiting connection", "selectedGateway", gateway)
 
 			if err := c.attemptGatewayConnection(ctx, md); err != nil {
 				lggr.Warnw("failed to await connection to gateway node, retrying", "selectedGateway", gateway, "error", err)
