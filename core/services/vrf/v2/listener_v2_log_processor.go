@@ -413,7 +413,7 @@ func (lsn *listenerV2) processRequestsPerSubBatchHelper(
 				case errors.Is(p.err, blockhashNotInStoreError{}):
 					// Running the blockhash store feeder in backwards mode will be required to
 					// resolve this.
-					ll.Criticalw("Pipeline error", "err", p.err)
+					ll.Errorw("Pipeline error", "err", p.err)
 				case errors.Is(p.err, proofVerificationFailedError{}):
 					// This occurs when the proof reverts in the simulation
 					// This is almost always (if not always) due to a proof generated with an out-of-date
