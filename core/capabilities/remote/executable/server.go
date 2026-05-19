@@ -288,7 +288,7 @@ func (r *server) Receive(ctx context.Context, msg *types.MessageBody) {
 	if _, ok := r.requestIDToRequest[requestID]; !ok {
 		callingDon, ok := cfg.workflowDONs[msg.CallerDonId]
 		if !ok {
-			r.lggr.Errorw("received request from unregistered don", "donId", msg.CallerDonId)
+			r.lggr.Warnw("received request from unregistered don", "donId", msg.CallerDonId)
 			return
 		}
 
