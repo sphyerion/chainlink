@@ -873,7 +873,7 @@ func (c *ChainlinkClient) MustReadCSAKeys() (*CSAKeys, *resty.Response, error) {
 // ReadCSAKeys reads CSA keys from the Chainlink node
 func (c *ChainlinkClient) ReadCSAKeys() (*CSAKeys, *resty.Response, error) {
 	csaKeys := &CSAKeys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading CSA Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading CSA Keys")
 	resp, err := c.APIClient.R().
 		SetResult(csaKeys).
 		Get("/v2/keys/csa")
