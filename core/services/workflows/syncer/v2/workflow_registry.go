@@ -359,7 +359,7 @@ func (w *workflowRegistry) Start(_ context.Context) error {
 					// Instead, we poll until the contract reader is ready.
 					reader, err := w.newAllowlistedRequestsContractReader(ctx)
 					if err != nil {
-						w.lggr.Infow("contract reader unavailable", "error", err.Error())
+						w.lggr.Debugw("contract reader unavailable", "error", err.Error())
 						break
 					}
 					w.contractReader = reader
