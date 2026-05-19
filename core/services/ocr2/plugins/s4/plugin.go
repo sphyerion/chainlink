@@ -135,7 +135,7 @@ func (c *plugin) Observation(ctx context.Context, ts types.ReportTimestamp, quer
 
 	queryRows, addressRange, err := UnmarshalQuery(query)
 	if err != nil {
-		c.logger.Error("Failed to unmarshal query (likely malformed)", commontypes.LogFields{"err": err})
+		c.logger.Warn("Failed to unmarshal query (likely malformed)", commontypes.LogFields{"err": err})
 	} else {
 		snapshot, err := c.orm.GetSnapshot(ctx, addressRange)
 		if err != nil {
