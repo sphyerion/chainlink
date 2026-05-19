@@ -104,7 +104,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 		return nil, caperrors.NewPublicUserError(errors.New("request cannot be nil"), caperrors.InvalidArgument)
 	}
 
-	fh.eng.Infow("Processing confidential HTTP request", "url", req.GetUrl(), "method", req.GetMethod())
+	fh.eng.Debugw("Processing confidential HTTP request", "url", req.GetUrl(), "method", req.GetMethod())
 
 	// Create HTTP client with timeout (default 30 seconds)
 	timeout := time.Duration(30) * time.Second
