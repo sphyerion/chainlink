@@ -466,7 +466,7 @@ func GetWorkflowRegistryV2FromDatastore(env *cldf.Environment, chainSelector uin
 		// Debug: log all available addresses for troubleshooting
 		env.Logger.Debugf("Available addresses for chain %d:", chainSelector)
 		for _, addr := range addresses {
-			env.Logger.Infof("  Type: %s, Address: %s, Qualifier: %s", string(addr.Type), addr.Address, addr.Qualifier)
+			env.Logger.Debugf("  Type: %s, Address: %s, Qualifier: %s", string(addr.Type), addr.Address, addr.Qualifier)
 		}
 		return nil, fmt.Errorf("workflow registry address not found for chain selector %d and qualifier %s", chainSelector, qualifier)
 	}
