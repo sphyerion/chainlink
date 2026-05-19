@@ -96,7 +96,7 @@ func (h *RPCHandlers) GetJobRuns(ctx context.Context, req *pb.GetJobRunsRequest)
 	}
 
 	if limit == 0 || limit > MaxJobRunsLimit {
-		h.lggr.Warnw("Invalid limit provided, using default",
+		h.lggr.Debugw("Invalid limit provided, using default",
 			"requestedLimit", limit,
 			"defaultLimit", DefaultJobRunsLimit,
 		)
