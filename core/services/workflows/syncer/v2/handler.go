@@ -675,7 +675,7 @@ func (h *eventHandler) fetchOrganizationID(ctx context.Context, workflowOwner st
 	}
 
 	if organizationID == "" {
-		h.lggr.Warnw("No organization ID returned from org resolver", "workflowOwner", workflowOwner)
+		h.lggr.Debugw("No organization ID returned from org resolver", "workflowOwner", workflowOwner)
 		return "", errors.New("no organization ID returned from org resolver")
 	}
 
