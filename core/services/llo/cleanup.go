@@ -77,7 +77,7 @@ func (t *transmissionReaper) start(context.Context) error {
 }
 
 func (t *transmissionReaper) runLoop(ctx context.Context) {
-	t.eng.Debugw("Transmission reaper running", "reapFreq", t.reapFreq, "maxAge", t.maxAge)
+	t.eng.Infow("Transmission reaper running", "reapFreq", t.reapFreq, "maxAge", t.maxAge)
 	ticker := services.TickerConfig{
 		// Don't reap right away, wait some time for the application to settle
 		// down first
