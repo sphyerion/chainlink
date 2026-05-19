@@ -707,7 +707,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context, 
 							pendingEvents[event.id] = event
 
 							reconcileReport.Backoffs[event.id] = event.nextRetryAt
-							w.lggr.Errorw("failed to handle event, backing off...", "err", err, "type", event.EventType, "nextRetryAt", event.nextRetryAt, "retryCount", event.retryCount)
+							w.lggr.Warnw("failed to handle event, backing off...", "err", err, "type", event.EventType, "nextRetryAt", event.nextRetryAt, "retryCount", event.retryCount)
 						}
 					} else {
 						// It's not ready to execute yet, let's put it back on the pending queue.
