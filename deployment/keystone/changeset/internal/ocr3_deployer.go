@@ -30,7 +30,7 @@ func (c *OCR3Deployer) deploy(req DeployRequest) (*DeployResponse, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to estimate gas: %w", err)
 	}
-	c.lggr.Infof("ocr3 capability estimated gas: %d", est)
+	c.lggr.Debugf("ocr3 capability estimated gas: %d", est)
 
 	ocr3Addr, tx, ocr3, err := ocr3_capability.DeployOCR3Capability(
 		req.Chain.DeployerKey,
