@@ -402,7 +402,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 			s.mu.RUnlock()
 
 			if !reg {
-				s.lggr.Infow("sending unregister in response to registration check", "workflowID", workflowID, "triggerID", triggerID)
+				s.lggr.Debugw("sending unregister in response to registration check", "workflowID", workflowID, "triggerID", triggerID)
 				// Registration was removed locally — tell the publisher to clean up.
 				s.sendUnregister(workflowID, triggerID)
 			}
