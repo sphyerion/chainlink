@@ -87,7 +87,7 @@ func (lsn *listenerV2) runRevertedTxnsHandler(pollPeriod time.Duration) {
 }
 
 func (lsn *listenerV2) handleRevertedTxns(ctx context.Context, pollPeriod time.Duration) {
-	lsn.l.Infow("Handling reverted txns")
+	lsn.l.Debugw("Handling reverted txns")
 
 	// Fetch recent single and batch txns, that have not been force-fulfilled
 	recentSingleTxns, err := lsn.fetchRecentSingleTxns(ctx, lsn.ds, lsn.chainID.Uint64(), pollPeriod)
