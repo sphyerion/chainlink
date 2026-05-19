@@ -935,7 +935,7 @@ func (e *Engine) startExecution(ctx context.Context, wrappedTriggerEvent enqueue
 			},
 		)
 		if mrErr != nil {
-			lggr.Errorw("could not set metering for compute", "err", mrErr)
+			lggr.Warnw("could not set metering for compute", "err", mrErr)
 		}
 		mrErr = e.meterReports.End(ctx, executionID)
 		if mrErr != nil {
