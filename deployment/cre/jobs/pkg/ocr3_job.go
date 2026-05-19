@@ -174,7 +174,7 @@ func BuildOCR3JobConfigSpecs(
 	jobConfigByNode := make(map[string]*OCR3JobConfig)
 	for _, node := range nodeInfos {
 		if node.IsBootstrap {
-			lggr.Infow("Skipping bootstrap node", "nodeID", node.NodeID, "chainSelector", evmChainSel)
+			lggr.Debugw("Skipping bootstrap node", "nodeID", node.NodeID, "chainSelector", evmChainSel)
 			continue
 		}
 		evmConfig, ok := node.OCRConfigForChainSelector(evmChainSel)
