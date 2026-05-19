@@ -180,7 +180,7 @@ func (h *triggerConnectorHandler) HandleGatewayMessage(ctx context.Context, gate
 		}
 		err = h.sendResponse(ctx, gatewayID, body, response)
 		if err != nil {
-			h.lggr.Errorw("Error sending response", "body", body, "response", response, "err", err)
+			h.lggr.Warnw("Error sending response", "body", body, "response", response, "err", err)
 		}
 		return nil
 
