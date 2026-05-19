@@ -48,7 +48,7 @@ func CheckGasPrice(ctx context.Context, upkeepId *big.Int, offchainConfigBytes [
 
 	fee, _, err := ge.GetFee(ctx, []byte{}, feeLimit, assets.NewWei(big.NewInt(maxFeePrice)), nil, nil)
 	if err != nil {
-		lggr.Errorw("failed to get fee, gas price check is disabled", "upkeepId", upkeepId.String(), "err", err)
+		lggr.Warnw("failed to get fee, gas price check is disabled", "upkeepId", upkeepId.String(), "err", err)
 		return encoding.UpkeepFailureReasonNone
 	}
 
