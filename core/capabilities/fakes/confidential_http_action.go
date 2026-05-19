@@ -184,7 +184,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 	// Make the HTTP request
 	resp, err := client.Do(httpReq)
 	if err != nil {
-		fh.eng.Errorw("Failed to execute confidential HTTP request", "error", err)
+		fh.eng.Warnw("Failed to execute confidential HTTP request", "error", err)
 		return nil, caperrors.NewPublicUserError(fmt.Errorf("failed to execute HTTP request: %w", err), caperrors.InvalidArgument)
 	}
 	defer resp.Body.Close()
