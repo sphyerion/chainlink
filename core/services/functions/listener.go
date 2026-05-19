@@ -564,7 +564,7 @@ func (l *functionsListener) reportSourceCodeDomains(requestId RequestID, domains
 
 func (l *functionsListener) getSecrets(ctx context.Context, eaClient ExternalAdapterClient, requestID RequestID, subscriptionOwner common.Address, requestData *RequestData) (decryptedSecrets string, userError, internalError error) {
 	if l.decryptor == nil {
-		l.logger.Warn("Decryptor not configured")
+		l.logger.Debug("Decryptor not configured")
 		return "", nil, nil
 	}
 
