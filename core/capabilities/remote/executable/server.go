@@ -250,7 +250,7 @@ func (r *server) Receive(ctx context.Context, msg *types.MessageBody) {
 	switch msg.Method {
 	case types.MethodExecute:
 	default:
-		r.lggr.Errorw("received request for unsupported method type", "method", remote.SanitizeLogString(msg.Method))
+		r.lggr.Warnw("received request for unsupported method type", "method", remote.SanitizeLogString(msg.Method))
 		return
 	}
 
