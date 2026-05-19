@@ -97,7 +97,7 @@ func (a *signedReportRemoteAggregator) Aggregate(triggerEventID string, response
 		// Replace "Outputs" field with the one extracted from the OCR report and drop the binary report
 		outputsMap, err := values.FromMapValueProto(rep.Outputs)
 		if err != nil {
-			a.lggr.Errorw("failed to parse OCR report outputs", "err", err)
+			a.lggr.Warnw("failed to parse OCR report outputs", "err", err)
 			continue
 		}
 		triggerResp.Event.Outputs = outputsMap
