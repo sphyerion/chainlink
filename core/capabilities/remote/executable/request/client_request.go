@@ -361,7 +361,7 @@ func (c *ClientRequest) OnMessage(_ context.Context, msg *types.MessageBody) err
 
 		rpt, err := commoncap.ExtractMeteringFromMetadata(sender, resp.Metadata)
 		if err != nil {
-			lggr.Warnw("invalid metering detail", "err", err)
+			lggr.Debugw("invalid metering detail", "err", err)
 		} else {
 			nodeReports = append(nodeReports, rpt)
 		}
