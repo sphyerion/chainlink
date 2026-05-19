@@ -201,7 +201,7 @@ func (s *streams) doLookup(ctx context.Context, wg *sync.WaitGroup, lookup *merc
 	// Mercury request returned values or user's checkErrorhandler didn't return error, call checkCallback
 	err = s.CheckCallback(ctx, values, lookup, checkResults, i)
 	if err != nil {
-		s.lggr.Errorf("at block %d upkeep %s requested time %s CheckCallback err: %s", lookup.Block, lookup.UpkeepId, lookup.Time, err.Error())
+		s.lggr.Warnf("at block %d upkeep %s requested time %s CheckCallback err: %s", lookup.Block, lookup.UpkeepId, lookup.Time, err.Error())
 		prommetrics.AutomationStreamsLookupError.WithLabelValues(prommetrics.StreamsLookupErrorCheckCallback).Inc()
 	}
 }
