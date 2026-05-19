@@ -513,7 +513,7 @@ func (fc *FakeEVMChain) GetTransactionByHash(ctx context.Context, metadata commo
 		return nil, caperrors.NewPublicSystemError(err, caperrors.Unknown)
 	}
 
-	fc.eng.Infow("EVM Chain GetTransactionByHash Finished", "transaction", transaction, "pending", pending)
+	fc.eng.Debugw("EVM Chain GetTransactionByHash Finished", "transaction", transaction, "pending", pending)
 
 	// Handle nil To() for contract creation transactions
 	var toBytes []byte
