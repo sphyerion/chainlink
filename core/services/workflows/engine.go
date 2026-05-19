@@ -1067,7 +1067,7 @@ func (e *Engine) executeStep(
 	e.metrics.With(platform.KeyCapabilityID, curStep.ID).IncrementCapabilityInvocationCounter(ctx)
 	err = events.EmitCapabilityStartedEvent(ctx, e.cma.Labels(), msg.state.ExecutionID, curStep.ID, msg.stepRef, "")
 	if err != nil {
-		e.logger.Errorf("failed to emit capability event: %v", err)
+		e.logger.Warnf("failed to emit capability event: %v", err)
 	}
 	output, capErr := curStep.capability.Execute(stepCtx, tr)
 	status := store.StatusCompleted
