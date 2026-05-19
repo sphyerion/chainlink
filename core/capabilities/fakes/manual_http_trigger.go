@@ -83,7 +83,7 @@ func (f *ManualHTTPTriggerService) ManualTrigger(ctx context.Context, triggerID 
 	}
 	err = events.EmitTriggerExecutionStarted(ctx, map[string]string{}, triggerEventID, workflowExecutionID)
 	if err != nil {
-		f.lggr.Errorw("failed to emit trigger execution started event", "err", err)
+		f.lggr.Warnw("failed to emit trigger execution started event", "err", err)
 	}
 
 	// Run in a goroutine to avoid blocking
