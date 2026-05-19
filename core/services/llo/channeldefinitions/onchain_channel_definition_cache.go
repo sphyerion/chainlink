@@ -384,7 +384,7 @@ func (c *channelDefinitionCache) pollChainLoop() {
 		case <-pollT.C:
 			// failures will be tried again on the next tick
 			if err := c.readLogs(ctx); err != nil {
-				c.lggr.Errorw("Failed to fetch channel definitions from chain", "err", err)
+				c.lggr.Warnw("Failed to fetch channel definitions from chain", "err", err)
 				continue
 			}
 		}
