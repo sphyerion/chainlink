@@ -325,7 +325,7 @@ func (s *service) syncNodeInfoWithRetry(id int64) {
 		retry.Attempts(s.syncMaxAttempts),
 		retry.LastErrorOnly(true),
 		retry.OnRetry(func(attempt uint, err error) {
-			s.lggr.Infow("failed to sync node info", "attempt", attempt, "err", err.Error())
+			s.lggr.Debugw("failed to sync node info", "attempt", attempt, "err", err.Error())
 		}),
 	}
 
