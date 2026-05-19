@@ -876,7 +876,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context) 
 					w.metrics.recordReconcileBackoff(ctx, sourceName, backoffCount)
 				}
 
-				w.lggr.Infow("reconciliation tick completed",
+				w.lggr.Debugw("reconciliation tick completed",
 					"source", sourceName,
 					"dispatched", dispatched,
 					"backoffs", backoffCount,
