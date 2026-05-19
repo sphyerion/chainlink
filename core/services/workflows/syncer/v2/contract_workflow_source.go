@@ -181,7 +181,7 @@ func (c *ContractWorkflowSource) tryInitialize(ctx context.Context) bool {
 	}
 
 	c.contractReader = reader
-	c.lggr.Debugw("Contract reader initialized successfully")
+	c.lggr.Infow("Contract reader initialized successfully")
 	return true
 }
 
