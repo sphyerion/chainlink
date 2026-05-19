@@ -175,7 +175,7 @@ func (l *logEventTrigger) listen() {
 			// to the cursor and no log after it, then we understand that there are no new
 			// logs
 			if len(logs) == 1 && logs[0].Cursor == cursor {
-				l.lggr.Infow("No new logs since", "cursor", cursor)
+				l.lggr.Debugw("No new logs since", "cursor", cursor)
 				continue
 			}
 			for _, log := range logs {
