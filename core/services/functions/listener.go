@@ -459,7 +459,7 @@ func (l *functionsListener) handleRequest(ctx context.Context, requestID Request
 
 func (l *functionsListener) handleOracleResponseV1(response *evmconfig.OracleResponse) {
 	defer l.shutdownWaitGroup.Done()
-	l.logger.Infow("oracle response v1 received", "requestID", formatRequestId(response.RequestId))
+	l.logger.Debugw("oracle response v1 received", "requestID", formatRequestId(response.RequestId))
 
 	ctx, cancel := l.getNewHandlerContext()
 	defer cancel()
