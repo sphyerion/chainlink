@@ -375,7 +375,7 @@ func (r *EvmRegistry) refreshLogTriggerUpkeepsBatch(ctx context.Context, logTrig
 	for _, id := range logTriggerIDs {
 		logBlock, ok := configSetBlockNumbers[id.String()]
 		if !ok {
-			r.lggr.Warnf("unable to find finalized config set block number for %s, using 0 as config start block", id.String())
+			r.lggr.Debugf("unable to find finalized config set block number for %s, using 0 as config start block", id.String())
 			// Use zero as config update block so it can be updated if an actual event is found later
 			logBlock = 0
 		}
