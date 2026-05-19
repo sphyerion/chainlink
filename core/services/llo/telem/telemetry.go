@@ -386,7 +386,7 @@ func (t *telemeter) prepareObservationTelemetry(p any, opts llo.DSOpts) {
 			ObservationTimestamp:     opts.ObservationTimestamp().UnixNano(),
 		}
 		if opts.VerboseLogging() {
-			t.eng.Infow("Sending LLOBridgeTelemetry telemetry", "StreamId", v.StreamID, "BridgeAdapterName", v.Name, "BridgeResponseError", v.ResponseError)
+			t.eng.Debugw("Sending LLOBridgeTelemetry telemetry", "StreamId", v.StreamID, "BridgeAdapterName", v.Name, "BridgeResponseError", v.ResponseError)
 		}
 	case *LLOObservationTelemetry:
 		telemType = synchronization.LLOObservation
