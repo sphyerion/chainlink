@@ -744,7 +744,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 					ll.Debugw("proof reverted in simulation, likely stale blockhash")
 					processed[p.req.req.RequestID().String()] = struct{}{}
 				default:
-					ll.Errorw("Pipeline error", "err", p.err)
+					ll.Warnw("Pipeline error", "err", p.err)
 
 					if !subIsActive {
 						lsn.l.Warnw("Force-fulfilling a request with insufficient funds on a cancelled sub")
