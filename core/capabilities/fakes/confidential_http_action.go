@@ -192,7 +192,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 	// Read response body
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fh.eng.Errorw("Failed to read response body", "error", err)
+		fh.eng.Warnw("Failed to read response body", "error", err)
 		return nil, caperrors.NewPublicUserError(fmt.Errorf("failed to read response body: %w", err), caperrors.InvalidArgument)
 	}
 
