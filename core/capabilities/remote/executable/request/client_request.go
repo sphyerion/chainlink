@@ -214,7 +214,7 @@ func newClientRequest(ctx context.Context, lggr logger.Logger, requestID string,
 				lggr.Debugw("sending request to peer", "peerID", peerID)
 				err := dispatcher.Send(peerID, message)
 				if err != nil {
-					lggr.Errorw("failed to send message", "peerID", peerID, "error", err)
+					lggr.Warnw("failed to send message", "peerID", peerID, "error", err)
 				}
 			}
 		}(ctxWithCancel, peerID, delay)
