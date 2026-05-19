@@ -422,7 +422,7 @@ func (c *ChainlinkClient) CreateOCR2Key(chain string) (*OCR2Key, *http.Response,
 // ReadOCR2Keys reads all OCR2Keys from the Chainlink node
 func (c *ChainlinkClient) ReadOCR2Keys() (*OCR2Keys, *http.Response, error) {
 	ocr2Keys := &OCR2Keys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading OCR2 Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading OCR2 Keys")
 	resp, err := c.APIClient.R().
 		SetResult(ocr2Keys).
 		Get("/v2/keys/ocr2")
