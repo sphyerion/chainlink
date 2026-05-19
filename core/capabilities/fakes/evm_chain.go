@@ -718,7 +718,7 @@ func (fc *FakeEVMChain) UnregisterFromWorkflow(ctx context.Context, request comm
 }
 
 func (fc *FakeEVMChain) Execute(ctx context.Context, request commonCap.CapabilityRequest) (commonCap.CapabilityResponse, error) {
-	fc.eng.Infow("EVM Chain executed", "request", request)
+	fc.eng.Debugw("EVM Chain executed", "request", request)
 	return commonCap.CapabilityResponse{}, nil
 }
 
