@@ -178,7 +178,7 @@ func (c *client) singleFeedRequest(ctx context.Context, ch chan<- mercury.Mercur
 
 			retryable = false
 			if httpResponse, err = c.httpClient.Do(httpRequest); err != nil {
-				c.lggr.Errorf("at block %s upkeep %s GET request fails for feed %s: %v", sl.Time.String(), sl.UpkeepId.String(), sl.Feeds[index], err)
+				c.lggr.Warnf("at block %s upkeep %s GET request fails for feed %s: %v", sl.Time.String(), sl.UpkeepId.String(), sl.Feeds[index], err)
 				errCode = encoding.ErrCodeStreamsUnknownError
 				if ctx.Err() != nil {
 					errCode = encoding.ErrCodeStreamsTimeout
