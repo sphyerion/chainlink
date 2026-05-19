@@ -317,7 +317,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 			return
 		}
 		if len(meta.WorkflowIds) != 1 || len(meta.TriggerIds) != 1 {
-			p.lggr.Errorw("received unregister with unexpected metadata sizes",
+			p.lggr.Warnw("received unregister with unexpected metadata sizes",
 				"sender", sender, "workflowIdsLen", len(meta.WorkflowIds), "triggerIdsLen", len(meta.TriggerIds))
 			return
 		}
