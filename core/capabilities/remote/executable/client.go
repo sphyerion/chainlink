@@ -290,7 +290,7 @@ func (c *client) Receive(ctx context.Context, msg *types.MessageBody) {
 
 	messageID, err := GetMessageID(msg)
 	if err != nil {
-		c.lggr.Errorw("invalid message ID", "err", err, "id", remote.SanitizeLogString(string(msg.MessageId)))
+		c.lggr.Warnw("invalid message ID", "err", err, "id", remote.SanitizeLogString(string(msg.MessageId)))
 		return
 	}
 
