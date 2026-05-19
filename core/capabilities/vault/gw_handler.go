@@ -198,7 +198,7 @@ func (h *GatewayHandler) HandleGatewayMessage(ctx context.Context, gatewayID str
 		return err
 	}
 
-	h.lggr.Infow("Sent message to gateway", "gatewayID", gatewayID, "resp", response, "requestID", req.ID)
+	h.lggr.Debugw("Sent message to gateway", "gatewayID", gatewayID, "resp", response, "requestID", req.ID)
 	h.metrics.requestSuccess.Add(ctx, 1, metric.WithAttributes(
 		attribute.String("gateway_id", gatewayID),
 	))
