@@ -102,7 +102,7 @@ func (c *ChainlinkClient) WithRetryCount(retryCount int) *ChainlinkClient {
 // Health returns all statuses health info
 func (c *ChainlinkClient) Health() (*HealthResponse, *http.Response, error) {
 	respBody := &HealthResponse{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Requesting health data")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Requesting health data")
 	resp, err := c.APIClient.R().
 		SetResult(&respBody).
 		Get("/health")
