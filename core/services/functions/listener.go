@@ -371,7 +371,7 @@ func (l *functionsListener) handleOracleRequestV1(request *evmconfig.OracleReque
 
 func (l *functionsListener) parseCBOR(requestId RequestID, cborData []byte, maxSizeBytes uint32) (*RequestData, error) {
 	if maxSizeBytes > 0 && uint32(len(cborData)) > maxSizeBytes {
-		l.logger.Errorw("request too big", "requestID", formatRequestId(requestId), "requestSize", len(cborData), "maxRequestSize", maxSizeBytes)
+		l.logger.Debugw("request too big", "requestID", formatRequestId(requestId), "requestSize", len(cborData), "maxRequestSize", maxSizeBytes)
 		return nil, fmt.Errorf("request too big (max %d bytes)", maxSizeBytes)
 	}
 
