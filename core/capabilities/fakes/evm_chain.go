@@ -556,7 +556,7 @@ func (fc *FakeEVMChain) GetTransactionReceipt(ctx context.Context, metadata comm
 		return nil, caperrors.NewPublicSystemError(err, caperrors.Unknown)
 	}
 
-	fc.eng.Infow("EVM Chain GetTransactionReceipt Finished", "receipt", receipt)
+	fc.eng.Debugw("EVM Chain GetTransactionReceipt Finished", "receipt", receipt)
 
 	// Convert transaction receipt to protobuf
 	receiptPb := &evmcappb.Receipt{
