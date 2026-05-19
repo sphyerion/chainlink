@@ -138,7 +138,7 @@ func SendFundsToAccounts(ctx context.Context, lggr logger.Logger, chain cldf_evm
 	if err != nil {
 		return fmt.Errorf("could not estimate gas for chain %d: %w", sel, err)
 	}
-	lggr.Infow("Using EIP-1559 fees", "chain", sel, "baseFee", baseFee, "tipCap", tipCap, "feeCap", feeCap, "gasLimit", gasLimit)
+	lggr.Debugw("Using EIP-1559 fees", "chain", sel, "baseFee", baseFee, "tipCap", tipCap, "feeCap", feeCap, "gasLimit", gasLimit)
 
 	var signedTxs []*gethtypes.Transaction
 
