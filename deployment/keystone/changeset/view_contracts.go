@@ -85,7 +85,7 @@ func GenerateKeystoneChainView(
 					addrCopy := addr
 					capRegView, err := common_v1_0.GenerateCapabilityRegistryView(cr)
 					if err != nil {
-						lggr.Warnf("failed to generate capability registry view for address %s: %v", addrCopy, err)
+						lggr.Errorf("failed to generate capability registry view for address %s: %v", addrCopy, err)
 						errCh <- err
 					}
 					outMu.Lock()
