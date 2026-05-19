@@ -197,7 +197,7 @@ func (lsn *listenerV2) updateLastProcessedBlock(ctx context.Context, currLastPro
 
 	latestBlock, err := lp.LatestBlock(ctx)
 	if err != nil {
-		lsn.l.Errorw("error getting latest block", "err", err)
+		lsn.l.Debugw("error getting latest block", "err", err)
 		return 0, fmt.Errorf("LogPoller.LatestBlock(): %w", err)
 	}
 	ll := lsn.l.With(
