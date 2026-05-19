@@ -1021,7 +1021,7 @@ func (lsn *listenerV2) checkReqsFulfilled(ctx context.Context, l logger.Logger, 
 		}
 
 		if utils.IsEmpty(result) {
-			l.Infow("Request already fulfilled",
+			l.Debugw("Request already fulfilled",
 				"reqID", reqs[i].req.RequestID().String(),
 				"attempts", reqs[i].attempts,
 				"txHash", reqs[i].req.Raw().TxHash)
