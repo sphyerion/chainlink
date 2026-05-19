@@ -87,7 +87,7 @@ func (tq *transmitQueue) Init(ts []*Transmission) error {
 	if len(ts) > tq.maxlen {
 		return fmt.Errorf("transmit queue is too small to hold %d transmissions", len(ts))
 	}
-	tq.lggr.Debugw("Initializing transmission queue", "nTransmissions", len(ts), "maxlen", tq.maxlen)
+	tq.lggr.Infow("Initializing transmission queue", "nTransmissions", len(ts), "maxlen", tq.maxlen)
 	pq := priorityQueue(ts)
 	heap.Init(&pq) // ensure the heap is ordered
 	tq.pq = &pq
