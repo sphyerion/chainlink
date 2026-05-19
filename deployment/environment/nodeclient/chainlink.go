@@ -432,7 +432,7 @@ func (c *ChainlinkClient) ReadOCR2Keys() (*OCR2Keys, *http.Response, error) {
 // MustReadOCR2Keys reads all OCR2Keys from the Chainlink node returns err if response not 200
 func (c *ChainlinkClient) MustReadOCR2Keys() (*OCR2Keys, error) {
 	ocr2Keys := &OCR2Keys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading OCR2 Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading OCR2 Keys")
 	resp, err := c.APIClient.R().
 		SetResult(ocr2Keys).
 		Get("/v2/keys/ocr2")
