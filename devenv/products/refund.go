@@ -128,7 +128,7 @@ func (r *GasTooLowTransferRetrier) Retry(ctx context.Context, logger zerolog.Log
 	}
 
 	for txErr != nil && strings.Contains(txErr.Error(), GasTooLowErr) {
-		logger.Info().
+		logger.Warn().
 			Msg("Too low gas error detected, retrying with more gas")
 		var newGasLimit int64
 		if payload.GasLimit != nil {
