@@ -1917,7 +1917,7 @@ func (s *service) deleteSimpleJobProposal(ctx context.Context, proposal *JobProp
 		return fmt.Errorf("DeleteProposal failed: %w", err)
 	}
 
-	logger.Infow("Successfully deleted simple job proposal", "jobProposalID", proposal.ID)
+	logger.Debugw("Successfully deleted simple job proposal", "jobProposalID", proposal.ID)
 	return nil
 }
 
