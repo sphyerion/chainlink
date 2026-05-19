@@ -142,7 +142,7 @@ func (fc *FakeEVMChain) WriteReport(
 	metadata commonCap.RequestMetadata,
 	input *evmcappb.WriteReportRequest,
 ) (*commonCap.ResponseAndMetadata[*evmcappb.WriteReportReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain WriteReport Started")
+	fc.eng.Debugw("EVM Chain WriteReport Started")
 	fc.eng.Debugw("EVM Chain WriteReport Input", "input", input)
 
 	// Create authenticated transactor
