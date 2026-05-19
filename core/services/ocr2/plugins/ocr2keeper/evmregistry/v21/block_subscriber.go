@@ -103,7 +103,7 @@ func (bs *BlockSubscriber) initializeBlocks(ctx context.Context, blocks []uint64
 	for i, b := range logpollerBlocks {
 		if i == 0 {
 			bs.lastClearedBlock = b.BlockNumber - 1
-			bs.lggr.Infof("lastClearedBlock is %d", bs.lastClearedBlock)
+			bs.lggr.Debugf("lastClearedBlock is %d", bs.lastClearedBlock)
 		}
 		bs.blocks[b.BlockNumber] = b.BlockHash.Hex()
 	}
