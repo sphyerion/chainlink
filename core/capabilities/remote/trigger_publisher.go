@@ -124,7 +124,7 @@ func NewTriggerPublisher(capabilityID string, capMethodName string, dispatcher t
 // SetConfig sets the remote trigger configuration, capability info, and DON information dynamically
 func (p *triggerPublisher) SetConfig(config *commoncap.RemoteTriggerConfig, underlying commoncap.TriggerCapability, capDonInfo commoncap.DON, workflowDONs map[uint32]commoncap.DON) error {
 	if config == nil {
-		p.lggr.Info("SetConfig called with nil config, using defaults")
+		p.lggr.Warn("SetConfig called with nil config, using defaults")
 		config = &commoncap.RemoteTriggerConfig{}
 	}
 	config.ApplyDefaults()
