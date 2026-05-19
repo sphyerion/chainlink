@@ -30,7 +30,7 @@ func RunSimpleCronWorkflow(config *runtimeConfig, _ *slog.Logger, _ cre.SecretsP
 }
 
 func onTrigger(config *runtimeConfig, runtime cre.Runtime, outputs *cron.Payload) (string, error) {
-	runtime.Logger().Info("inside onTrigger handler")
+	runtime.Logger().Debug("inside onTrigger handler")
 	return fmt.Sprintf("success (Schedule: %s)", config.Schedule), nil
 }
 
