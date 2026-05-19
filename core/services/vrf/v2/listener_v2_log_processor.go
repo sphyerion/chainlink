@@ -669,7 +669,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 	)
 
 	defer func() {
-		l.Infow("Finished processing for sub",
+		l.Debugw("Finished processing for sub",
 			"endBalance", startBalanceNoReserved.String(),
 			"totalProcessed", len(processed),
 			"totalUnique", uniqueReqs(reqs),
