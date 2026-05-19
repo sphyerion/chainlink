@@ -254,7 +254,7 @@ func (s *triggerSubscriber) registrationLoop() {
 						err := s.dispatcher.Send(peerID, m)
 						if err != nil {
 							totalSendErrors++
-							s.lggr.Errorw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
+							s.lggr.Warnw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
 						} else {
 							totalP2PSends++
 						}
