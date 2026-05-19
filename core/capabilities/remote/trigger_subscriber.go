@@ -229,7 +229,7 @@ func (s *triggerSubscriber) registrationLoop() {
 			}
 
 			s.mu.RLock()
-			s.lggr.Infow("register trigger for remote capability", "donId", cfg.capDonInfo.ID, "nMembers", len(cfg.capDonInfo.Members), "nWorkflows", len(s.registeredWorkflows))
+			s.lggr.Debugw("register trigger for remote capability", "donId", cfg.capDonInfo.ID, "nMembers", len(cfg.capDonInfo.Members), "nWorkflows", len(s.registeredWorkflows))
 			var totalRegistrations, totalP2PSends, totalSendErrors int
 			for _, regMap := range s.registeredWorkflows {
 				totalRegistrations += len(regMap)
