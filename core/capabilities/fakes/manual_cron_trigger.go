@@ -157,7 +157,7 @@ func (f *ManualCronTriggerService) ManualTrigger(ctx context.Context, triggerID 
 	}
 	err = events.EmitTriggerExecutionStarted(ctx, map[string]string{}, triggerEvent.Id, workflowExecutionID)
 	if err != nil {
-		f.lggr.Errorw("failed to emit trigger execution started event", "err", err)
+		f.lggr.Warnw("failed to emit trigger execution started event", "err", err)
 	}
 
 	defer func() {
