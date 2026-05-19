@@ -39,7 +39,7 @@ func (wc *fakeWriteChain) UnregisterFromWorkflow(ctx context.Context, request co
 }
 
 func (wc *fakeWriteChain) Execute(ctx context.Context, request commonCap.CapabilityRequest) (commonCap.CapabilityResponse, error) {
-	wc.eng.Infow("Executed Fake Write Chain", "targetID", wc.targetID, "workflowID", request.Metadata.WorkflowID, "executionID", request.Metadata.WorkflowExecutionID)
+	wc.eng.Debugw("Executed Fake Write Chain", "targetID", wc.targetID, "workflowID", request.Metadata.WorkflowID, "executionID", request.Metadata.WorkflowExecutionID)
 	return commonCap.CapabilityResponse{Value: &values.Map{}}, nil
 }
 
