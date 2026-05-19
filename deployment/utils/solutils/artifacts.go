@@ -196,7 +196,7 @@ func downloadProgramArtifacts(ctx context.Context, url string, targetDir string,
 		totalSize += bytesWritten
 
 		if lggr != nil {
-			lggr.Infof("Extracted Solana chainlink-solana artifact: %s", outPath)
+			lggr.Debugf("Extracted Solana chainlink-solana artifact: %s", outPath)
 		}
 
 		outFile.Close()
