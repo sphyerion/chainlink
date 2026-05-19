@@ -938,7 +938,7 @@ func (s *service) RejectSpec(ctx context.Context, id int64) error {
 	}
 
 	if err = s.observeJobProposalCounts(ctx); err != nil {
-		logger.Errorw("Failed to push metrics for job rejection", "err", err)
+		logger.Warnw("Failed to push metrics for job rejection", "err", err)
 	}
 
 	return nil
