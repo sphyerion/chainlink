@@ -114,7 +114,7 @@ func (f *ManualHTTPTriggerService) Start(ctx context.Context) error {
 }
 
 func (f *ManualHTTPTriggerService) Close() error {
-	f.lggr.Debug("Closing HTTP Trigger Capability")
+	f.lggr.Info("Closing HTTP Trigger Capability")
 	return nil
 }
 
