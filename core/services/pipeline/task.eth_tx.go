@@ -129,7 +129,7 @@ func (t *ETHTxTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, inpu
 	fromAddr, err := t.keyStore.GetRoundRobinAddress(ctx, legacyChain.ID(), fromAddrs...)
 	if err != nil {
 		err = errors.Wrap(err, "ETHTxTask failed to get fromAddress")
-		lggr.Error(err)
+		lggr.Warn(err)
 		return Result{Error: errors.Wrapf(ErrTaskRunFailed, "while querying keystore: %v", err)}, retryableRunInfo()
 	}
 
