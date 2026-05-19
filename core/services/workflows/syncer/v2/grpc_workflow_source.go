@@ -172,7 +172,7 @@ func (g *GRPCWorkflowSource) ListWorkflowMetadata(ctx context.Context, don capab
 		for _, wf := range workflows {
 			view, err := g.toWorkflowMetadataView(wf)
 			if err != nil {
-				g.lggr.Warnw("Failed to parse workflow metadata, skipping",
+				g.lggr.Debugw("Failed to parse workflow metadata, skipping",
 					"workflowName", wf.GetWorkflowName(),
 					"error", err)
 				continue
