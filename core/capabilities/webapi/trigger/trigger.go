@@ -160,7 +160,7 @@ func (h *triggerConnectorHandler) HandleGatewayMessage(ctx context.Context, gate
 	var payload webapicap.TriggerRequestPayload
 	err = json.Unmarshal(body.Payload, &payload)
 	if err != nil {
-		h.lggr.Errorw("error decoding payload", "err", err)
+		h.lggr.Warnw("error decoding payload", "err", err)
 		err = h.sendResponse(ctx, gatewayID, body, ghcapabilities.TriggerResponsePayload{Status: "ERROR", ErrorMessage: fmt.Errorf("error %s decoding payload", err.Error()).Error()})
 		if err != nil {
 			h.lggr.Errorw("error sending response", "err", err)
