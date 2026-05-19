@@ -318,7 +318,7 @@ func (r *EvmRegistry) simulatePerformUpkeeps(ctx context.Context, checkResults [
 		oc, err := r.fetchUpkeepOffchainConfig(ctx, upkeepId)
 		if err != nil {
 			// this is mostly caused by RPC flakiness
-			r.lggr.Errorw("failed get offchain config, gas price check will be disabled", "err", err, "upkeepId", upkeepId, "block", block)
+			r.lggr.Warnw("failed get offchain config, gas price check will be disabled", "err", err, "upkeepId", upkeepId, "block", block)
 		}
 		fr := gasprice.CheckGasPrice(ctx, upkeepId, oc, r.ge, r.lggr)
 		if uint8(fr) == uint8(encoding.UpkeepFailureReasonGasPriceTooHigh) {
