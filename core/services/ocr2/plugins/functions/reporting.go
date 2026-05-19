@@ -312,7 +312,7 @@ func (r *functionsReporting) Report(ctx context.Context, ts types.ReportTimestam
 				reqIdToObservationList[id] = append(val, processedReq)
 				seenReqIds[id] = struct{}{}
 			} else {
-				r.logger.Error("FunctionsReporting Report: observation contains ID that's not the query!",
+				r.logger.Warn("FunctionsReporting Report: observation contains ID that's not the query!",
 					commontypes.LogFields{"requestID": id, "observer": ob.Observer})
 			}
 		}
