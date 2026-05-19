@@ -219,7 +219,7 @@ func (c *client) singleFeedRequest(ctx context.Context, ch chan<- mercury.Mercur
 				// continue
 			default:
 				// Not considered as a pipeline error, a bad streams response with unknown status code. Send back to user as error code
-				c.lggr.Errorf("at block %s upkeep %s received unhandled status code %d for feed %s", sl.Time.String(), sl.UpkeepId.String(), httpResponse.StatusCode, sl.Feeds[index])
+				c.lggr.Warnf("at block %s upkeep %s received unhandled status code %d for feed %s", sl.Time.String(), sl.UpkeepId.String(), httpResponse.StatusCode, sl.Feeds[index])
 				ch <- mercury.MercuryData{
 					Index:   index,
 					Bytes:   nil,
