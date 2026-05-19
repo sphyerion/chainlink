@@ -503,7 +503,7 @@ func (lsn *listenerV2) filterSingleRevertedTxn(ctx context.Context,
 	commitment, err := lsn.coordinator.GetCommitment(&bind.CallOpts{Context: ctx}, requestID)
 	if err != nil {
 		// Not able to get commitment from chain RPC node, continue
-		lsn.l.Errorw("Force-fulfilment of single reverted txns: Not able to get commitment from chain RPC node", "err", err)
+		lsn.l.Warnw("Force-fulfilment of single reverted txns: Not able to get commitment from chain RPC node", "err", err)
 	} else if utils.IsEmpty(commitment[:]) {
 		// VRF request already fulfilled, return
 		return nil, nil
