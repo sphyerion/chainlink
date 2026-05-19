@@ -103,7 +103,7 @@ func ProposeJob(ctx context.Context, req ProposeJobRequest) error {
 				Labels: convertLabels(req.JobLabels),
 			})
 		if err1 != nil {
-			req.Lggr.Infow("Failed to propose job to node", "nodeId", node.Id, "nodeName", node.Name)
+			req.Lggr.Warnw("Failed to propose job to node", "nodeId", node.Id, "nodeName", node.Name)
 			merr = errors.Join(merr, fmt.Errorf("error proposing job to node %s spec %s : %w", node.Id, req.Job, err1))
 		} else {
 			req.Lggr.Infow("Successfully proposed job to node", "nodeId", node.Id, "nodeName", node.Name)
