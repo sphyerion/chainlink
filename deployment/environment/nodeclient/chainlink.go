@@ -704,7 +704,7 @@ func (c *ChainlinkClient) CreateTxKey(chain string, chainId string) (*TxKey, *ht
 // ReadTxKeys reads all tx keys from the Chainlink node
 func (c *ChainlinkClient) ReadTxKeys(chain string) (*TxKeys, *http.Response, error) {
 	txKeys := &TxKeys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading Tx Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading Tx Keys")
 	resp, err := c.APIClient.R().
 		SetPathParams(map[string]string{
 			"chain": chain,
