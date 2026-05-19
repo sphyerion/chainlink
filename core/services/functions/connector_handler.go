@@ -145,7 +145,7 @@ func (h *functionsConnectorHandler) HandleGatewayMessage(ctx context.Context, ga
 		h.handleSecretsList(ctx, gatewayID, body, fromAddr)
 	case functions.MethodSecretsSet:
 		if balance, err := h.subscriptions.GetMaxUserBalance(fromAddr); err != nil || balance.Cmp(h.minimumBalance.ToInt()) < 0 {
-			h.lggr.Errorw("user subscription has insufficient balance", "id", gatewayID, "address", fromAddr, "balance", balance, "minBalance", h.minimumBalance)
+			h.lggr.Warnw("user subscription has insufficient balance", "id", gatewayID, "address", fromAddr, "balance", balance, "minBalance", h.minimumBalance)
 			response := functions.ResponseBase{
 				Success:      false,
 				ErrorMessage: "user subscription has insufficient balance",
