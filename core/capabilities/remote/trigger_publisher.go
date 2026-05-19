@@ -374,7 +374,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 	case types.MethodTriggerEventAck:
 		triggerMetadata := msg.GetTriggerEventMetadata()
 		if triggerMetadata == nil {
-			p.lggr.Errorw("received empty trigger event ack metadata", "sender", sender)
+			p.lggr.Warnw("received empty trigger event ack metadata", "sender", sender)
 			break
 		}
 		triggerEventID := triggerMetadata.TriggerEventId
