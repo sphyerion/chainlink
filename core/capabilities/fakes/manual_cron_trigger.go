@@ -145,7 +145,7 @@ func (f *ManualCronTriggerService) ManualTrigger(ctx context.Context, triggerID 
 	// Get the workflowID for this trigger
 	workflowID, exists := f.workflowIDs[triggerID]
 	if !exists {
-		f.lggr.Errorw("workflowID not found for triggerID", "triggerID", triggerID)
+		f.lggr.Warnw("workflowID not found for triggerID", "triggerID", triggerID)
 		workflowID = "unknownWorkflow"
 	}
 
