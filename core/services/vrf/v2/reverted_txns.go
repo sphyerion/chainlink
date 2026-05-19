@@ -660,7 +660,7 @@ func (lsn *listenerV2) filterBatchRevertedTxn(ctx context.Context,
 			}
 			revertedTxns = append(revertedTxns, revertedTxn)
 		} else {
-			lsn.l.Criticalw("Reverted Batch fulfilment requestID from log does not have proof in req EncodedPayload",
+			lsn.l.Errorw("Reverted Batch fulfilment requestID from log does not have proof in req EncodedPayload",
 				"requestIDFromLog", requestID.Big().Int64(),
 			)
 		}
