@@ -126,7 +126,7 @@ func (fh *DirectHTTPAction) SendRequest(ctx context.Context, metadata commonCap.
 	// Read response body
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fh.eng.Errorw("Failed to read response body", "error", err)
+		fh.eng.Warnw("Failed to read response body", "error", err)
 		httpResponse := &customhttp.Response{
 			StatusCode: uint32(resp.StatusCode), //nolint:gosec // status code is always in valid range
 		}
