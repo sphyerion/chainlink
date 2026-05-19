@@ -180,7 +180,7 @@ func (c *ChainlinkClient) ReadJobs() (*ResponseSlice, *http.Response, error) {
 // ReadJob reads a job with the provided ID from the Chainlink node
 func (c *ChainlinkClient) ReadJob(id string) (*Response, *http.Response, error) {
 	specObj := &Response{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Str("ID", id).Msg("Reading Job")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Str("ID", id).Msg("Reading Job")
 	resp, err := c.APIClient.R().
 		SetResult(&specObj).
 		SetPathParams(map[string]string{
