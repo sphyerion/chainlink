@@ -97,7 +97,7 @@ func NewDirectConfidentialHTTPAction(lggr logger.Logger, secretsPath string) *Di
 }
 
 func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadata commonCap.RequestMetadata, input *confidentialhttp.ConfidentialHTTPRequest) (*commonCap.ResponseAndMetadata[*confidentialhttp.HTTPResponse], caperrors.Error) {
-	fh.eng.Infow("Confidential HTTP Action SendRequest Started", "input", input, "secretsCount", len(input.GetVaultDonSecrets()))
+	fh.eng.Debugw("Confidential HTTP Action SendRequest Started", "input", input, "secretsCount", len(input.GetVaultDonSecrets()))
 
 	req := input.GetRequest()
 	if req == nil {
