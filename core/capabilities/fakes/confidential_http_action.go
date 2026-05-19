@@ -211,7 +211,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 				secretKey = []byte(secretKeyStr)
 			}
 
-			fh.eng.Infow("Encrypting response body with AES-GCM key from secrets.yaml", "originalSize", len(respBody))
+			fh.eng.Debugw("Encrypting response body with AES-GCM key from secrets.yaml", "originalSize", len(respBody))
 			encryptedBody, encErr := AESGCMEncrypt(respBody, secretKey)
 			if encErr != nil {
 				fh.eng.Errorw("Failed to encrypt response body with AES-GCM", "error", encErr)
