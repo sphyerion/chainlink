@@ -227,7 +227,7 @@ func (r *server) expireRequests() {
 			err := executeReq.request.Cancel(ctx, types.Error_TIMEOUT, "request expired by executable server")
 			cancelFn()
 			if err != nil {
-				r.lggr.Errorw("failed to cancel request", "request", executeReq, "err", err)
+				r.lggr.Warnw("failed to cancel request", "request", executeReq, "err", err)
 			}
 		}
 		if executeReq.request.Evictable(commoncap.DefaultExecutableRequestTimeout) {
