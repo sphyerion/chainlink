@@ -578,7 +578,7 @@ func (lsn *listenerV2) enqueueForceFulfillment(
 	}
 
 	// fulfill the request through the VRF owner
-	lsn.l.Infow("VRFOwner.fulfillRandomWords vs. VRFCoordinatorV2.fulfillRandomWords",
+	lsn.l.Debugw("VRFOwner.fulfillRandomWords vs. VRFCoordinatorV2.fulfillRandomWords",
 		"vrf_owner.fulfillRandomWords", hexutil.Encode(vrfOwnerABI.Methods["fulfillRandomWords"].ID),
 		"vrf_coordinator_v2.fulfillRandomWords", hexutil.Encode(coordinatorV2ABI.Methods["fulfillRandomWords"].ID),
 	)
