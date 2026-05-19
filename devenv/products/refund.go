@@ -310,7 +310,7 @@ func returnAllFundsIfPossible(log zerolog.Logger, sethClient *seth.Client, fromP
 	}
 
 	if balance.Cmp(big.NewInt(0)) == 0 {
-		log.Info().
+		log.Debug().
 			Str("Address", fromAddress.String()).
 			Msg("No balance to return. Skipping return.")
 	}
