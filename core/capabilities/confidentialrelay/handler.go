@@ -659,7 +659,7 @@ func (h *Handler) errorResponse(
 	errorCode int64,
 	err error,
 ) *jsonrpc.Response[json.RawMessage] {
-	h.lggr.Errorw("request error", "errorCode", errorCode, "err", err)
+	h.lggr.Warnw("request error", "errorCode", errorCode, "err", err)
 	h.metrics.requestInternalError.Add(ctx, 1, metric.WithAttributes(
 		attribute.String("gateway_id", gatewayID),
 		attribute.Int64("error_code", errorCode),
