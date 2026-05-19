@@ -585,7 +585,7 @@ func (lsn *listenerV2) enqueueForceFulfillment(
 
 	vrfOwnerAddress1 := lsn.vrfOwner.Address()
 	vrfOwnerAddressSpec := lsn.job.VRFSpec.VRFOwnerAddress.Address()
-	lsn.l.Infow("addresses diff", "wrapper_address", vrfOwnerAddress1, "spec_address", vrfOwnerAddressSpec)
+	lsn.l.Debugw("addresses diff", "wrapper_address", vrfOwnerAddress1, "spec_address", vrfOwnerAddressSpec)
 
 	lsn.l.Infow("fulfillRandomWords payload", "proof", p.proof, "commitment", p.reqCommitment.Get(), "payload", p.payload)
 	txData := hexutil.MustDecode(p.payload)
