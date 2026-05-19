@@ -796,7 +796,7 @@ func (e *Engine) startExecution(ctx context.Context, wrappedTriggerEvent enqueue
 			if m, ok := mapResp.GetMappings()[e.cfg.WorkflowID]; ok {
 				logFields = append(logFields, "mappedShard", m)
 			}
-			lggr.Infow("Skipping execution: workflow not owned by this shard per orchestrator", logFields...)
+			lggr.Debugw("Skipping execution: workflow not owned by this shard per orchestrator", logFields...)
 			e.metrics.IncrementShardExecutionDeniedNotOwnerCounter(ctx)
 			triggerDrop(monitoring.TriggerDropReasonShardDeniedNotOwner)
 			executionStatus = store.StatusErrored
