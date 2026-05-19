@@ -942,7 +942,7 @@ func (w *launcher) addRemoteCapabilityV2(ctx context.Context, capID string, meth
 
 	cc, isNewCC := w.getCombinedClient(info)
 	for method, config := range methodConfig {
-		w.lggr.Infow("addRemoteCapabilityV2", "capID", capID, "method", method)
+		w.lggr.Debugw("addRemoteCapabilityV2", "capID", capID, "method", method)
 		if config.RemoteTriggerConfig == nil && config.RemoteExecutableConfig == nil {
 			// TODO CRE-1021 metrics
 			w.lggr.Errorw("no remote config found", "method", method, "capID", capID)
