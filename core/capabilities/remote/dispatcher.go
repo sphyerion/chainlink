@@ -356,7 +356,7 @@ func (d *dispatcher) handleMessage(ctx context.Context, msg *p2ptypes.Message) {
 	case receiver.ch <- body:
 	default:
 		d.metrics.receiverDroppedMsgsCounter.Add(ctx, 1, capAttrs)
-		d.lggr.Errorw("receiver channel full, dropping message", "capabilityId", k.capID, "donId", k.donID)
+		d.lggr.Warnw("receiver channel full, dropping message", "capabilityId", k.capID, "donId", k.donID)
 	}
 }
 
