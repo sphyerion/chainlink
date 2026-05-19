@@ -153,7 +153,7 @@ func (c *client) multiFeedsRequest(ctx context.Context, ch chan<- mercury.Mercur
 			retryable = false
 			resp, err := c.httpClient.Do(req)
 			if err != nil {
-				c.lggr.Errorf("at timestamp %s upkeep %s GET request fails from mercury v0.3: %v", sl.Time.String(), sl.UpkeepId.String(), err)
+				c.lggr.Warnf("at timestamp %s upkeep %s GET request fails from mercury v0.3: %v", sl.Time.String(), sl.UpkeepId.String(), err)
 				errCode = encoding.ErrCodeStreamsUnknownError
 				if ctx.Err() != nil {
 					errCode = encoding.ErrCodeStreamsTimeout
