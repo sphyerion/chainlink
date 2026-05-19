@@ -529,7 +529,7 @@ func (r *functionsReporting) ShouldTransmitAcceptedReport(ctx context.Context, t
 
 // Close() complies with ReportingPlugin
 func (r *functionsReporting) Close() error {
-	r.logger.Debug("FunctionsReporting Close", commontypes.LogFields{
+	r.logger.Info("FunctionsReporting Close", commontypes.LogFields{
 		"oracleID": r.genericConfig.OracleID,
 	})
 	return nil
