@@ -103,7 +103,7 @@ func (u *upkeepStateStore) Start(pctx context.Context) error {
 			return errors.New("failed to start scanner")
 		}
 
-		u.lggr.Debug("Starting upkeep state store")
+		u.lggr.Info("Starting upkeep state store")
 
 		u.threadCtrl.Go(func(ctx context.Context) {
 			ticker := services.NewTicker(u.cleanCadence)
