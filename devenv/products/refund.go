@@ -148,7 +148,7 @@ func (r *GasTooLowTransferRetrier) Retry(ctx context.Context, logger zerolog.Log
 
 		_, retryErr := SendFunds(logger, client, payload)
 		if retryErr == nil {
-			logger.Info().
+			logger.Warn().
 				Str("retrier", "GasTooLowTransferRetrier").
 				Msg(RetrySuccessfulMsg)
 			return nil
