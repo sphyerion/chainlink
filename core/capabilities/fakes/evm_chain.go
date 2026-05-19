@@ -486,7 +486,7 @@ func (fc *FakeEVMChain) EstimateGas(ctx context.Context, metadata commonCap.Requ
 	}
 
 	// Convert gas to protobuf
-	fc.eng.Infow("EVM Chain EstimateGas Finished", "gas", gas)
+	fc.eng.Debugw("EVM Chain EstimateGas Finished", "gas", gas)
 	response := &evmcappb.EstimateGasReply{
 		Gas: gas,
 	}
