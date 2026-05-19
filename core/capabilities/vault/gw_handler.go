@@ -222,7 +222,7 @@ func (h *GatewayHandler) authorizeAndPrefixRequest(ctx context.Context, req *jso
 	authReq := *req
 	authReq.ID = originalRequestID
 	if err := stripPrefixedRequestIDFromParams(&authReq, originalRequestID); err != nil {
-		h.lggr.Errorw("failed to normalize gateway request for authorization", "method", req.Method, "requestID", originalRequestID, "error", err)
+		h.lggr.Warnw("failed to normalize gateway request for authorization", "method", req.Method, "requestID", originalRequestID, "error", err)
 		return nil, err
 	}
 	authReq, err := StripRequestIdentity(authReq)
