@@ -313,7 +313,7 @@ func (r *server) Receive(ctx context.Context, msg *types.MessageBody) {
 				r.lggr.Warnw("failed to execute on message", "messageID", reqAndMsgID.messageID, "err", err)
 			}
 		}); executeTaskErr != nil {
-		r.lggr.Errorw("failed to execute on message task", "messageID", messageID, "err", executeTaskErr)
+		r.lggr.Warnw("failed to execute on message task", "messageID", messageID, "err", executeTaskErr)
 	}
 }
 
