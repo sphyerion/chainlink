@@ -444,7 +444,7 @@ func (r *EvmRegistry) addToActive(ctx context.Context, id *big.Int, force bool) 
 	if _, ok := r.active[id.String()]; !ok || force {
 		actives, err := r.getUpkeepConfigs(ctx, []*big.Int{id})
 		if err != nil {
-			r.lggr.Errorf("failed to get upkeep configs during adding active upkeep: %v", err)
+			r.lggr.Warnf("failed to get upkeep configs during adding active upkeep: %v", err)
 			return
 		}
 
