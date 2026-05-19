@@ -217,7 +217,7 @@ func (f *Feeder) runTrusted(
 				errs = stderrors.Join(errs, errors.Wrap(err, "checking if stored"))
 				f.errsLock.Unlock()
 			} else if stored {
-				f.lggr.Infow("Blockhash already stored",
+				f.lggr.Debugw("Blockhash already stored",
 					"block", block, "latestBlock", latestBlock,
 					"unfulfilledReqIDs", LimitReqIDs(unfulfilled, 50))
 				return
