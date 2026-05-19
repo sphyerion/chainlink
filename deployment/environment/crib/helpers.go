@@ -96,7 +96,7 @@ func distributeTransmitterFunds(lggr logger.Logger, nodeInfo []devenv.Node, env 
 						lggr.Errorw("failed to fetch transmitter balance", "transmitter", addr, "err", err)
 						return err
 					} else if res != nil {
-						lggr.Infow("got balance for transmitter", "transmitter", addr, "balance", res.Value)
+						lggr.Debugw("got balance for transmitter", "transmitter", addr, "balance", res.Value)
 					}
 				}
 				return nil
