@@ -124,7 +124,7 @@ func (fc *FakeEVMChain) CallContract(ctx context.Context, metadata commonCap.Req
 	}
 
 	fc.eng.Debugw("EVM Chain CallContract Data Output", "data", new(big.Int).SetBytes(data).String())
-	fc.eng.Infow("EVM Chain CallContract Finished")
+	fc.eng.Debugw("EVM Chain CallContract Finished")
 
 	// Convert data to protobuf
 	response := &evmcappb.CallContractReply{
