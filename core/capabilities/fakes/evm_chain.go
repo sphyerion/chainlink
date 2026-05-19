@@ -602,7 +602,7 @@ func (fc *FakeEVMChain) GetTransactionReceipt(ctx context.Context, metadata comm
 }
 
 func (fc *FakeEVMChain) HeaderByNumber(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.HeaderByNumberRequest) (*commonCap.ResponseAndMetadata[*evmcappb.HeaderByNumberReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain HeaderByNumber Started", "input", input)
+	fc.eng.Debugw("EVM Chain HeaderByNumber Started", "input", input)
 
 	var (
 		header *types.Header
