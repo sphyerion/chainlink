@@ -257,7 +257,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 		ResponseMetadata: commonCap.ResponseMetadata{},
 	}
 
-	fh.eng.Infow("Confidential HTTP Action Finished", "status", resp.StatusCode, "url", req.GetUrl())
+	fh.eng.Debugw("Confidential HTTP Action Finished", "status", resp.StatusCode, "url", req.GetUrl())
 	return &responseAndMetadata, nil
 }
 
