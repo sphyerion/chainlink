@@ -325,7 +325,7 @@ func (h *functionsConnectorHandler) reportLoop() {
 			h.mu.Lock()
 			cachedResponse, ok := h.heartbeatRequests[RequestID(report.RequestId)]
 			if !ok {
-				h.lggr.Infow("received report for unknown request, caching it", "id", report.RequestId)
+				h.lggr.Debugw("received report for unknown request, caching it", "id", report.RequestId)
 				cachedResponse = &HeartbeatResponse{}
 				h.cacheNewRequestLocked(RequestID(report.RequestId), cachedResponse)
 			}
