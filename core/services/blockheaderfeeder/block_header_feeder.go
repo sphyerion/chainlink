@@ -202,7 +202,7 @@ func (f *BlockHeaderFeeder) findLowestBlockNumberWithoutBlockhash(ctx context.Co
 				"block", block)
 			continue
 		} else if stored {
-			lggr.Infow("Blockhash already stored",
+			lggr.Debugw("Blockhash already stored",
 				"block", block, "unfulfilledReqIDs", blockhashstore.LimitReqIDs(unfulfilledReqs, 50))
 			f.stored[block] = struct{}{}
 			continue
