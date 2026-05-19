@@ -343,7 +343,7 @@ func (w *workflowRegistry) readRegistryEventsLoop(ctx context.Context, eventType
 
 				event, err := toWorkflowRegistryEventResponse(log.Sequence, log.EventType, w.lggr)
 				if err != nil {
-					w.lggr.Errorw("failed to convert log to workflow registry event, skipping...", "err", err)
+					w.lggr.Warnw("failed to convert log to workflow registry event, skipping...", "err", err)
 					continue
 				}
 
