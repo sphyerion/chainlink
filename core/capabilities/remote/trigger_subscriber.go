@@ -388,7 +388,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 	case types.MethodTriggerRegistrationCheck:
 		meta := msg.GetTriggerEventMetadata()
 		if meta == nil {
-			s.lggr.Errorw("received registration check with nil metadata", "sender", sender)
+			s.lggr.Warnw("received registration check with nil metadata", "sender", sender)
 			return
 		}
 
