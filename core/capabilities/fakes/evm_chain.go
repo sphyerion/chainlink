@@ -435,7 +435,7 @@ func (fc *FakeEVMChain) FilterLogs(ctx context.Context, metadata commonCap.Reque
 }
 
 func (fc *FakeEVMChain) BalanceAt(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.BalanceAtRequest) (*commonCap.ResponseAndMetadata[*evmcappb.BalanceAtReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain BalanceAt Started", "input", input)
+	fc.eng.Debugw("EVM Chain BalanceAt Started", "input", input)
 
 	if input == nil {
 		return nil, caperrors.NewPublicSystemError(errors.New("BalanceAtRequest is nil"), caperrors.Unknown)
