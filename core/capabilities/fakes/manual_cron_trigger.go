@@ -198,7 +198,7 @@ func (f *ManualCronTriggerService) createManualTriggerEvent(scheduledExecutionTi
 }
 
 func (f *ManualCronTriggerService) Start(ctx context.Context) error {
-	f.lggr.Debugw("Starting ManualCronTriggerService")
+	f.lggr.Infow("Starting ManualCronTriggerService")
 	f.scheduler.Start()
 	return nil
 }
