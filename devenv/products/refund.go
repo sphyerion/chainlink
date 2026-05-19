@@ -195,7 +195,7 @@ func (r *OvershotTransferRetrier) Retry(ctx context.Context, logger zerolog.Logg
 
 	overshotRe := regexp.MustCompile(`overshot (\d+)`)
 	if txErr != nil && strings.Contains(txErr.Error(), OvershotErr) {
-		logger.Info().
+		logger.Warn().
 			Msg("Overshot error detected, retrying with less funds")
 		submatches := overshotRe.FindStringSubmatch(txErr.Error())
 		if len(submatches) <= 1 {
