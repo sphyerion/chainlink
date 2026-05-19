@@ -166,7 +166,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 			for _, value := range headerValues.GetValues() {
 				headerTmpl, tmplErr := template.New("header").Parse(value)
 				if tmplErr != nil {
-					fh.eng.Errorf("error parsing header template for %s: %v", name, tmplErr)
+					fh.eng.Warnf("error parsing header template for %s: %v", name, tmplErr)
 					return nil, caperrors.NewPublicUserError(errors.New("error parsing header template"), caperrors.InvalidArgument)
 				}
 
