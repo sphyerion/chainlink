@@ -113,7 +113,7 @@ func (oc *observationContext) Observe(ctx context.Context, streamID streams.Stre
 			ot.StreamValueType = int32(val.Type())
 			b, err := val.MarshalBinary()
 			if err != nil {
-				oc.l.Errorw("failed to MarshalBinary on stream value", "error", err)
+				oc.l.Warnw("failed to MarshalBinary on stream value", "error", err)
 			} else {
 				ot.StreamValueBinary = b
 			}
