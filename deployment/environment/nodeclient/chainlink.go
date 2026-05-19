@@ -167,7 +167,7 @@ func (c *ChainlinkClient) CreateJob(spec JobSpec) (*Job, *resty.Response, error)
 // ReadJobs reads all jobs from the Chainlink node
 func (c *ChainlinkClient) ReadJobs() (*ResponseSlice, *http.Response, error) {
 	specObj := &ResponseSlice{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Getting Jobs")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Getting Jobs")
 	resp, err := c.APIClient.R().
 		SetResult(&specObj).
 		Get("/v2/jobs")
