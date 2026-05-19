@@ -1011,7 +1011,7 @@ func (e *Engine) executeStep(
 
 	info, iErr := curStep.capability.Info(ctx)
 	if iErr != nil {
-		e.logger.Errorf("failed to get capability info: %s", err)
+		e.logger.Warnf("failed to get capability info: %s", err)
 	}
 
 	stepTimeoutDuration := e.stepTimeoutDuration
