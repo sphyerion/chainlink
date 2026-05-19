@@ -38,7 +38,7 @@ type noOpTransmitter struct {
 
 // FromAccount implements ocr3types.ContractTransmitter.
 func (n *noOpTransmitter) FromAccount(context.Context) (types.Account, error) {
-	n.lggr.Criticalw(fmt.Sprintf(errMsg, "FromAccount()"),
+	n.lggr.Errorw(fmt.Sprintf(errMsg, "FromAccount()"),
 		"myP2PID", n.myP2PID,
 	)
 
