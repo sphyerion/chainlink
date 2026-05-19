@@ -94,7 +94,7 @@ func (e *AutomationCustomTelemetryService) Start(ctx context.Context) error {
 		}
 		e.blockSubChanID = chanID
 		e.threadCtrl.Go(func(ctx context.Context) {
-			e.lggr.Debug("Started: Sending BlockNumber Messages")
+			e.lggr.Info("Started: Sending BlockNumber Messages")
 			for {
 				select {
 				case blockHistory := <-blockSubscriberChan:
