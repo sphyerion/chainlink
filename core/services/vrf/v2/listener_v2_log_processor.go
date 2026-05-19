@@ -741,7 +741,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 					// blockhash
 					// we can simply mark as processed and move on, since we will eventually
 					// process the request with the right blockhash
-					ll.Infow("proof reverted in simulation, likely stale blockhash")
+					ll.Debugw("proof reverted in simulation, likely stale blockhash")
 					processed[p.req.req.RequestID().String()] = struct{}{}
 				default:
 					ll.Errorw("Pipeline error", "err", p.err)
