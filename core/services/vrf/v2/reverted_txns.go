@@ -337,7 +337,7 @@ func (lsn *listenerV2) fetchRevertedForceFulfilmentTxns(ctx context.Context,
 
 	recentReceipts = UniqueByReqID(recentReceipts, allReceipts)
 
-	lsn.l.Infow("finished querying for recently reverting reverted force-fulfillment txns",
+	lsn.l.Debugw("finished querying for recently reverting reverted force-fulfillment txns",
 		"count", len(recentReceipts),
 	)
 	for _, r := range recentReceipts {
