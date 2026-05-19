@@ -213,7 +213,7 @@ func (pm *persistenceManager) runPruneLoop() {
 			if err != nil {
 				pm.lggr.Errorw("Failed to truncate transmit requests table on close", "err", err)
 			} else if n > 0 {
-				pm.lggr.Debugw("Truncated transmit requests table on close", "nDeleted", n)
+				pm.lggr.Infow("Truncated transmit requests table on close", "nDeleted", n)
 			}
 			return
 		case <-ticker.C:
