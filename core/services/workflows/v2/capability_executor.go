@@ -247,7 +247,7 @@ func (c *ExecutionHelper) callCapability(ctx context.Context, request *sdkpb.Cap
 
 	if meterReport != nil {
 		if err = meterReport.Settle(meteringRef, capResp.Metadata); err != nil {
-			execLogger.Errorw("failed to set metering for capability request", "err", err)
+			execLogger.Warnw("failed to set metering for capability request", "err", err)
 		}
 	}
 
