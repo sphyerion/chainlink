@@ -42,7 +42,7 @@ func (s *BillingService) ReserveCredits(
 	_ context.Context,
 	request *billing.ReserveCreditsRequest,
 ) (*billing.ReserveCreditsResponse, error) {
-	s.lggr.Infof("ReserveCredits: %v", request)
+	s.lggr.Debugf("ReserveCredits: %v", request)
 
 	return &billing.ReserveCreditsResponse{
 		Success: true,
