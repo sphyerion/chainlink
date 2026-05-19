@@ -212,7 +212,7 @@ func (c *plugin) Report(_ context.Context, ts types.ReportTimestamp, _ types.Que
 		for _, row := range observationRows {
 			if err := row.VerifySignature(); err != nil {
 				promReportingPluginWrongSigCount.WithLabelValues(c.config.ProductName).Inc()
-				c.logger.Error("Report detected invalid signature", commontypes.LogFields{"err": err, "oracleID": ao.Observer})
+				c.logger.Warn("Report detected invalid signature", commontypes.LogFields{"err": err, "oracleID": ao.Observer})
 				continue
 			}
 			mkey := key{
