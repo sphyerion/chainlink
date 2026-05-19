@@ -26,7 +26,7 @@ func LoadTronOnchainState(e cldf.Environment) (KeystoneTronChainState, error) {
 
 	for chainSelector := range e.BlockChains.TronChains() {
 		records := e.DataStore.Addresses().Filter(datastore.AddressRefByChainSelector(chainSelector))
-		e.Logger.Infof("Records: %+v, Datastore: %+v", records, e.DataStore.Addresses())
+		e.Logger.Debugf("Records: %+v, Datastore: %+v", records, e.DataStore.Addresses())
 		contractsState, err := LoadTronContractsState(e.Logger, records)
 		if err != nil {
 			return state, err
