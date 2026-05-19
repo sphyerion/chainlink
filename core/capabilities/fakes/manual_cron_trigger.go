@@ -204,7 +204,7 @@ func (f *ManualCronTriggerService) Start(ctx context.Context) error {
 }
 
 func (f *ManualCronTriggerService) Close() error {
-	f.lggr.Debug("Closing ManualCronTriggerService")
+	f.lggr.Info("Closing ManualCronTriggerService")
 	if err := f.scheduler.Shutdown(); err != nil {
 		f.lggr.Errorw("failed to close scheduler", "err", err)
 	}
