@@ -211,7 +211,7 @@ func (l *logEventTrigger) listen() {
 
 				err = events.EmitTriggerExecutionStarted(ctx, labels, triggerResp.Event.ID, workflowExecutionID)
 				if err != nil {
-					l.lggr.Errorw("failed to emit trigger execution started event", "err", err)
+					l.lggr.Warnw("failed to emit trigger execution started event", "err", err)
 				}
 
 				l.ch <- triggerResp
