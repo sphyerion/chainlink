@@ -294,7 +294,7 @@ func (s *triggerSubscriber) UnregisterTrigger(ctx context.Context, request commo
 func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 	sender, err := ToPeerID(msg.Sender)
 	if err != nil {
-		s.lggr.Errorw("failed to convert message sender to PeerID", "err", err)
+		s.lggr.Warnw("failed to convert message sender to PeerID", "err", err)
 		return
 	}
 	cfg := s.cfg.Load()
