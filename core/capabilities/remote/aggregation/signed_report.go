@@ -59,7 +59,7 @@ func (a *signedReportRemoteAggregator) Aggregate(triggerEventID string, response
 	for _, response := range responses {
 		triggerResp, err := capabilitiespb.UnmarshalTriggerResponse(response)
 		if err != nil {
-			a.lggr.Errorw("could not unmarshal one of capability responses (faulty sender?)", "err", err)
+			a.lggr.Warnw("could not unmarshal one of capability responses (faulty sender?)", "err", err)
 			continue
 		}
 		ocrEvent := &capabilities.OCRTriggerEvent{}
