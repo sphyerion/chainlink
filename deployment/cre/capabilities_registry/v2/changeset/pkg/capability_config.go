@@ -45,7 +45,7 @@ func (c CapabilityConfig) MarshalProto() ([]byte, error) {
 	pbCfg := &pb.CapabilityConfig{}
 	if errValidation := UnmarshalWithValidation(jsonEncodedCfg, pbCfg); errValidation != nil {
 		// log the error with the specific field names that don't match
-		lggr.Warnf("⚠️  WARNING: Config validation failed: %v", errValidation)
+		lggr.Debugf("⚠️  WARNING: Config validation failed: %v", errValidation)
 		// Also print to stderr so it's visible no matter what
 		fmt.Fprintf(os.Stderr, "⚠️  WARNING: Config validation failed: %v\n", errValidation)
 
