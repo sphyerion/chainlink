@@ -152,7 +152,7 @@ func (f *ManualCronTriggerService) ManualTrigger(ctx context.Context, triggerID 
 	// Emit trigger execution started event with real workflowExecutionID
 	workflowExecutionID, err := events.GenerateExecutionID(workflowID, triggerEvent.Id)
 	if err != nil {
-		f.lggr.Errorw("failed to generate execution ID", "err", err)
+		f.lggr.Warnw("failed to generate execution ID", "err", err)
 		workflowExecutionID = ""
 	}
 	err = events.EmitTriggerExecutionStarted(ctx, map[string]string{}, triggerEvent.Id, workflowExecutionID)
