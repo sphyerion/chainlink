@@ -415,7 +415,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 
 		ctx, cancel := p.stopCh.NewCtx()
 		defer cancel()
-		p.lggr.Infow("ACK quorum reached, forwarding to underlying trigger",
+		p.lggr.Debugw("ACK quorum reached, forwarding to underlying trigger",
 			"triggerEventId", triggerEventID,
 			"triggerID", triggerID,
 			"minRequired", minRequired)
