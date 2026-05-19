@@ -1597,6 +1597,6 @@ func (e *workflowError) Error() string {
 func logCustMsg(ctx context.Context, cma custmsg.MessageEmitter, msg string, log logger.Logger) {
 	err := cma.Emit(ctx, msg)
 	if err != nil {
-		log.Errorf("failed to send custom message with msg: %s, err: %v", msg, err)
+		log.Warnf("failed to send custom message with msg: %s, err: %v", msg, err)
 	}
 }
