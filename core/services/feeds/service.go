@@ -698,7 +698,7 @@ func (s *service) RevokeJob(ctx context.Context, args *RevokeJobArgs) (int64, er
 
 // GetJobRuns fetches recent job runs for a job by its remote UUID.
 func (s *service) GetJobRuns(ctx context.Context, args *GetJobRunsArgs) ([]*pb.JobRunSummary, error) {
-	s.lggr.Infow("FeedsService.GetJobRuns", "remoteUUID", args.RemoteUUID)
+	s.lggr.Debugw("FeedsService.GetJobRuns", "remoteUUID", args.RemoteUUID)
 
 	job, err := s.jobORM.FindJobByExternalJobID(ctx, args.RemoteUUID)
 	if err != nil {
