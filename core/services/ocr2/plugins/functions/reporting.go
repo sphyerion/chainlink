@@ -369,7 +369,7 @@ func (r *functionsReporting) Report(ctx context.Context, ts types.ReportTimestam
 		requestCoordinator.SetBytes(aggregated.CoordinatorContract)
 		reportCoordinator, err = ShouldIncludeCoordinator(&requestCoordinator, reportCoordinator)
 		if err != nil {
-			r.logger.Error("FunctionsReporting Report: skipping request with mismatched coordinator contract address", commontypes.LogFields{
+			r.logger.Debug("FunctionsReporting Report: skipping request with mismatched coordinator contract address", commontypes.LogFields{
 				"requestID":          reqId,
 				"requestCoordinator": requestCoordinator,
 				"reportCoordinator":  reportCoordinator,
