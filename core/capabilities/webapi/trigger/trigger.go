@@ -309,7 +309,7 @@ func (h *triggerConnectorHandler) Name() string {
 func (h *triggerConnectorHandler) sendResponse(ctx context.Context, gatewayID string, requestBody *api.MessageBody, payload any) error {
 	payloadJSON, err := json.Marshal(payload)
 	if err != nil {
-		h.lggr.Errorw("error marshalling payload", "err", err)
+		h.lggr.Warnw("error marshalling payload", "err", err)
 		payloadJSON, _ = json.Marshal(ghcapabilities.TriggerResponsePayload{Status: "ERROR", ErrorMessage: fmt.Errorf("error %s marshalling payload", err.Error()).Error()})
 	}
 
