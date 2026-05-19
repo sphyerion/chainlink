@@ -293,7 +293,7 @@ func (w *headWrapper) OnNewLongestChain(_ context.Context, head *types.Head) {
 		select {
 		case w.headC <- head:
 		default:
-			w.lggr.Debugf("head channel is full, discarding head %+v", head)
+			w.lggr.Warnf("head channel is full, discarding head %+v", head)
 		}
 	}
 }
