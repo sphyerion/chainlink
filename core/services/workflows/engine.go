@@ -549,7 +549,7 @@ func (e *Engine) startExecution(ctx context.Context, executionID string, trigger
 
 	err = events.EmitExecutionStartedEvent(ctx, e.cma.Labels(), triggerEventID, executionID)
 	if err != nil {
-		e.logger.Errorf("failed to emit execution started event: %+v", err)
+		e.logger.Warnf("failed to emit execution started event: %+v", err)
 	}
 
 	lggr := e.logger.With("event", event, platform.KeyWorkflowExecutionID, executionID)
