@@ -698,7 +698,7 @@ func (p *triggerPublisher) sendBatch(resp *batchedResponse) {
 
 			err := p.dispatcher.Send(peerID, msg)
 			if err != nil {
-				p.lggr.Errorw("failed to send trigger event", "peerID", peerID, "err", err)
+				p.lggr.Warnw("failed to send trigger event", "peerID", peerID, "err", err)
 			}
 		}
 		p.lggr.Infow("sendBatch: event dispatched",
