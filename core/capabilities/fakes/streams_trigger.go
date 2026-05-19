@@ -160,7 +160,7 @@ func (st *fakeStreamsTrigger) emitEvent(ctx context.Context) {
 		st.lastPrice[feed] = lastPrice + 1
 		idBytes, err := hex.DecodeString(feed[2:])
 		if err != nil {
-			st.eng.Errorw("Failed to decode feed ID", "error", err)
+			st.eng.Warnw("Failed to decode feed ID", "error", err)
 			continue
 		}
 		idBytes32 := [32]byte{}
