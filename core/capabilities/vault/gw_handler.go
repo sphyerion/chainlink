@@ -235,7 +235,7 @@ func (h *GatewayHandler) authorizeAndPrefixRequest(ctx context.Context, req *jso
 	authResult, err := h.authorizer.AuthorizeRequest(ctx, authReq)
 	if err != nil {
 		authErr := fmt.Errorf("request not authorized: %w", err)
-		h.lggr.Errorw("gateway request authorization failed", "method", req.Method, "requestID", originalRequestID, "hasAuth", req.Auth != "", "incomingOwner", incomingOwner, "error", authErr)
+		h.lggr.Warnw("gateway request authorization failed", "method", req.Method, "requestID", originalRequestID, "hasAuth", req.Auth != "", "incomingOwner", incomingOwner, "error", authErr)
 		return nil, authErr
 	}
 	authorizedOwner := authResult.AuthorizedOwner()
