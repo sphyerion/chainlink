@@ -696,7 +696,7 @@ func (lsn *listenerV2) enqueueForceFulfillmentForRevertedTxn(
 
 	vrfOwnerAddress1 := lsn.vrfOwner.Address()
 	vrfOwnerAddressSpec := lsn.job.VRFSpec.VRFOwnerAddress.Address()
-	lsn.l.Infow("addresses diff", "wrapper_address", vrfOwnerAddress1, "spec_address", vrfOwnerAddressSpec)
+	lsn.l.Debugw("addresses diff", "wrapper_address", vrfOwnerAddress1, "spec_address", vrfOwnerAddressSpec)
 
 	txData, err := vrfOwnerABI.Pack("fulfillRandomWords", proof, reqCommitment)
 	if err != nil {
