@@ -157,7 +157,7 @@ func (h *functionsConnectorHandler) HandleGatewayMessage(ctx context.Context, ga
 	case functions.MethodHeartbeat:
 		h.handleHeartbeat(ctx, gatewayID, body, fromAddr)
 	default:
-		h.lggr.Errorw("unsupported method", "id", gatewayID, "method", body.Method)
+		h.lggr.Warnw("unsupported method", "id", gatewayID, "method", body.Method)
 	}
 	return nil
 }
