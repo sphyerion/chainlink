@@ -89,7 +89,7 @@ func (fc *fakeConsensusNoDAG) Simple(ctx context.Context, metadata capabilities.
 }
 
 func (fc *fakeConsensusNoDAG) Report(ctx context.Context, metadata capabilities.RequestMetadata, input *sdkpb.ReportRequest) (*capabilities.ResponseAndMetadata[*sdkpb.ReportResponse], caperrors.Error) {
-	fc.eng.Infow("Executing Fake Consensus NoDAG: Report()", "input", input, "metadata", metadata)
+	fc.eng.Debugw("Executing Fake Consensus NoDAG: Report()", "input", input, "metadata", metadata)
 	// Prepare EVM metadata that will be prepended to all reports
 	meta := consensustypes.Metadata{
 		Version:          1,
