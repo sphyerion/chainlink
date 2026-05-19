@@ -138,7 +138,7 @@ func (bs *BlockSubscriber) cleanup() {
 		delete(bs.blocks, i)
 	}
 	bs.lastClearedBlock = bs.lastSentBlock - bs.blockSize
-	bs.lggr.Infof("lastClearedBlock is set to %d", bs.lastClearedBlock)
+	bs.lggr.Debugf("lastClearedBlock is set to %d", bs.lastClearedBlock)
 }
 
 func (bs *BlockSubscriber) initialize(ctx context.Context) {
