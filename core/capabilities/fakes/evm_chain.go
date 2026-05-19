@@ -104,7 +104,7 @@ func (fc *FakeEVMChain) Initialise(ctx context.Context, dependencies core.Standa
 }
 
 func (fc *FakeEVMChain) CallContract(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.CallContractRequest) (*commonCap.ResponseAndMetadata[*evmcappb.CallContractReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain CallContract Started")
+	fc.eng.Debugw("EVM Chain CallContract Started")
 	fc.eng.Debugw("EVM Chain CallContract Input", "input", input)
 
 	toAddress := common.Address(input.Call.To)
