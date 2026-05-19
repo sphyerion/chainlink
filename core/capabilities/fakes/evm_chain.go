@@ -541,7 +541,7 @@ func (fc *FakeEVMChain) GetTransactionByHash(ctx context.Context, metadata commo
 }
 
 func (fc *FakeEVMChain) GetTransactionReceipt(ctx context.Context, metadata commonCap.RequestMetadata, input *evmcappb.GetTransactionReceiptRequest) (*commonCap.ResponseAndMetadata[*evmcappb.GetTransactionReceiptReply], caperrors.Error) {
-	fc.eng.Infow("EVM Chain GetTransactionReceipt Started", "input", input)
+	fc.eng.Debugw("EVM Chain GetTransactionReceipt Started", "input", input)
 
 	if input == nil {
 		return nil, caperrors.NewPublicSystemError(errors.New("GetTransactionReceiptRequest is nil"), caperrors.Unknown)
