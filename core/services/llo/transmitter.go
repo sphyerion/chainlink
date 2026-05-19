@@ -175,7 +175,7 @@ func (t *transmitter) Transmit(
 	if report.Info.ReportFormat == llotypes.ReportFormatRetirement {
 		// Retirement reports don't get transmitted; rather, they are stored in
 		// the RetirementReportCache
-		t.lggr.Debugw("Storing retirement report", "digest", digest, "seqNr", seqNr)
+		t.lggr.Infow("Storing retirement report", "digest", digest, "seqNr", seqNr)
 		if err := t.retirementReportCache.StoreAttestedRetirementReport(ctx, digest, seqNr, report.Report, sigs); err != nil {
 			return fmt.Errorf("failed to write retirement report to cache: %w", err)
 		}
