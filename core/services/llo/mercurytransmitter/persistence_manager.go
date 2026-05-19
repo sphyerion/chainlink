@@ -178,7 +178,7 @@ func (pm *persistenceManager) deleteTransmissions(ctx context.Context, hashes []
 		deleteBatch := hashes[i:end]
 		for {
 			if err := pm.orm.Delete(ctx, deleteBatch); err != nil {
-				pm.lggr.Errorw("Failed to delete queued transmit requests", "err", err)
+				pm.lggr.Warnw("Failed to delete queued transmit requests", "err", err)
 				pm.transmitQueueDeleteErrorCount.Inc()
 				select {
 				case <-time.After(b.Duration()):
