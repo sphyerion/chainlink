@@ -65,7 +65,7 @@ func (a *signedReportRemoteAggregator) Aggregate(triggerEventID string, response
 		ocrEvent := &capabilities.OCRTriggerEvent{}
 		err = ocrEvent.FromMap(triggerResp.Event.Outputs)
 		if err != nil {
-			a.lggr.Errorw("trigger response does not contain an OCR report", "id", triggerResp.Event.ID, "err", err)
+			a.lggr.Warnw("trigger response does not contain an OCR report", "id", triggerResp.Event.ID, "err", err)
 		}
 		rawReport := ocrEvent.Report
 		rep := &capabilitiespb.OCRTriggerReport{}
