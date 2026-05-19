@@ -41,7 +41,7 @@ func onTrigger(config struct{}, runtime cre.Runtime, outputs *cron.Payload) (str
 	if err != nil {
 		logger.Error("Error in RunInNodeMode", "err", err)
 	} else {
-		logger.Info("Successfully aggregated HTTP responses", "aggregatedResponse", ret)
+		logger.Debug("Successfully aggregated HTTP responses", "aggregatedResponse", ret)
 	}
 	return ret, err
 }
