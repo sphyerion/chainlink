@@ -719,7 +719,7 @@ func (e *Engine) finishExecution(ctx context.Context, cma custmsg.MessageEmitter
 	}
 
 	logCustMsg(ctx, cma, fmt.Sprintf("execution duration: %d (seconds)", executionDuration), l)
-	l.Infof("execution duration: %d (seconds)", executionDuration)
+	l.Debugf("execution duration: %d (seconds)", executionDuration)
 	err = events.EmitExecutionFinishedEvent(ctx, cma.Labels(), status, executionID, nil, l)
 	if err != nil {
 		e.logger.Errorf("failed to emit execution finished event: %+v", err)
