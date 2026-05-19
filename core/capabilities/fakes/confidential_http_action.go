@@ -218,7 +218,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 				return nil, caperrors.NewPublicUserError(fmt.Errorf("failed to encrypt response body: %w", encErr), caperrors.Internal)
 			}
 			respBody = encryptedBody
-			fh.eng.Infow("Response body encrypted with AES-GCM (secrets.yaml key)", "encryptedSize", len(respBody))
+			fh.eng.Debugw("Response body encrypted with AES-GCM (secrets.yaml key)", "encryptedSize", len(respBody))
 		} else if hasEncryptionSecret(input.GetVaultDonSecrets()) {
 			secretHex := fh.secretsConfig.SecretsNames[AESGCMEncryptionKeyName][0]
 			secretKey, decErr := hex.DecodeString(secretHex)
