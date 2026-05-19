@@ -125,7 +125,7 @@ func (h *functionsConnectorHandler) Sign(ctx context.Context, data ...[]byte) ([
 func (h *functionsConnectorHandler) HandleGatewayMessage(ctx context.Context, gatewayID string, req *jsonrpc.Request[json.RawMessage]) error {
 	msg, err := hc.ValidatedMessageFromReq(req)
 	if err != nil {
-		h.lggr.Errorw("failed to decode request", "id", gatewayID, "err", err)
+		h.lggr.Warnw("failed to decode request", "id", gatewayID, "err", err)
 		return nil
 	}
 	body := &msg.Body
