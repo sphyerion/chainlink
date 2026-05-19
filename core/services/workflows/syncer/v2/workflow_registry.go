@@ -763,7 +763,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context) 
 				w.metrics.recordSourceFetch(ctx, sourceName, len(workflows), duration, fetchErr)
 
 				if fetchErr != nil {
-					w.lggr.Errorw("Failed to fetch from source, skipping reconciliation for this source",
+					w.lggr.Warnw("Failed to fetch from source, skipping reconciliation for this source",
 						"source", sourceName, "error", fetchErr, "durationMs", duration.Milliseconds())
 					// KEY: Skip this source entirely - no events generated, no deletions
 					continue
