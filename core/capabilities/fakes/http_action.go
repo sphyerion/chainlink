@@ -179,7 +179,7 @@ func (fh *DirectHTTPAction) Initialise(ctx context.Context, dependencies core.St
 }
 
 func (fh *DirectHTTPAction) Execute(ctx context.Context, request commonCap.CapabilityRequest) (commonCap.CapabilityResponse, error) {
-	fh.eng.Infow("Direct Http Action Execute Started", "request", request)
+	fh.eng.Debugw("Direct Http Action Execute Started", "request", request)
 	return commonCap.CapabilityResponse{}, nil
 }
 
