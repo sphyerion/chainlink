@@ -638,7 +638,7 @@ func (lsn *listenerV2) filterBatchRevertedTxn(ctx context.Context,
 			commitment, err := lsn.coordinator.GetCommitment(&bind.CallOpts{Context: ctx}, requestID.Big())
 			if err != nil {
 				// Not able to get commitment from chain RPC node, continue
-				lsn.l.Errorw("Force-fulfilment of batch reverted txns: Not able to get commitment from chain RPC node",
+				lsn.l.Warnw("Force-fulfilment of batch reverted txns: Not able to get commitment from chain RPC node",
 					"err", err,
 					"requestID", requestID.Big())
 			} else if utils.IsEmpty(commitment[:]) {
