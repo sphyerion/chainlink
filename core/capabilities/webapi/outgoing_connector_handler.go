@@ -333,7 +333,7 @@ func (c *OutgoingConnectorHandler) HandleGatewayMessage(ctx context.Context, gat
 	}
 
 	if errJSON.Message != "" {
-		l.Errorw("request rate-limited")
+		l.Warnw("request rate-limited")
 		errPayload, err := json.Marshal(errJSON)
 		if err != nil {
 			l.Errorw("failed to marshal err payload", "err", err)
