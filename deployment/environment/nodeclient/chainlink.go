@@ -511,7 +511,7 @@ func (c *ChainlinkClient) DeleteP2PKey(id int) (*http.Response, error) {
 // the request is unsuccessful
 func (c *ChainlinkClient) MustReadETHKeys() (*ETHKeys, error) {
 	ethKeys := &ETHKeys{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading ETH Keys")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading ETH Keys")
 	resp, err := c.APIClient.R().
 		SetResult(ethKeys).
 		Get("/v2/keys/eth")
