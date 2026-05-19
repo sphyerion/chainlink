@@ -457,7 +457,7 @@ func GetWorkflowRegistryV2FromDatastore(env *cldf.Environment, chainSelector uin
 		if addr.Type == "WorkflowRegistry" && addr.Qualifier == qualifier {
 			registryAddr = common.HexToAddress(addr.Address)
 			found = true
-			env.Logger.Infof("Found WorkflowRegistry at %s with qualifier %s", addr.Address, qualifier)
+			env.Logger.Debugf("Found WorkflowRegistry at %s with qualifier %s", addr.Address, qualifier)
 			break
 		}
 	}
