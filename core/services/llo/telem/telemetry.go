@@ -393,7 +393,7 @@ func (t *telemeter) prepareObservationTelemetry(p any, opts llo.DSOpts) {
 		v.DonId = t.donID
 		msg = v
 		if opts.VerboseLogging() {
-			t.eng.Infow("Sending LLOObservationTelemetry telemetry", "StreamId", v.StreamId, "ObservationTimestamp", v.ObservationTimestamp)
+			t.eng.Debugw("Sending LLOObservationTelemetry telemetry", "StreamId", v.StreamId, "ObservationTimestamp", v.ObservationTimestamp)
 		}
 	default:
 		t.eng.Warnw("Unknown telemetry type", "type", fmt.Sprintf("%T", p))
