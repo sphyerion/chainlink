@@ -177,7 +177,7 @@ func (p *logEventProvider) validateLogTriggerConfig(cfg LogTriggerConfig) error 
 	}
 	s := cfg.FilterSelector
 	if s >= 8 {
-		p.lggr.Error("filter selector %d is invalid", s)
+		p.lggr.Debug("filter selector %d is invalid", s)
 		return errors.New("invalid filter selector: larger or equal to 8")
 	}
 	return nil
