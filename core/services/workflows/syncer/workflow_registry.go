@@ -375,7 +375,7 @@ func (w *workflowRegistry) readRegistryEventsLoop(ctx context.Context, eventType
 				default:
 					err := w.handleWithMetrics(ctx, event.Event)
 					if err != nil {
-						w.lggr.Errorw("failed to handle event", "err", err, "type", event.EventType)
+						w.lggr.Warnw("failed to handle event", "err", err, "type", event.EventType)
 					}
 				}
 			}
