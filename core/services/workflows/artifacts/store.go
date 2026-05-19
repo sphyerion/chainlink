@@ -327,7 +327,7 @@ func (h *Store) SecretsFor(ctx context.Context, workflowOwner, hexWorkflowName, 
 		updatedSecrets, innerErr := h.refreshSecrets(ctx, workflowOwner, hexWorkflowName, workflowID, secretsURLHash)
 		if innerErr != nil {
 			msg := fmt.Sprintf("could not refresh secrets: proceeding with stale secrets for workflowID %s: %s", workflowID, innerErr)
-			h.lggr.Error(msg)
+			h.lggr.Warn(msg)
 
 			logCustMsg(
 				ctx,
