@@ -421,7 +421,7 @@ func (r *logRecoverer) recoverFilter(ctx context.Context, f upkeepFilter, startB
 		prommetrics.AutomationRecovererMissedLogs.Add(float64(added))
 	}
 	if !ok {
-		r.lggr.Debugw("failed to add all logs to pending", "upkeepID", f.upkeepID)
+		r.lggr.Warnw("failed to add all logs to pending", "upkeepID", f.upkeepID)
 		return nil
 	}
 	r.filterStore.UpdateFilters(func(uf1, uf2 upkeepFilter) upkeepFilter {
