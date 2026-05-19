@@ -152,7 +152,7 @@ func BuildRingJobConfigSpecs(
 	jobConfigByNode := make(map[string]*RingJobConfig)
 	for _, node := range nodeInfos {
 		if node.IsBootstrap {
-			lggr.Infow("Skipping bootstrap node for Ring job", "nodeID", node.NodeID, "chainSelector", evmChainSel)
+			lggr.Debugw("Skipping bootstrap node for Ring job", "nodeID", node.NodeID, "chainSelector", evmChainSel)
 			continue
 		}
 		evmConfig, ok := node.OCRConfigForChainSelector(evmChainSel)
