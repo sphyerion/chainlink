@@ -100,7 +100,7 @@ var ConfigureDKG = operations.NewOperation(
 			if err != nil {
 				return ConfigureDKGOpOutput{}, fmt.Errorf("failed to marshal response output: %w", err)
 			}
-			deps.Env.Logger.Infof("Generated DKG config: %s", string(b))
+			deps.Env.Logger.Debugf("Generated DKG config: %s", string(b))
 			n, err := w.Write(b)
 			if err != nil {
 				return ConfigureDKGOpOutput{}, fmt.Errorf("failed to write response output: %w", err)
