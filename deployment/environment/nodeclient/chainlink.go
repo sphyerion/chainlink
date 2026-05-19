@@ -750,7 +750,7 @@ func (c *ChainlinkClient) MustReadTransactionAttempts() (*TransactionsData, erro
 // ReadTransactions reads all transactions made by the Chainlink node
 func (c *ChainlinkClient) ReadTransactions() (*TransactionsData, *http.Response, error) {
 	txsData := &TransactionsData{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading Transactions")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading Transactions")
 	resp, err := c.APIClient.R().
 		SetResult(txsData).
 		Get("/v2/transactions")
