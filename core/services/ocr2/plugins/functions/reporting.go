@@ -207,7 +207,7 @@ func (r *functionsReporting) Observation(ctx context.Context, ts types.ReportTim
 	for _, id := range queryProto.RequestIDs {
 		id, err := encoding.SliceToByte32(id)
 		if err != nil {
-			r.logger.Error("FunctionsReporting Observation invalid ID", commontypes.LogFields{
+			r.logger.Warn("FunctionsReporting Observation invalid ID", commontypes.LogFields{
 				"requestID": formatRequestId(id[:]),
 				"err":       err,
 			})
