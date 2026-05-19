@@ -764,7 +764,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 					}
 
 					if startBalanceNoReserved.Cmp(p.fundsNeeded) < 0 {
-						ll.Infow("Insufficient balance to fulfill a request based on estimate, returning", "err", p.err)
+						ll.Debugw("Insufficient balance to fulfill a request based on estimate, returning", "err", p.err)
 						return processed
 					}
 
