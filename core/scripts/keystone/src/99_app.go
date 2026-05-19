@@ -278,7 +278,7 @@ func logResponse(logger logger.Logger, resp *http.Response) {
 
 	bodyBytes, err := io.ReadAll(resp.Body)
 	if err != nil {
-		logger.Errorw("Failed to read response body for logging", "err", err)
+		logger.Warnw("Failed to read response body for logging", "err", err)
 		return
 	}
 	// Replace the body so it can be read again by the caller
