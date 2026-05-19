@@ -642,7 +642,7 @@ func (lsn *listenerV2) filterBatchRevertedTxn(ctx context.Context,
 					"err", err,
 					"requestID", requestID.Big())
 			} else if utils.IsEmpty(commitment[:]) {
-				lsn.l.Infow("Batch fulfillment with initial reverted fulfillment txn and later successful fulfillment, Skipping", "req", requestID.String())
+				lsn.l.Debugw("Batch fulfillment with initial reverted fulfillment txn and later successful fulfillment, Skipping", "req", requestID.String())
 				continue
 			}
 			lsn.l.Infow("Batch fulfillment with reverted fulfillment txn", "req", requestID.String())
