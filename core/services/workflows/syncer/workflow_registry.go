@@ -313,7 +313,7 @@ func (w *workflowRegistry) readRegistryEventsLoop(ctx context.Context, eventType
 
 			logsIter, err := reader.QueryKeys(ctx, keyQueries, limitAndSort)
 			if err != nil {
-				w.lggr.Errorw("failed to query keys", "err", err)
+				w.lggr.Warnw("failed to query keys", "err", err)
 				continue
 			}
 
