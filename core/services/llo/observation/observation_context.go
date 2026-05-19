@@ -119,7 +119,7 @@ func (oc *observationContext) Observe(ctx context.Context, streamID streams.Stre
 			}
 			s, err := val.MarshalText()
 			if err != nil {
-				oc.l.Errorw("failed to MarshalText on stream value", "error", err)
+				oc.l.Warnw("failed to MarshalText on stream value", "error", err)
 			} else {
 				ot.StreamValueText = string(s)
 			}
