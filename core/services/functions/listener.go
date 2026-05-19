@@ -377,7 +377,7 @@ func (l *functionsListener) parseCBOR(requestId RequestID, cborData []byte, maxS
 
 	var requestData RequestData
 	if err := cbor.ParseDietCBORToStruct(cborData, &requestData); err != nil {
-		l.logger.Errorw("failed to parse CBOR", "requestID", formatRequestId(requestId), "err", err)
+		l.logger.Debugw("failed to parse CBOR", "requestID", formatRequestId(requestId), "err", err)
 		return nil, errors.New("CBOR parsing error")
 	}
 
