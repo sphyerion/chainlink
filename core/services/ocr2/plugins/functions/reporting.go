@@ -304,7 +304,7 @@ func (r *functionsReporting) Report(ctx context.Context, ts types.ReportTimestam
 		for _, processedReq := range observationProto.ProcessedRequests {
 			id := formatRequestId(processedReq.RequestID)
 			if _, seen := seenReqIds[id]; seen {
-				r.logger.Error("FunctionsReporting Report: observation contains duplicate IDs!",
+				r.logger.Warn("FunctionsReporting Report: observation contains duplicate IDs!",
 					commontypes.LogFields{"requestID": id, "observer": ob.Observer})
 				continue
 			}
