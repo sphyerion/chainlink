@@ -365,7 +365,7 @@ func (l *functionsListener) handleOracleRequestV1(request *evmconfig.OracleReque
 	}
 	err = l.handleRequest(ctx, request.RequestId, request.SubscriptionId, request.SubscriptionOwner, request.Flags, requestData)
 	if err != nil {
-		l.logger.Errorw("handleOracleRequestV1: error in handleRequest()", "requestID", formatRequestId(request.RequestId), "err", err)
+		l.logger.Debugw("handleOracleRequestV1: error in handleRequest()", "requestID", formatRequestId(request.RequestId), "err", err)
 	}
 }
 
