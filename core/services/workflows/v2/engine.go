@@ -294,7 +294,7 @@ func (e *Engine) init(ctx context.Context) {
 				e.metrics.IncrementWorkflowLimitPerOwnerCounter(ctx)
 				e.cfg.Hooks.OnInitialized(types.ErrPerOwnerWorkflowCountLimitReached)
 			case settings.ScopeGlobal:
-				e.logger().Infow("Global workflow count limit reached", "err", err)
+				e.logger().Warnw("Global workflow count limit reached", "err", err)
 				e.metrics.IncrementWorkflowLimitGlobalCounter(ctx)
 				e.cfg.Hooks.OnInitialized(types.ErrGlobalWorkflowCountLimitReached)
 			default:
