@@ -254,7 +254,7 @@ func (lsn *listenerV2) fetchRecentBatchTxns(ctx context.Context,
 	}
 
 	recentReceipts = unique(recentReceipts)
-	lsn.l.Infow("finished querying for recent batch fulfillments",
+	lsn.l.Debugw("finished querying for recent batch fulfillments",
 		"count", len(recentReceipts),
 	)
 	return recentReceipts, nil
