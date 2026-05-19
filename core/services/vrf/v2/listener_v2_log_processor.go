@@ -790,7 +790,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 				return processed
 			}
 
-			ll.Infow("Enqueuing fulfillment")
+			ll.Debugw("Enqueuing fulfillment")
 			var transaction txmgr.Tx
 			err = sqlutil.TransactDataSource(ctx, lsn.ds, nil, func(tx sqlutil.DataSource) error {
 				if err = lsn.pipelineRunner.InsertFinishedRun(ctx, tx, p.run, true); err != nil {
