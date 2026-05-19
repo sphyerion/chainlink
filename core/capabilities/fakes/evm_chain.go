@@ -216,7 +216,7 @@ func (fc *FakeEVMChain) WriteReport(
 		return &responseAndMetadata, nil
 	}
 
-	fc.eng.Infow("EVM Chain WriteReport Failed", "txHash", receipt.TxHash.Hex(), "gasUsed", receipt.GasUsed, "fee", transactionFee.String())
+	fc.eng.Warnw("EVM Chain WriteReport Failed", "txHash", receipt.TxHash.Hex(), "gasUsed", receipt.GasUsed, "fee", transactionFee.String())
 	receiverStatus := evmcappb.ReceiverContractExecutionStatus_RECEIVER_CONTRACT_EXECUTION_STATUS_REVERTED
 	errorMsg := "Transaction reverted"
 	response := &evmcappb.WriteReportReply{
