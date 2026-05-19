@@ -66,7 +66,7 @@ func (r *InsufficientFundTransferRetrier) Retry(ctx context.Context, logger zero
 	}
 
 	for txErr != nil && (strings.Contains(txErr.Error(), InsufficientFundsErr) || strings.Contains(txErr.Error(), TransactionUnderPriced) || strings.Contains(txErr.Error(), FailedToWaitForTransaction)) {
-		logger.Info().
+		logger.Warn().
 			Msg("Insufficient funds error detected, retrying with less funds")
 
 		newAmount := big.NewInt(0).Sub(payload.Amount, big.NewInt(GWei))
