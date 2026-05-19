@@ -848,7 +848,7 @@ func (s *service) ProposeJob(ctx context.Context, args *ProposeJobArgs) (int64, 
 	jobType, err := getJobType(args.Spec)
 	switch {
 	case err != nil:
-		logger.Errorw("Failed to validate spec while checking for workflow", "err", err)
+		logger.Warnw("Failed to validate spec while checking for workflow", "err", err)
 	case slices.Contains([]job.Type{job.Workflow, job.CRESettings}, jobType):
 		promWorkflowRequests.Inc()
 		promFeedsWorkflowRequests.Inc()
