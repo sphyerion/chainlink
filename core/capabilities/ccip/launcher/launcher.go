@@ -351,7 +351,7 @@ func createDON(
 	configs []ccipreader.OCR3ConfigWithMeta,
 ) (pluginRegistry, error) {
 	if !isMemberOfDON(don, p2pID) && oracleCreator.Type() == cctypes.OracleTypePlugin {
-		lggr.Infow("Not a member of this DON and not a bootstrap node either, skipping", "donID", don.ID, "p2pID", p2pID.String())
+		lggr.Debugw("Not a member of this DON and not a bootstrap node either, skipping", "donID", don.ID, "p2pID", p2pID.String())
 		return nil, nil
 	}
 	p := make(pluginRegistry)
