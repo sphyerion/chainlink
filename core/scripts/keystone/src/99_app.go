@@ -355,7 +355,7 @@ func (h *retryableAuthenticatedHTTPClient) doRequestWithRetry(_ context.Context,
 
 		if err == nil || !strings.Contains(err.Error(), "invalid character '<' looking for beginning of value") {
 			if err != nil {
-				h.logger.Warn("Request completed with error",
+				h.logger.Debug("Request completed with error",
 					"attempt", i+1,
 					"err", err,
 				)
