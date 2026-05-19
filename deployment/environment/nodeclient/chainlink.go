@@ -235,7 +235,7 @@ func (c *ChainlinkClient) CreateSpec(spec string) (*Spec, *http.Response, error)
 // ReadSpec reads a job spec with the provided ID on the Chainlink node
 func (c *ChainlinkClient) ReadSpec(id string) (*Response, *http.Response, error) {
 	specObj := &Response{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Str("ID", id).Msg("Reading Spec")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Str("ID", id).Msg("Reading Spec")
 	resp, err := c.APIClient.R().
 		SetResult(&specObj).
 		SetPathParams(map[string]string{
