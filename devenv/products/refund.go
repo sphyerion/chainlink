@@ -82,7 +82,7 @@ func (r *InsufficientFundTransferRetrier) Retry(ctx context.Context, logger zero
 
 		_, retryErr := SendFunds(logger, client, payload)
 		if retryErr == nil {
-			logger.Info().
+			logger.Warn().
 				Str("retrier", "InsufficientFundTransferRetrier").
 				Msg(RetrySuccessfulMsg)
 			return nil
