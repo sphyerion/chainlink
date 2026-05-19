@@ -666,7 +666,7 @@ func (e *Engine) handleAllTriggerEvents(ctx context.Context) {
 		free, err := e.executionsSemaphore.Wait(ctx, 1) // block if too many concurrent workflow executions
 		triggerMetricLabels.RecordExecutionSemaphoreWaitSeconds(ctx, e.cfg.Clock.Now().Sub(semWaitStart).Seconds())
 		if err != nil {
-			e.logger().Errorw("Failed to acquire executions semaphore", "err", err)
+			e.logger().Warnw("Failed to acquire executions semaphore", "err", err)
 			triggerMetricLabels.IncrementTriggerEventDroppedTotal(ctx, monitoring.TriggerDropReasonExecutionSemaphoreWaitFailed)
 			continue
 		}
