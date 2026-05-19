@@ -111,7 +111,7 @@ func (fh *DirectHTTPAction) SendRequest(ctx context.Context, metadata commonCap.
 	// Make the HTTP request
 	resp, err := client.Do(req)
 	if err != nil {
-		fh.eng.Errorw("Failed to execute HTTP request", "error", err)
+		fh.eng.Warnw("Failed to execute HTTP request", "error", err)
 		httpResponse := &customhttp.Response{
 			StatusCode: 0,
 		}
