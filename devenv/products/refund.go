@@ -219,7 +219,7 @@ func (r *OvershotTransferRetrier) Retry(ctx context.Context, logger zerolog.Logg
 
 		_, retryErr := SendFunds(logger, client, payload)
 		if retryErr == nil {
-			logger.Info().
+			logger.Warn().
 				Str("retrier", "OvershotTransferRetrier").
 				Msg(RetrySuccessfulMsg)
 			return nil
