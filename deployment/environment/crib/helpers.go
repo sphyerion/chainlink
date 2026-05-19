@@ -356,7 +356,7 @@ func fundSolanaAccountsWithLogging(
 			// Log progress every 10 polls (5 seconds) for large batches
 			if pollCount%10 == 0 {
 				finalized := len(sigs) - remaining
-				lggr.Infow("Confirmation progress",
+				lggr.Debugw("Confirmation progress",
 					"finalized", finalized,
 					"total", len(sigs),
 					"pollCount", pollCount)
