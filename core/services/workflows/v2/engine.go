@@ -592,7 +592,7 @@ func (e *Engine) runTriggerSubscriptionPhase(ctx context.Context) error {
 						continue
 					}
 					if e.draining.Load() {
-						e.logger().Infow("Engine is draining, dropping trigger event before enqueue", "triggerID", triggerID, "eventID", eventID)
+						e.logger().Debugw("Engine is draining, dropping trigger event before enqueue", "triggerID", triggerID, "eventID", eventID)
 						tm := e.metrics.With(platform.KeyTriggerID, triggerID)
 						tm.IncrementTriggerEventEnqueueDroppedCounter(ctx)
 						tm.IncrementTriggerEventDroppedTotal(ctx, monitoring.TriggerDropReasonEnqueueDraining)
