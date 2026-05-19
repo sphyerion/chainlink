@@ -375,7 +375,7 @@ func (s *Capability) resolveRequestIdentity(ctx context.Context, orgID string, w
 	s.lggr.Debugw("resolving request identity", "orgID", orgID, "workflowOwner", workflowOwner)
 	linked, err := s.linker.Link(ctx, orgID, workflowOwner)
 	if err != nil {
-		s.lggr.Errorw("failed to resolve request identity", "orgID", orgID, "workflowOwner", workflowOwner, "err", err)
+		s.lggr.Warnw("failed to resolve request identity", "orgID", orgID, "workflowOwner", workflowOwner, "err", err)
 		return LinkedVaultRequestIdentity{}, err
 	}
 	s.lggr.Debugw("resolved request identity", "orgID", linked.OrgID, "workflowOwner", linked.WorkflowOwner)
