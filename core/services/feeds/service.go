@@ -360,7 +360,7 @@ func (s *service) SyncNodeInfo(ctx context.Context, id int64) error {
 	for _, cfg := range cfgs {
 		cfgMsg, msgErr := s.newChainConfigMsg(cfg)
 		if msgErr != nil {
-			s.lggr.Errorf("SyncNodeInfo: %v", msgErr)
+			s.lggr.Warnf("SyncNodeInfo: %v", msgErr)
 
 			continue
 		}
