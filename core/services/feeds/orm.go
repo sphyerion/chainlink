@@ -427,7 +427,7 @@ WHERE remote_uuid = $1
 AND status <> $2;
 `
 
-	o.lggr.Infow("getting job proposal by remote uuid", "remoteUUID", id)
+	o.lggr.Debugw("getting job proposal by remote uuid", "remoteUUID", id)
 	jp = new(JobProposal)
 	err = o.ds.GetContext(ctx, jp, stmt, id, JobProposalStatusDeleted)
 	return jp, errors.Wrap(err, "GetJobProposalByRemoteUUID failed")
