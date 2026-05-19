@@ -603,7 +603,7 @@ type DeleteJobArgs struct {
 // DeleteJob deletes a job proposal if it exist. The feeds manager id check
 // ensures that only the intended feed manager can make this request.
 func (s *service) DeleteJob(ctx context.Context, args *DeleteJobArgs) (int64, error) {
-	s.lggr.Infow("Beginning to delete job", "remoteUUID", args.RemoteUUID)
+	s.lggr.Debugw("Beginning to delete job", "remoteUUID", args.RemoteUUID)
 
 	proposal, err := s.orm.GetJobProposalByRemoteUUID(ctx, args.RemoteUUID)
 	if err != nil {
