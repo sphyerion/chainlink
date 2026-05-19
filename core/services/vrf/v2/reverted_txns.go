@@ -530,7 +530,7 @@ func (lsn *listenerV2) filterSingleRevertedTxn(ctx context.Context,
 		return nil, fmt.Errorf("error fetching revert reason %v: %w", txnReceiptDB.TxHash, err)
 	}
 	revertErr, err := evmclient.ExtractRPCError(rpcError)
-	lsn.l.Infow("InsufficientBalRevertedTxn",
+	lsn.l.Debugw("InsufficientBalRevertedTxn",
 		"RawRevertData", rpcError,
 		"ParsedRevertData", revertErr.Data,
 		"ParsingErr", err,
