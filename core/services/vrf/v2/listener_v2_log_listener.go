@@ -339,7 +339,7 @@ func (lsn *listenerV2) getUnfulfilled(logs []logpoller.Log, ll logger.Logger) (u
 	}
 
 	if len(fulfilled) > 0 || len(requested) > 0 {
-		ll.Infow("found logs", "fulfilled", len(fulfilled), "requested", len(requested))
+		ll.Debugw("found logs", "fulfilled", len(fulfilled), "requested", len(requested))
 	} else {
 		ll.Debugw("no logs found")
 	}
