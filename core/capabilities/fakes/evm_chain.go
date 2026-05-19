@@ -737,7 +737,7 @@ func (fc *FakeEVMChain) dryRunWriteReport(
 	input *evmcappb.WriteReportRequest,
 	signatures [][]byte,
 ) (*commonCap.ResponseAndMetadata[*evmcappb.WriteReportReply], error) {
-	fc.eng.Infow("EVM Chain WriteReport Dry-Run Enabled")
+	fc.eng.Debugw("EVM Chain WriteReport Dry-Run Enabled")
 	contractABI, err := abi.JSON(strings.NewReader(MockKeystoneForwarderABI))
 	if err != nil {
 		return nil, err
