@@ -280,7 +280,7 @@ func (s *streams) DoMercuryRequest(ctx context.Context, lookup *mercury.StreamsL
 	}
 
 	for j, v := range values {
-		s.lggr.Infof("at block %d upkeep %s requested time %s doMercuryRequest values[%d]: %s", lookup.Block, lookup.UpkeepId, lookup.Time, j, hexutil.Encode(v))
+		s.lggr.Debugf("at block %d upkeep %s requested time %s doMercuryRequest values[%d]: %s", lookup.Block, lookup.UpkeepId, lookup.Time, j, hexutil.Encode(v))
 	}
 	return values, encoding.ErrCodeNil, nil
 }
