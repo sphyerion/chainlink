@@ -265,7 +265,7 @@ func (r *EvmRegistry) Start(_ context.Context) error {
 					case l := <-ch:
 						err := f(ctx, l)
 						if err != nil {
-							lggr.Errorf("failed to process log for upkeep; error %v", err)
+							lggr.Warnf("failed to process log for upkeep; error %v", err)
 						}
 					case <-ctx.Done():
 						return
