@@ -238,7 +238,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 		}
 		callerDon, ok := cfg.workflowDONs[msg.CallerDonId]
 		if !ok {
-			p.lggr.Errorw("received a message from unsupported workflow DON", "callerDonId", msg.CallerDonId)
+			p.lggr.Warnw("received a message from unsupported workflow DON", "callerDonId", msg.CallerDonId)
 			return
 		}
 		if !cfg.membersCache[msg.CallerDonId][sender] {
