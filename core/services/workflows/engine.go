@@ -693,7 +693,7 @@ func (e *Engine) finishExecution(ctx context.Context, cma custmsg.MessageEmitter
 
 	err = e.meterReports.End(ctx, executionID)
 	if err != nil {
-		l.Errorf("failed to end metering report %s", err)
+		l.Warnf("failed to end metering report %s", err)
 	}
 
 	// clean all per execution state trackers
