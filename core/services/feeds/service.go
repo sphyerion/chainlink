@@ -868,7 +868,7 @@ func (s *service) ProposeJob(ctx context.Context, args *ProposeJobArgs) (int64, 
 	}
 
 	if err = s.observeJobProposalCounts(ctx); err != nil {
-		logger.Errorw("Failed to push metrics for propose job", "err", err)
+		logger.Warnw("Failed to push metrics for propose job", "err", err)
 	}
 
 	return id, nil
