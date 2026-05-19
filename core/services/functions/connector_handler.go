@@ -131,7 +131,7 @@ func (h *functionsConnectorHandler) HandleGatewayMessage(ctx context.Context, ga
 	body := &msg.Body
 	fromAddr := ethCommon.HexToAddress(body.Sender)
 	if !h.allowlist.Allow(fromAddr) {
-		h.lggr.Errorw("allowlist prevented the request from this address", "id", gatewayID, "address", fromAddr)
+		h.lggr.Warnw("allowlist prevented the request from this address", "id", gatewayID, "address", fromAddr)
 		return nil
 	}
 	if !h.rateLimiter.Allow(body.Sender) {
