@@ -146,7 +146,7 @@ func (f *Feeder) Run(ctx context.Context) error {
 			errs = stderrors.Join(errs, errors.Wrap(err, "checking if stored"))
 		} else if stored {
 			// IsStored() can be based on unfinalized blocks. Therefore, f.stored mapping is not updated
-			f.lggr.Infow("Blockhash already stored",
+			f.lggr.Debugw("Blockhash already stored",
 				"block", block, "latestBlock", latestBlock,
 				"unfulfilledReqIDs", LimitReqIDs(unfulfilledReqs, 50))
 			continue
