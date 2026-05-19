@@ -431,7 +431,7 @@ func (r *Report) Settle(ref string, metadata capabilities.ResponseMetadata) erro
 		for idx, detail := range spendDetails {
 			value, err := decimal.NewFromString(detail.SpendValue)
 			if err != nil {
-				r.lggr.Info(fmt.Sprintf("failed to get spend value from %s: %s", detail.SpendValue, err))
+				r.lggr.Debug(fmt.Sprintf("failed to get spend value from %s: %s", detail.SpendValue, err))
 				// throw out invalid values for local balance settlement. they will still be included in metering report.
 				continue
 			}
