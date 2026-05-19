@@ -369,7 +369,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 		cancel()
 		p.lggr.Infow("unregistered trigger", "workflowID", key.workflowID, "triggerID", key.triggerID)
 	case types.MethodTriggerEvent:
-		p.lggr.Errorw("trigger request failed with error",
+		p.lggr.Warnw("trigger request failed with error",
 			"method", SanitizeLogString(msg.Method), "sender", sender, "errorMsg", SanitizeLogString(msg.ErrorMsg))
 	case types.MethodTriggerEventAck:
 		triggerMetadata := msg.GetTriggerEventMetadata()
