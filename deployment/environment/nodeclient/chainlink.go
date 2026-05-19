@@ -736,7 +736,7 @@ func (c *ChainlinkClient) DeleteTxKey(chain string, id string) (*http.Response, 
 // and returns error if the request is unsuccessful
 func (c *ChainlinkClient) MustReadTransactionAttempts() (*TransactionsData, error) {
 	txsData := &TransactionsData{}
-	c.l.Info().Str(NodeURL, c.Config.URL).Msg("Reading Transaction Attempts")
+	c.l.Debug().Str(NodeURL, c.Config.URL).Msg("Reading Transaction Attempts")
 	resp, err := c.APIClient.R().
 		SetResult(txsData).
 		Get("/v2/tx_attempts")
