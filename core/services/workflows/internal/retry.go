@@ -29,7 +29,7 @@ func RunWithRetries(ctx context.Context, lggr logger.Logger, retryInterval time.
 	retries := 0
 
 	for {
-		lggr.Errorf("error: %s, retrying in %s", err, retryInterval)
+		lggr.Warnf("error: %s, retrying in %s", err, retryInterval)
 
 		// if maxRetries is 0, we'll retry indefinitely
 		if maxRetries > 0 && retries >= maxRetries {
