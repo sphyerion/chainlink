@@ -173,7 +173,7 @@ func SendFundsToAccounts(ctx context.Context, lggr logger.Logger, chain cldf_evm
 	}
 
 	for _, signedTx := range signedTxs {
-		lggr.Infow("Sending funding tx", "chain", sel, "hash", signedTx.Hash().Hex(), "nonce", signedTx.Nonce())
+		lggr.Debugw("Sending funding tx", "chain", sel, "hash", signedTx.Hash().Hex(), "nonce", signedTx.Nonce())
 		err = chain.Client.SendTransaction(ctx, signedTx)
 		if err != nil {
 			return fmt.Errorf("could not send transaction %s: %w", signedTx.Hash().Hex(), err)
