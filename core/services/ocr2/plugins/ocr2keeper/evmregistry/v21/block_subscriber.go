@@ -84,7 +84,7 @@ func (bs *BlockSubscriber) getBlockRange(ctx context.Context) ([]uint64, error) 
 		return nil, err
 	}
 	latestBlockNumber := h.BlockNumber
-	bs.lggr.Infof("latest block from log poller is %d", latestBlockNumber)
+	bs.lggr.Debugf("latest block from log poller is %d", latestBlockNumber)
 
 	var blocks []uint64
 	for i := bs.blockSize - 1; i >= 0; i-- {
