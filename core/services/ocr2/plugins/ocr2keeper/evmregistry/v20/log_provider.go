@@ -269,7 +269,7 @@ func (c *LogProvider) StaleReportLogs(ctx context.Context) ([]ocr2keepers.StaleR
 		upkeepId := ocr2keepers.UpkeepIdentifier(r.Id.String())
 		checkBlockNumber, err := c.getCheckBlockNumberFromTxHash(ctx, r.TxHash, upkeepId)
 		if err != nil {
-			c.logger.Error("error while fetching checkBlockNumber from stale report log: %w", err)
+			c.logger.Warn("error while fetching checkBlockNumber from stale report log: %w", err)
 			continue
 		}
 		l := ocr2keepers.StaleReportLog{
