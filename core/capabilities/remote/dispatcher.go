@@ -314,7 +314,7 @@ func (d *dispatcher) handleMessage(ctx context.Context, msg *p2ptypes.Message) {
 		d.metrics.rateLimitedMsgsCounter.Add(ctx, 1, metric.WithAttributes(
 			attribute.String("sender", sender),
 		))
-		d.lggr.Errorw("rate limit exceeded, dropping message", "sender", msg.Sender)
+		d.lggr.Warnw("rate limit exceeded, dropping message", "sender", msg.Sender)
 		return
 	}
 	body, err := ValidateMessage(msg, d.peerID)
