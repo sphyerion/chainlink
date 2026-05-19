@@ -167,7 +167,7 @@ func (l *logEventTrigger) listen() {
 				&logData,
 			)
 			if err != nil {
-				l.lggr.Errorw("QueryKey failure", "err", err)
+				l.lggr.Warnw("QueryKey failure", "err", err)
 				continue
 			}
 			// ChainReader QueryKey API provides logs including the cursor value and not
