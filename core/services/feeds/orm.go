@@ -571,7 +571,7 @@ WHERE id = $2
 RETURNING job_proposal_id;
 `
 
-	o.lggr.Infow("cancelling job proposal spec", "specID", id)
+	o.lggr.Debugw("cancelling job proposal spec", "specID", id)
 	var jpID int64
 	if err := o.ds.GetContext(ctx, &jpID, stmt, SpecStatusCancelled, id); err != nil {
 		return err
