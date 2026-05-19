@@ -210,7 +210,7 @@ func (f *Feeder) runTrusted(
 			defer cancel()
 			stored, err := f.bhs.IsStored(timeoutCtx, block)
 			if err != nil {
-				f.lggr.Errorw("Failed to check if block is already stored, attempting to store anyway",
+				f.lggr.Warnw("Failed to check if block is already stored, attempting to store anyway",
 					"err", err,
 					"block", block)
 				f.errsLock.Lock()
