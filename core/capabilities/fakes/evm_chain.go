@@ -698,7 +698,7 @@ func (fc *FakeEVMChain) HealthReport() map[string]error {
 }
 
 func (fc *FakeEVMChain) Start(ctx context.Context) error {
-	fc.eng.Debugw("EVM Chain started")
+	fc.eng.Infow("EVM Chain started")
 	return nil
 }
 
