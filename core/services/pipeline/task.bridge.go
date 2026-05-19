@@ -254,7 +254,7 @@ func (t *BridgeTask) Run(ctx context.Context, lggr logger.Logger, vars Vars, inp
 	if !cachedResponse && cacheTTL > 0 {
 		err := t.orm.UpsertBridgeResponse(overtimeCtx, t.dotID, t.specId, responseBytes)
 		if err != nil {
-			lggr.Errorw("Bridge task: failed to upsert response in bridge cache", "err", err)
+			lggr.Warnw("Bridge task: failed to upsert response in bridge cache", "err", err)
 		}
 	}
 
