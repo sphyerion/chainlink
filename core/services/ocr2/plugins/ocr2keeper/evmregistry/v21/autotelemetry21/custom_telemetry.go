@@ -101,7 +101,7 @@ func (e *AutomationCustomTelemetryService) Start(ctx context.Context) error {
 					// Exploratory: Debounce blocks to avoid overflow in case of re-org
 					latestBlockKey, err := blockHistory.Latest()
 					if err != nil {
-						e.lggr.Errorf("BlockSubscriber BlockHistory.Latest() failed: %s", err)
+						e.lggr.Warnf("BlockSubscriber BlockHistory.Latest() failed: %s", err)
 						continue
 					}
 					e.sendBlockNumberMsg(latestBlockKey)
