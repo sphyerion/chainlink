@@ -703,7 +703,7 @@ func (lsn *listenerV2) enqueueForceFulfillmentForRevertedTxn(
 		return txmgr.Tx{}, fmt.Errorf("abi pack VRFOwner.fulfillRandomWords: %w", err)
 	}
 	vrfOwnerCoordinator, _ := lsn.vrfOwner.GetVRFCoordinator(nil)
-	lsn.l.Infow("RevertedTxnForceFulfilment EstimatingGas",
+	lsn.l.Debugw("RevertedTxnForceFulfilment EstimatingGas",
 		"EncodedPayload", hexutil.Encode(txData),
 		"VRFOwnerCoordinator", vrfOwnerCoordinator.String(),
 	)
