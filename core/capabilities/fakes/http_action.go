@@ -84,7 +84,7 @@ func (fh *DirectHTTPAction) SendRequest(ctx context.Context, metadata commonCap.
 	// Create the HTTP request
 	req, err := http.NewRequestWithContext(ctx, method, input.GetUrl(), body)
 	if err != nil {
-		fh.eng.Errorw("Failed to create HTTP request", "error", err)
+		fh.eng.Warnw("Failed to create HTTP request", "error", err)
 		httpResponse := &customhttp.Response{
 			StatusCode: 0,
 		}
