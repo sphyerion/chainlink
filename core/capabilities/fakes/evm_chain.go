@@ -659,7 +659,7 @@ func (fc *FakeEVMChain) HeaderByNumber(ctx context.Context, metadata commonCap.R
 		},
 	}
 
-	fc.eng.Infow("EVM Chain HeaderByNumber Finished", "header", headerPb)
+	fc.eng.Debugw("EVM Chain HeaderByNumber Finished", "header", headerPb)
 	responseAndMetadata := commonCap.ResponseAndMetadata[*evmcappb.HeaderByNumberReply]{
 		Response:         headerPb,
 		ResponseMetadata: commonCap.ResponseMetadata{},
