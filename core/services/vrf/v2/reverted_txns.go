@@ -439,7 +439,7 @@ func (lsn *listenerV2) postSQLLog(ctx context.Context, begin time.Time, pollPeri
 	} else if warnThreshold := timeout / 10; warnThreshold > 0 && elapsed > warnThreshold {
 		lsn.l.Warnw("SlowSQLQuery", kvs...)
 	} else {
-		lsn.l.Infow("SQLQueryLatency", kvs...)
+		lsn.l.Debugw("SQLQueryLatency", kvs...)
 	}
 }
 
