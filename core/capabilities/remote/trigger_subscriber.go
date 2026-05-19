@@ -164,7 +164,7 @@ func (s *triggerSubscriber) AckEvent(ctx context.Context, triggerID string, even
 		}
 		err := s.dispatcher.Send(peerID, m)
 		if err != nil {
-			s.lggr.Errorw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
+			s.lggr.Warnw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
 		}
 	}
 	rk := ackReplayKey{triggerID: triggerID, triggerEventID: eventID}
