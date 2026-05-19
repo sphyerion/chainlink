@@ -119,7 +119,7 @@ func (r *EvmRegistry) verifyCheckBlock(ctx context.Context, checkBlock, upkeepId
 		r.lggr.Debugf("check block hash %s exists on chain at block number %d for upkeepId %s", checkHash.Hex(), checkBlock, upkeepId)
 		return encoding.NoPipelineError, false
 	}
-	r.lggr.Warnf("check block %s does not exist in block subscriber or hash does not match for upkeepId %s. this may be caused by block subscriber outdated due to re-org, querying eth client to confirm", checkBlock, upkeepId)
+	r.lggr.Debugf("check block %s does not exist in block subscriber or hash does not match for upkeepId %s. this may be caused by block subscriber outdated due to re-org, querying eth client to confirm", checkBlock, upkeepId)
 	b, err := r.getBlockHash(ctx, checkBlock)
 	if err != nil {
 		r.lggr.Warnf("failed to query block %s: %s", checkBlock, err.Error())
