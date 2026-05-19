@@ -600,7 +600,7 @@ func (lsn *listenerV2) enqueueForceFulfillment(
 		return
 	}
 
-	lsn.l.Infow("Estimated gas limit on force fulfillment",
+	lsn.l.Debugw("Estimated gas limit on force fulfillment",
 		"estimateGasLimit", estimateGasLimit, "pipelineGasLimit", p.gasLimit)
 	if estimateGasLimit < p.gasLimit {
 		estimateGasLimit = p.gasLimit
