@@ -338,7 +338,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 						break
 					}
 					if len(triggerMap) > 1 {
-						s.lggr.Errorw("received message without triggerID but workflow has multiple trigger - picking a random one", "workflowID", SanitizeLogString(workflowID), "sender", sender)
+						s.lggr.Warnw("received message without triggerID but workflow has multiple trigger - picking a random one", "workflowID", SanitizeLogString(workflowID), "sender", sender)
 					}
 				}
 			}
