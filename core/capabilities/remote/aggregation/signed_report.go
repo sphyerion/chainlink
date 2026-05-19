@@ -71,7 +71,7 @@ func (a *signedReportRemoteAggregator) Aggregate(triggerEventID string, response
 		rep := &capabilitiespb.OCRTriggerReport{}
 		err = proto.Unmarshal(rawReport, rep)
 		if err != nil {
-			a.lggr.Errorw("failed to parse OCR report", "id", triggerResp.Event.ID)
+			a.lggr.Warnw("failed to parse OCR report", "id", triggerResp.Event.ID)
 			continue
 		}
 
