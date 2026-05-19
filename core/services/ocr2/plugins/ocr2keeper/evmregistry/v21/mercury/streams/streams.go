@@ -233,7 +233,7 @@ func (s *streams) makeCallbackEthCall(ctx context.Context, payload []byte, looku
 		return err
 	}
 
-	s.lggr.Infof("at block %d upkeep %s requested time %s responseBytes: %s", lookup.Block, lookup.UpkeepId, lookup.Time, hexutil.Encode(responseBytes))
+	s.lggr.Debugf("at block %d upkeep %s requested time %s responseBytes: %s", lookup.Block, lookup.UpkeepId, lookup.Time, hexutil.Encode(responseBytes))
 
 	unpackCallBackState, needed, performData, failureReason, _, err := s.packer.UnpackCheckCallbackResult(responseBytes)
 	if err != nil {
