@@ -263,7 +263,7 @@ func (h *functionsConnectorHandler) handleHeartbeat(ctx context.Context, gateway
 
 	internalId := InternalId(fromAddr.Bytes(), request.RequestId)
 	request.RequestId = internalId[:]
-	h.lggr.Infow("handling offchain heartbeat", "messageId", requestBody.MessageId, "internalId", internalId, "sender", requestBody.Sender)
+	h.lggr.Debugw("handling offchain heartbeat", "messageId", requestBody.MessageId, "internalId", internalId, "sender", requestBody.Sender)
 	h.mu.Lock()
 	response, ok := h.heartbeatRequests[internalId]
 	if !ok { // new request
