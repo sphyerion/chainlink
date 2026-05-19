@@ -718,7 +718,7 @@ func (lsn *listenerV2) enqueueForceFulfillmentForRevertedTxn(
 	}
 	estimateGasLimit = uint64(1.4 * float64(estimateGasLimit))
 
-	lsn.l.Infow("Estimated gas limit on force fulfillment", "estimateGasLimit", estimateGasLimit)
+	lsn.l.Debugw("Estimated gas limit on force fulfillment", "estimateGasLimit", estimateGasLimit)
 
 	reqID := common.BytesToHash(hexutil.MustDecode(revertedTxn.DBReceipt.RequestID))
 	var reqTxHash common.Hash
