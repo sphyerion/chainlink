@@ -233,7 +233,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 	case types.MethodRegisterTrigger:
 		req, err := pb.UnmarshalTriggerRegistrationRequest(msg.Payload)
 		if err != nil {
-			p.lggr.Errorw("failed to unmarshal trigger registration request", "err", err)
+			p.lggr.Warnw("failed to unmarshal trigger registration request", "err", err)
 			return
 		}
 		callerDon, ok := cfg.workflowDONs[msg.CallerDonId]
