@@ -70,7 +70,7 @@ func NewDirectConfidentialHTTPAction(lggr logger.Logger, secretsPath string) *Di
 
 	if data, err := os.ReadFile(secretsFile); err == nil {
 		if marshalErr := yaml.Unmarshal(data, &fc.secretsConfig); marshalErr != nil {
-			lggr.Warnf("Failed to parse secrets file %s: %v", secretsFile, marshalErr)
+			lggr.Errorf("Failed to parse secrets file %s: %v", secretsFile, marshalErr)
 		} else {
 			lggr.Infof("Loaded secrets from %s", secretsFile)
 			// Resolve environment variables
