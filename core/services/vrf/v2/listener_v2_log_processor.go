@@ -442,7 +442,7 @@ func (lsn *listenerV2) processRequestsPerSubBatchHelper(
 					}
 
 					if startBalanceNoReserved.Cmp(p.fundsNeeded) < 0 && errors.Is(p.err, possiblyInsufficientFundsError{}) {
-						ll.Infow("Insufficient balance to fulfill a request based on estimate, breaking", "err", p.err)
+						ll.Debugw("Insufficient balance to fulfill a request based on estimate, breaking", "err", p.err)
 						outOfBalance = true
 
 						// break out of this inner loop to process the currently constructed batch
