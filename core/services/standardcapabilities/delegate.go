@@ -225,7 +225,7 @@ func (d *Delegate) NewServices(
 		}
 	} else {
 		if len(ocrEvmKeyBundles) > 1 {
-			log.Infof("found %d EVM OCR key bundles, which may cause unexpected behavior if using the OracleFactory", len(ocrEvmKeyBundles))
+			log.Warnf("found %d EVM OCR key bundles, which may cause unexpected behavior if using the OracleFactory", len(ocrEvmKeyBundles))
 		}
 		ocrEvmKeyBundle = ocrEvmKeyBundles[0]
 	}
