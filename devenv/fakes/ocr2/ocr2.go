@@ -41,7 +41,7 @@ func RegisterRoutes() error {
 	}
 
 	return fake.Func("POST", "/ea", func(ctx *gin.Context) {
-		L.Info().Str("Result", result).Msg("Returning feed value result")
+		L.Debug().Str("Result", result).Msg("Returning feed value result")
 		ctx.JSON(200, gin.H{
 			"data": map[string]any{
 				"result": result,
