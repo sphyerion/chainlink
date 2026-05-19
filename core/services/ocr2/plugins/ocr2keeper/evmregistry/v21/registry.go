@@ -238,7 +238,7 @@ func (r *EvmRegistry) Start(ctx context.Context) error {
 				case <-ticker.C:
 					err := r.pollUpkeepStateLogs(ctx)
 					if err != nil {
-						lggr.Errorf("failed to poll logs for upkeeps; error %v", err)
+						lggr.Warnf("failed to poll logs for upkeeps; error %v", err)
 					}
 				case <-ctx.Done():
 					return
