@@ -1235,7 +1235,7 @@ func (s *service) CancelSpec(ctx context.Context, id int64) error {
 	}
 
 	if err = s.observeJobProposalCounts(ctx); err != nil {
-		logger.Errorw("Failed to push metrics for job cancellation", "err", err)
+		logger.Warnw("Failed to push metrics for job cancellation", "err", err)
 	}
 
 	return nil
