@@ -45,7 +45,7 @@ func Load[T any]() (*T, error) {
 		data, err := os.ReadFile(filepath.Join(DefaultConfigDir, path))
 		if err != nil {
 			if path == DefaultOverridesFilePath {
-				L.Info().Str("Path", path).Msg("Overrides file not found or empty")
+				L.Debug().Str("Path", path).Msg("Overrides file not found or empty")
 				continue
 			}
 			return nil, fmt.Errorf("error reading config file %s: %w", path, err)
