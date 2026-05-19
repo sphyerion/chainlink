@@ -135,7 +135,7 @@ func (h *functionsConnectorHandler) HandleGatewayMessage(ctx context.Context, ga
 		return nil
 	}
 	if !h.rateLimiter.Allow(body.Sender) {
-		h.lggr.Errorw("request rate-limited", "id", gatewayID, "address", fromAddr)
+		h.lggr.Warnw("request rate-limited", "id", gatewayID, "address", fromAddr)
 		return nil
 	}
 	h.lggr.Debugw("handling gateway request", "id", gatewayID, "method", body.Method)
