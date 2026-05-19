@@ -102,7 +102,7 @@ var ConfigureOCR3_1 = operations.NewOperation[ConfigureOCR3_1Input, ConfigureOCR
 			if err != nil {
 				return ConfigureOCR3_1OpOutput{}, fmt.Errorf("failed to marshal response output: %w", err)
 			}
-			deps.Env.Logger.Infof("Generated OCR3 config: %s", string(b))
+			deps.Env.Logger.Debugf("Generated OCR3 config: %s", string(b))
 			n, err := w.Write(b)
 			if err != nil {
 				return ConfigureOCR3_1OpOutput{}, fmt.Errorf("failed to write response output: %w", err)
