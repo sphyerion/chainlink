@@ -674,7 +674,7 @@ func (o *orm) prune(ctx context.Context, tx sqlutil.DataSource, jobID int32) {
 			}(context.WithoutCancel(ctx)) // don't propagate cancellation
 		})
 		if !ok {
-			o.lggr.Warnw("Cannot prune: ORM is not running", "jobID", jobID)
+			o.lggr.Debugw("Cannot prune: ORM is not running", "jobID", jobID)
 			return
 		}
 	}
