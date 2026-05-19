@@ -66,7 +66,7 @@ func (e *AutomationCustomTelemetryService) Start(ctx context.Context) error {
 				case <-minuteTicker.C:
 					_, newConfigDigest, err := e.contractConfigTracker.LatestConfigDetails(ctx)
 					if err != nil {
-						e.lggr.Errorf("Error occurred while getting newestConfigDetails in configDigest loop %s", err)
+						e.lggr.Warnf("Error occurred while getting newestConfigDetails in configDigest loop %s", err)
 					}
 					configChanged := false
 					e.mu.Lock()
