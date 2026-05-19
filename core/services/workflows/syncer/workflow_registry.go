@@ -676,7 +676,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context, 
 		case <-ticker:
 			workflowMetadata, head, err := w.getWorkflowMetadata(ctx, don, reader)
 			if err != nil {
-				w.lggr.Errorw("failed to get registry state", "err", err)
+				w.lggr.Warnw("failed to get registry state", "err", err)
 				continue
 			}
 			w.lggr.Debugw("preparing events to reconcile", "numWorkflowMetadata", len(workflowMetadata), "blockHeight", head.Height, "numPendingEvents", len(pendingEvents), "metadata", workflowMetadata)
