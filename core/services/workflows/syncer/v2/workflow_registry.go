@@ -858,7 +858,7 @@ func (w *workflowRegistry) syncUsingReconciliationStrategy(ctx context.Context) 
 							pendingEventsBySource[sourceIdentifier][evt.id] = evt
 							reconcileReport.Backoffs[evt.id] = evt.nextRetryAt
 							mu.Unlock()
-							w.lggr.Errorw("failed to handle event, backing off...", "err", handleErr, "type", evt.Name, "nextRetryAt", evt.nextRetryAt, "retryCount", evt.retryCount, "workflowInfo", evt.Info)
+							w.lggr.Warnw("failed to handle event, backing off...", "err", handleErr, "type", evt.Name, "nextRetryAt", evt.nextRetryAt, "retryCount", evt.retryCount, "workflowInfo", evt.Info)
 						}
 					}(event)
 				}
