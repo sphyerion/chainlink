@@ -34,7 +34,7 @@ func (b *payloadBuilder) BuildPayloads(ctx context.Context, proposals ...ocr2kee
 	for i, proposal := range proposals {
 		var payload ocr2keepers.UpkeepPayload
 		if !b.upkeepList.IsActive(proposal.UpkeepID.BigInt()) {
-			b.lggr.Warnw("upkeep is not active, skipping", "upkeepID", proposal.UpkeepID)
+			b.lggr.Debugw("upkeep is not active, skipping", "upkeepID", proposal.UpkeepID)
 			continue
 		}
 		b.lggr.Debugf("building payload for coordinated block proposal %+v", proposal)
