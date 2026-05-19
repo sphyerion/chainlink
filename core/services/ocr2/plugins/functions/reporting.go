@@ -339,7 +339,7 @@ func (r *functionsReporting) Report(ctx context.Context, ts types.ReportTimestam
 		// https://smartcontract-it.atlassian.net/browse/FUN-159
 		aggregated, errAgg := Aggregate(defaultAggMethod, observations)
 		if errAgg != nil {
-			r.logger.Error("FunctionsReporting Report: error when aggregating reqId", commontypes.LogFields{
+			r.logger.Warn("FunctionsReporting Report: error when aggregating reqId", commontypes.LogFields{
 				"epoch":     ts.Epoch,
 				"round":     ts.Round,
 				"requestID": reqId,
