@@ -304,7 +304,7 @@ func (c *OutgoingConnectorHandler) attemptGatewayConnection(ctx context.Context,
 func (c *OutgoingConnectorHandler) HandleGatewayMessage(ctx context.Context, gatewayID string, req *jsonrpc.Request[json.RawMessage]) error {
 	msg, err := hc.ValidatedMessageFromReq(req)
 	if err != nil {
-		c.lggr.Errorw("failed to validate request", "err", err, "gatewayID", gatewayID)
+		c.lggr.Warnw("failed to validate request", "err", err, "gatewayID", gatewayID)
 		return nil
 	}
 	body := &msg.Body
