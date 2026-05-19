@@ -159,7 +159,7 @@ func (fh *DirectHTTPAction) SendRequest(ctx context.Context, metadata commonCap.
 		Response:         response,
 		ResponseMetadata: commonCap.ResponseMetadata{},
 	}
-	fh.eng.Infow("HTTP Action Finished", "Status", resp.StatusCode, "URL", input.GetUrl())
+	fh.eng.Debugw("HTTP Action Finished", "Status", resp.StatusCode, "URL", input.GetUrl())
 	return &responseAndMetadata, nil
 }
 
