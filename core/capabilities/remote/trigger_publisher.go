@@ -220,7 +220,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 
 	sender, err := ToPeerID(msg.Sender)
 	if err != nil {
-		p.lggr.Errorw("failed to convert message sender to PeerID", "err", err)
+		p.lggr.Warnw("failed to convert message sender to PeerID", "err", err)
 		return
 	}
 
