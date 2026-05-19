@@ -271,7 +271,7 @@ func (fh *DirectConfidentialHTTPAction) Initialise(ctx context.Context, dependen
 }
 
 func (fh *DirectConfidentialHTTPAction) Execute(ctx context.Context, request commonCap.CapabilityRequest) (commonCap.CapabilityResponse, error) {
-	fh.eng.Infow("Direct Confidential Http Action Execute Started", "request", request)
+	fh.eng.Debugw("Direct Confidential Http Action Execute Started", "request", request)
 	return commonCap.CapabilityResponse{}, nil
 }
 
