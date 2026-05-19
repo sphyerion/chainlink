@@ -724,7 +724,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 			)
 			fromAddress, err := lsn.gethks.GetRoundRobinAddress(ctx, lsn.chainID, fromAddresses...)
 			if err != nil {
-				l.Errorw("Couldn't get next from address", "err", err)
+				l.Warnw("Couldn't get next from address", "err", err)
 				continue
 			}
 			ll = ll.With("fromAddress", fromAddress)
