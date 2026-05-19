@@ -241,7 +241,7 @@ func (s *streams) makeCallbackEthCall(ctx context.Context, payload []byte, looku
 		return err
 	}
 
-	s.lggr.Infof("at block %d upkeep %s requested time %s returns needed: %v, failure reason: %d, perform data: %s", lookup.Block, lookup.UpkeepId, lookup.Time, needed, failureReason, hexutil.Encode(performData))
+	s.lggr.Debugf("at block %d upkeep %s requested time %s returns needed: %v, failure reason: %d, perform data: %s", lookup.Block, lookup.UpkeepId, lookup.Time, needed, failureReason, hexutil.Encode(performData))
 
 	checkResults[i].IneligibilityReason = uint8(failureReason)
 	checkResults[i].Eligible = needed
