@@ -61,7 +61,7 @@ func (s *BillingService) SubmitWorkflowReceipt(
 	_ context.Context,
 	request *billing.SubmitWorkflowReceiptRequest,
 ) (*emptypb.Empty, error) {
-	s.lggr.Infof("WorkflowReceipt: %v", request.Metering)
+	s.lggr.Debugf("WorkflowReceipt: %v", request.Metering)
 
 	return &emptypb.Empty{}, nil
 }
