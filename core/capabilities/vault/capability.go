@@ -134,7 +134,7 @@ func (s *Capability) Execute(ctx context.Context, request capabilities.Capabilit
 
 	for idx, req := range r.Requests {
 		if req == nil { // defensive: protobuf strips nil elements, but guard against in-process callers
-			s.lggr.Errorw("get secrets request contains nil secret request", "index", idx)
+			s.lggr.Debugw("get secrets request contains nil secret request", "index", idx)
 			return capabilities.CapabilityResponse{}, fmt.Errorf("nil secret request at index %d", idx)
 		}
 		if req.Id != nil && normalizeOwner(req.Id.Owner) != normalizeOwner(request.Metadata.WorkflowOwner) {
