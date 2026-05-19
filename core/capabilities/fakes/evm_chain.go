@@ -399,7 +399,7 @@ func (fc *FakeEVMChain) FilterLogs(ctx context.Context, metadata commonCap.Reque
 		return nil, caperrors.NewPublicSystemError(err, caperrors.Unknown)
 	}
 
-	fc.eng.Infow("EVM Chain FilterLogs Finished", "logs", logs)
+	fc.eng.Debugw("EVM Chain FilterLogs Finished", "logs", logs)
 
 	// Convert logs to protobuf
 	logsPb := make([]*evmcappb.Log, len(logs))
