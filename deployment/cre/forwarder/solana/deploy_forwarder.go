@@ -263,7 +263,7 @@ func (cs ConfigureForwarders) Apply(env cldf.Environment, req *ConfigureForwarde
 	if req.MCMS == nil {
 		return out, nil
 	}
-	env.Logger.Info("req delay", req.MCMS.MinDelay)
+	env.Logger.Debug("req delay", req.MCMS.MinDelay)
 
 	var proposals []mcms.TimelockProposal
 	for chainSel, batch := range mcmsBatches {
