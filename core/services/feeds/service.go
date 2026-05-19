@@ -690,7 +690,7 @@ func (s *service) RevokeJob(ctx context.Context, args *RevokeJobArgs) (int64, er
 	)
 
 	if err = s.observeJobProposalCounts(ctx); err != nil {
-		logger.Errorw("Failed to push metrics for revoke job", "err", err)
+		logger.Warnw("Failed to push metrics for revoke job", "err", err)
 	}
 
 	return proposal.ID, nil
