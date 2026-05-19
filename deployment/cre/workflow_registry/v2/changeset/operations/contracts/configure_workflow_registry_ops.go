@@ -464,7 +464,7 @@ func GetWorkflowRegistryV2FromDatastore(env *cldf.Environment, chainSelector uin
 
 	if !found {
 		// Debug: log all available addresses for troubleshooting
-		env.Logger.Infof("Available addresses for chain %d:", chainSelector)
+		env.Logger.Debugf("Available addresses for chain %d:", chainSelector)
 		for _, addr := range addresses {
 			env.Logger.Infof("  Type: %s, Address: %s, Qualifier: %s", string(addr.Type), addr.Address, addr.Qualifier)
 		}
