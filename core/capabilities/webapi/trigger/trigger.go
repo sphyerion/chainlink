@@ -185,7 +185,7 @@ func (h *triggerConnectorHandler) HandleGatewayMessage(ctx context.Context, gate
 		return nil
 
 	default:
-		h.lggr.Errorw("unsupported method", "id", gatewayID, "method", body.Method)
+		h.lggr.Warnw("unsupported method", "id", gatewayID, "method", body.Method)
 		err = h.sendResponse(ctx, gatewayID, body, ghcapabilities.TriggerResponsePayload{Status: "ERROR", ErrorMessage: fmt.Errorf("unsupported method %s", body.Method).Error()})
 		if err != nil {
 			h.lggr.Errorw("error sending response", "err", err)
