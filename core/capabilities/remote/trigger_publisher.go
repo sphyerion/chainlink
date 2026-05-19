@@ -573,7 +573,7 @@ func (p *triggerPublisher) sendRegistrationChecks() {
 			for _, peerID := range don.Members {
 				err := p.dispatcher.Send(peerID, msg)
 				if err != nil {
-					p.lggr.Errorw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
+					p.lggr.Warnw("failed to send message", "donId", cfg.capDonInfo.ID, "peerId", peerID, "err", err)
 				}
 			}
 			p.lggr.Debugw("sent batched registration check",
