@@ -392,7 +392,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 			return
 		}
 
-		s.lggr.Infow("received registration check", "sender", sender)
+		s.lggr.Debugw("received registration check", "sender", sender)
 		for i, workflowID := range meta.WorkflowIds {
 			triggerID := meta.TriggerIds[i]
 
