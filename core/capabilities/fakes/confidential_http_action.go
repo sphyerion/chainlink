@@ -231,7 +231,7 @@ func (fh *DirectConfidentialHTTPAction) SendRequest(ctx context.Context, metadat
 				return nil, caperrors.NewPublicUserError(fmt.Errorf("failed to encrypt response body: %w", encErr), caperrors.Internal)
 			}
 			respBody = encryptedBody
-			fh.eng.Infow("Response body encrypted with AES-GCM (fake key)", "encryptedSize", len(respBody))
+			fh.eng.Debugw("Response body encrypted with AES-GCM (fake key)", "encryptedSize", len(respBody))
 		} else {
 			fh.eng.Warn("encrypt_output is true but no encryption key found in secrets.yaml or vault DON secrets. Returning plaintext response.")
 		}
