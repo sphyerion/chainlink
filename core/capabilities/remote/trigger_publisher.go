@@ -524,7 +524,7 @@ func (p *triggerPublisher) sendRegistrationChecks() {
 	}
 	p.mu.RUnlock()
 
-	p.lggr.Infow("sendRegistrationChecks: tick",
+	p.lggr.Debugw("sendRegistrationChecks: tick",
 		"totalRegistrations", totalRegistrations,
 		"nWorkflowDONs", len(grouped))
 
