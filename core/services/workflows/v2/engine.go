@@ -585,7 +585,7 @@ func (e *Engine) runTriggerSubscriptionPhase(ctx context.Context) error {
 					e.metrics.With(platform.KeyTriggerID, triggerID).IncrementTriggerEventReceivedCounter(ctx)
 					e.logger().Debugw("Processing trigger event", "triggerID", triggerID, "eventID", eventID)
 					if event.Err != nil {
-						e.logger().Errorw("Received a trigger event with error, dropping", "triggerID", triggerID, "err", event.Err)
+						e.logger().Warnw("Received a trigger event with error, dropping", "triggerID", triggerID, "err", event.Err)
 						tm := e.metrics.With(platform.KeyTriggerID, triggerID)
 						tm.IncrementWorkflowTriggerEventErrorCounter(ctx)
 						tm.IncrementTriggerEventDroppedTotal(ctx, monitoring.TriggerDropReasonTriggerResponseError)
