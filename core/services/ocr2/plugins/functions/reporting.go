@@ -424,7 +424,7 @@ func (r *functionsReporting) ShouldAcceptFinalizedReport(ctx context.Context, ts
 		allIds = append(allIds, reqIdStr)
 		id, err := encoding.SliceToByte32(item.RequestID)
 		if err != nil {
-			r.logger.Error("FunctionsReporting ShouldAcceptFinalizedReport: invalid ID", commontypes.LogFields{"requestID": reqIdStr, "err": err})
+			r.logger.Warn("FunctionsReporting ShouldAcceptFinalizedReport: invalid ID", commontypes.LogFields{"requestID": reqIdStr, "err": err})
 			continue
 		}
 		_, err = r.pluginORM.FindById(ctx, id)
