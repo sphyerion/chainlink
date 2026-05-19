@@ -175,7 +175,7 @@ func (lsn *listenerV2) Start(ctx context.Context) error {
 			gasLimit = uint64(*vrfLimit)
 		}
 		if err != nil {
-			lsn.l.Criticalw("Error getting coordinator config for gas limit check, starting anyway.", "err", err)
+			lsn.l.Errorw("Error getting coordinator config for gas limit check, starting anyway.", "err", err)
 		} else if uint64(conf.MaxGasLimit()+(GasProofVerification*2)) > gasLimit {
 			lsn.l.Criticalw("Node gas limit setting may not be high enough to fulfill all requests; it should be increased. Starting anyway.",
 				"currentGasLimit", gasLimit,
