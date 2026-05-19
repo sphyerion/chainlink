@@ -432,7 +432,7 @@ func (p *triggerPublisher) Receive(_ context.Context, msg *types.MessageBody) {
 			p.metrics.ackEventCounter.Add(ctx, 1, ackAttrs, metric.WithAttributes(attribute.String("outcome", "success")))
 		}
 	default:
-		p.lggr.Errorw("received message with unknown method",
+		p.lggr.Warnw("received message with unknown method",
 			"method", SanitizeLogString(msg.Method), "sender", sender)
 	}
 }
