@@ -190,7 +190,7 @@ func SendFundsToAccounts(ctx context.Context, lggr logger.Logger, chain cldf_evm
 			if receipt.Status == gethtypes.ReceiptStatusFailed {
 				return fmt.Errorf("transaction %s reverted", tx.Hash().Hex())
 			}
-			lggr.Infow("Transaction successfully mined", "chain", sel, "hash", tx.Hash().Hex())
+			lggr.Debugw("Transaction successfully mined", "chain", sel, "hash", tx.Hash().Hex())
 			return nil
 		})
 	}
