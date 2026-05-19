@@ -214,7 +214,7 @@ func (r *functionsReporting) Observation(ctx context.Context, ts types.ReportTim
 			continue
 		}
 		if _, ok := processedIds[id]; ok {
-			r.logger.Error("FunctionsReporting Observation duplicate ID in query", commontypes.LogFields{
+			r.logger.Warn("FunctionsReporting Observation duplicate ID in query", commontypes.LogFields{
 				"requestID": formatRequestId(id[:]),
 			})
 			continue
