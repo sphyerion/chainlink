@@ -262,7 +262,7 @@ func (s *triggerSubscriber) registrationLoop() {
 				}
 			}
 			s.mu.RUnlock()
-			s.lggr.Infow("registrationLoop tick: completed",
+			s.lggr.Debugw("registrationLoop tick: completed",
 				"donId", cfg.capDonInfo.ID,
 				"p2pSendsSent", totalP2PSends,
 				"p2pSendErrors", totalSendErrors)
