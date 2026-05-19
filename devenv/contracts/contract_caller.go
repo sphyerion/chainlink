@@ -376,7 +376,7 @@ func (e ethHeadBanger[ReturnType]) retry(functionName string, fnToRetry func() (
 		retry.Attempts(e.maxAttempts),
 		retry.Delay(e.retryDelay),
 		retry.OnRetry(func(n uint, err error) {
-			e.logger.Info().
+			e.logger.Warn().
 				Str("Attempt", fmt.Sprintf("%d/%d", n+1, 10)).
 				Str("Error", err.Error()).
 				Msgf("Retrying %s", functionName)
