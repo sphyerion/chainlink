@@ -163,7 +163,7 @@ func (h *triggerConnectorHandler) HandleGatewayMessage(ctx context.Context, gate
 		h.lggr.Warnw("error decoding payload", "err", err)
 		err = h.sendResponse(ctx, gatewayID, body, ghcapabilities.TriggerResponsePayload{Status: "ERROR", ErrorMessage: fmt.Errorf("error %s decoding payload", err.Error()).Error()})
 		if err != nil {
-			h.lggr.Errorw("error sending response", "err", err)
+			h.lggr.Warnw("error sending response", "err", err)
 		}
 		return nil
 	}
