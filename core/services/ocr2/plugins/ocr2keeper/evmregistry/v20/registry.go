@@ -223,7 +223,7 @@ func (r *EvmRegistry) Start(_ context.Context) error {
 					case <-tmr.C:
 						err = f(ctx)
 						if err != nil {
-							lggr.Errorf("failed to re-initialize upkeeps; error %v", err)
+							lggr.Warnf("failed to re-initialize upkeeps; error %v", err)
 						}
 						tmr.Reset(reInitializationDelay)
 					case <-ctx.Done():
