@@ -364,7 +364,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 				if err != nil {
 					s.lggr.Warnw("replay AckEvent failed", "triggerID", triggerID, "triggerEventID", meta.TriggerEventId, "err", err)
 				} else {
-					s.lggr.Infow("replayed ACK fan-out for duplicate trigger event after prior engine ACK",
+					s.lggr.Debugw("replayed ACK fan-out for duplicate trigger event after prior engine ACK",
 						"triggerID", triggerID, "triggerEventID", meta.TriggerEventId, "sender", sender)
 				}
 				continue
