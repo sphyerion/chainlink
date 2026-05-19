@@ -140,7 +140,7 @@ func (f *Feeder) Run(ctx context.Context) error {
 		}
 		stored, err := f.bhs.IsStored(ctx, block)
 		if err != nil {
-			f.lggr.Errorw("Failed to check if block is already stored, attempting to store anyway",
+			f.lggr.Warnw("Failed to check if block is already stored, attempting to store anyway",
 				"err", err,
 				"block", block)
 			errs = stderrors.Join(errs, errors.Wrap(err, "checking if stored"))
