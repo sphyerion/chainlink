@@ -303,7 +303,7 @@ func (s *triggerSubscriber) Receive(_ context.Context, msg *types.MessageBody) {
 		return
 	}
 	if _, found := cfg.capDonMembers[sender]; !found {
-		s.lggr.Errorw("received message from unexpected node", "sender", sender)
+		s.lggr.Warnw("received message from unexpected node", "sender", sender)
 		return
 	}
 
