@@ -676,7 +676,7 @@ func (lsn *listenerV2) processRequestsPerSubHelper(
 			"time", time.Since(start).String())
 	}()
 
-	l.Infow("Processing requests for subscription")
+	l.Debugw("Processing requests for subscription")
 
 	ready, expired := lsn.getReadyAndExpired(l, reqs)
 	for _, reqID := range expired {
