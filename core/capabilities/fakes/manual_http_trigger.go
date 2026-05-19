@@ -109,7 +109,7 @@ func (f *ManualHTTPTriggerService) createManualTriggerEvent(payload *httptypedap
 
 // Service interface methods
 func (f *ManualHTTPTriggerService) Start(ctx context.Context) error {
-	f.lggr.Debug("Starting HTTP Trigger Capability")
+	f.lggr.Info("Starting HTTP Trigger Capability")
 	return nil
 }
 
