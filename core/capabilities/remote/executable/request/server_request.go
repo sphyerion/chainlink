@@ -346,7 +346,7 @@ func executeCapabilityRequest(ctx context.Context, lggr logger.Logger, capabilit
 	lggr.Debugw("executing capability")
 	capResponse, err := capability.Execute(ctx, capabilityRequest)
 	if err != nil {
-		lggr.Errorw("received execution error", "error", err)
+		lggr.Warnw("received execution error", "error", err)
 
 		var capError caperrors.Error
 		if errors.As(err, &capError) {
