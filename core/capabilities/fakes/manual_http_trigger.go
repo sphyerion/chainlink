@@ -60,7 +60,7 @@ func (f *ManualHTTPTriggerService) AckEvent(ctx context.Context, triggerID strin
 }
 
 func (f *ManualHTTPTriggerService) Initialise(ctx context.Context, dependencies core.StandardCapabilitiesDependencies) error {
-	f.lggr.Debugf("Initialising %s", HTTPTriggerServiceName)
+	f.lggr.Infof("Initialising %s", HTTPTriggerServiceName)
 	return f.Start(ctx)
 }
 
