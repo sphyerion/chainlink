@@ -40,7 +40,7 @@ func (h *client) HandleGatewayMessage(ctx context.Context, gatewayID string, req
 	if err != nil {
 		return err
 	}
-	h.lggr.Infof("received message from gateway %s. Echoing back.", gatewayID)
+	h.lggr.Debugf("received message from gateway %s. Echoing back.", gatewayID)
 	err = h.connector.SendToGateway(ctx, gatewayID, resp)
 	if err != nil {
 		h.lggr.Errorw("failed to send to gateway", "id", gatewayID, "err", err)
