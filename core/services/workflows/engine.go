@@ -1057,7 +1057,7 @@ func (e *Engine) executeStep(
 			curStep.Ref,
 			metering.ByDerivedAvailability(userMaxSpend, e.maxWorkerLimit, info, config),
 		); err != nil {
-			e.logger.Error(fmt.Sprintf("could not deduct balance for capability request %s: %s", curStep.Ref, err))
+			e.logger.Warn(fmt.Sprintf("could not deduct balance for capability request %s: %s", curStep.Ref, err))
 		}
 	}
 
