@@ -26,7 +26,7 @@ func RunSimpleCronWorkflow(_ struct{}, _ *slog.Logger, _ cre.SecretsProvider) (c
 
 func onTrigger(config struct{}, runtime cre.Runtime, outputs *cron.Payload) (string, error) {
 	logger := runtime.Logger()
-	logger.Info("onTrigger called")
+	logger.Debug("onTrigger called")
 
 	httpClient := &http.Client{}
 	ret, err := http.SendRequest(config, runtime, httpClient, func(_ struct{}, _ *slog.Logger, sendRequester *http.SendRequester) (string, error) {
