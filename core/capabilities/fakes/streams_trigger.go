@@ -179,7 +179,7 @@ func (st *fakeStreamsTrigger) emitEvent(ctx context.Context) {
 		for _, signer := range st.signers {
 			signature, err := signer.Sign(reportCtx, fullReport)
 			if err != nil {
-				st.eng.Errorw("Failed to sign report", "error", err)
+				st.eng.Warnw("Failed to sign report", "error", err)
 				continue
 			}
 			feedReport.Signatures = append(feedReport.Signatures, signature)
