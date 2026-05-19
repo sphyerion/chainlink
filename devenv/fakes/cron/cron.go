@@ -16,7 +16,7 @@ var result = 200
 
 func RegisterRoutes() error {
 	return fake.Func("POST", "/cron_response", func(ctx *gin.Context) {
-		L.Info().Int("Result", result).Msg("Returning feed value result")
+		L.Debug().Int("Result", result).Msg("Returning feed value result")
 		ctx.JSON(200, gin.H{
 			"data": map[string]any{
 				"result": result,
