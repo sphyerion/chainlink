@@ -183,7 +183,7 @@ func (m *FakeLibOCR) Start(ctx context.Context) error {
 					err := m.simulateProtocolRound(serviceCtx)
 					cancel()
 					if err != nil {
-						m.lggr.Errorf("simulating protocol round: %v", err)
+						m.lggr.Warnf("simulating protocol round: %v", err)
 					}
 				}
 			}
