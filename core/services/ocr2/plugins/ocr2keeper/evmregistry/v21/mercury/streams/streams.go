@@ -184,7 +184,7 @@ func (s *streams) doLookup(ctx context.Context, wg *sync.WaitGroup, lookup *merc
 
 	values, errCode, err := s.DoMercuryRequest(ctx, lookup, checkResults, i)
 	if err != nil {
-		s.lggr.Errorf("at block %d upkeep %s requested time %s DoMercuryRequest err: %s", lookup.Block, lookup.UpkeepId, lookup.Time, err.Error())
+		s.lggr.Warnf("at block %d upkeep %s requested time %s DoMercuryRequest err: %s", lookup.Block, lookup.UpkeepId, lookup.Time, err.Error())
 		prommetrics.AutomationStreamsLookupError.WithLabelValues(prommetrics.StreamsLookupErrorDoMercuryRequest).Inc()
 		return
 	}
