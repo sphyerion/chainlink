@@ -443,7 +443,7 @@ func (s *service) DisableManager(ctx context.Context, id int64) (*FeedsManager, 
 	}
 
 	if err := s.connMgr.Disconnect(mgr.ID); err != nil {
-		s.lggr.Info("Error disconnecting manager", "err", err)
+		s.lggr.Warn("Error disconnecting manager", "err", err)
 	}
 
 	mgr.IsConnectionActive = s.connMgr.IsConnected(mgr.ID)
