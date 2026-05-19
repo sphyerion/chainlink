@@ -651,7 +651,7 @@ WHERE (job_proposal_id, version) IN
 AND job_proposal_id = $1
 `
 
-	o.lggr.Infow("getting latest spec for job proposal", "jobProposalID", id)
+	o.lggr.Debugw("getting latest spec for job proposal", "jobProposalID", id)
 	var spec JobProposalSpec
 	err := o.ds.GetContext(ctx, &spec, stmt, id)
 	if err != nil {
